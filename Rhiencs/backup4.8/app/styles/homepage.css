@@ -1,0 +1,225 @@
+.video-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.video-popup iframe {
+  max-width: 90%;
+  max-height: 90%;
+  width: 800px;
+  height: 450px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 100000;
+}
+
+body.popup-open {
+  overflow: hidden;
+}
+
+.indexbanner .hero-bg-video video {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 0;
+}
+
+.indexbanner .hero-bg-video .hero-poster {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  top: 0;
+}
+
+.mainbannerh1 {
+  display: inline-block;
+  overflow: hidden;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.mainbannerh1 .bx-viewport,
+.mainbannerh1 .bx-wrapper,
+.mainbannerh1 .bxslider.text {
+  height: 100% !important;
+}
+
+.vertical-reveal {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transform: translateY(100%);
+  animation: 6s ease-out forwards moveUpHold;
+}
+
+.vertical-reveal li {
+  color: #000 !important;
+  line-height: 80px;
+  font-size: 60px;
+  font-weight: 300;
+  font-family: Raleway, sans-serif;
+}
+
+@keyframes moveUpHold {
+  0% {
+    transform: translateY(100%);
+  }
+
+  20%,
+  35% {
+    transform: translateY(66%);
+  }
+
+  50%,
+  65% {
+    transform: translateY(33%);
+  }
+
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.indexwhatdo .testimonial-btn {
+  gap: 0 !important;
+}
+
+.indexwhatdo .testimonial-button-prev {
+  left: -10px;
+}
+
+.indexwhatdo .testimonial-button-next {
+  right: -5px;
+}
+
+.bodyindex .service-item {
+  padding: 10px;
+}
+
+.bodyindex .thepathindex .service-item-body p {
+  height: 330px !important;
+}
+
+.bodyindex .countingss .success-counter-box1 h2 {
+  height: 90px;
+}
+
+.bodyindex .prine-title h2 {
+  width: 100%;
+  font-size: 28px;
+  line-height: 40px;
+}
+
+.bodyindex .section-title h2 {
+  width: 100%;
+  font-style: SemiBold;
+  font-size: 30px;
+  line-height: 40px;
+}
+
+.bodyindex .our-testimonial .testianimdot .service-item-header {
+  margin-bottom: 10px;
+}
+
+.bodyindex .testimonial-slider .flip-card-inner {
+  padding: 0;
+}
+
+.bodyindex .testimonial-btn {
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  margin: 15px auto 0 !important;
+}
+
+.bodyindex .indexprojectsmobile .testimonial-btn {
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  margin: 35px auto 0 !important;
+}
+
+@media (max-width: 768px) {
+  .hero-content-body {
+    justify-content: center;
+  }
+
+  .video-play-button svg {
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+  }
+
+  .vertical-reveal li {
+    font-size: 40px;
+    font-weight: 300;
+    font-family: Raleway, sans-serif;
+    color: #000 !important;
+    line-height: 48px;
+  }
+
+  .hero .hero-bg-video video {
+    width: 100%;
+    height: 170%;
+    object-fit: contain;
+  }
+
+  .indexbanner .hero-bg-video video {
+    height: 170% !important;
+  }
+
+  .indexwhatdo .testimonial-btn {
+    bottom: 30px !important;
+    left: 55px !important;
+  }
+}
+
+.indexwhatdo .testimonial-slider .service-item {
+  height: 420px;
+}
+
+.indexwhatdo .testimonial-slider .flip-card-inner p {
+  height: 155px !important;
+}
+
+.indexwhatdo .testimonial-btn {
+  gap: 0 !important;
+}
+
+.indexwhatdo .testimonial-button-prev {
+  left: -10px;
+}
+
+.indexwhatdo .testimonial-button-next {
+  right: -5px;
+}
+.hero-video-content p {
+    margin: 0;
+    color: #082326;
+    font-size: 20px !important;
+    visibility: visible;
+    font-family: helvetica-neue-lt-pro, Helvetica, Arial, sans-serif;
+}

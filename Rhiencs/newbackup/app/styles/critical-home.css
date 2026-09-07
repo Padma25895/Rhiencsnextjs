@@ -1,0 +1,59 @@
+/*
+ * Styles needed to paint the home-page hero and its first visible section.
+ * The complete legacy stylesheet remains asynchronous; keeping this small
+ * subset in the application CSS prevents the LCP heading from being restyled
+ * several seconds after its HTML has been rendered.
+ */
+.hero {
+  min-height: 100vh;
+  padding: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.our-services {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding: 80px 0;
+  background: #082326;
+}
+
+.our-services .section-title {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-title h2 {
+  margin-bottom: 0;
+  color: #fff;
+  font-family: Raleway, Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    height: 520px;
+    margin-bottom: 50px;
+  }
+
+  .our-services,
+  .pd30 {
+    padding: 30px 0 !important;
+  }
+
+  .thepath .section-title {
+    text-align: left !important;
+  }
+
+  .thepath .section-title h2 {
+    font-size: 32px !important;
+    line-height: 40px;
+  }
+}

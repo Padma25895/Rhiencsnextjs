@@ -1,0 +1,44 @@
+{
+  "name": "ibss-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:webpack": "next dev --webpack",
+    "dev:port": "next dev -p 3002",
+    "build": "next build",
+    "export": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "supabase:deploy-functions": "supabase functions deploy send-contact-email --project-ref fltdymhjpiwnwltazqse"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.86.2",
+    "@types/nodemailer": "^8.0.0",
+    "framer-motion": "^12.23.24",
+    "gsap": "^3.13.0",
+    "next": "16.0.3",
+    "nodemailer": "^6.10.1",
+    "quill": "^2.0.3",
+    "react": "19.2.0",
+    "react-countup": "^6.5.3",
+    "react-dom": "19.2.0",
+    "react-intersection-observer": "^10.0.0",
+    "react-quill-new": "^3.7.0",
+    "react-typed": "^2.0.12",
+    "swiper": "^12.0.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/deno": "^2.5.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.10.27",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,113 @@
+/* Override Font Awesome font-display */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/webfonts/fa-solid-900.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/webfonts/fa-brands-400.woff2') format('woff2');
+}
+
+
+/* =============================================
+   HERO VIDEO POPUP (CLICK PLAY FIX)
+   =============================================
+   BUG: The hero had #playVideo button + #videoPopup container
+        + #closePopup button — but NO click handlers.
+        Also the popup's z-index needed to be above the
+        new full-viewport hero background layers we added.
+   ============================================= */
+
+/* 1. Make playVideo button clickable (lift it above background) */
+
+
+/* 2. Popup must be ABOVE absolutely everything (z-index needs to be
+      higher than hero-bg-video, navbars, custom cursor, chat widgets) */
+.video-popup,
+#videoPopup {
+  display: none;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999999999 !important;
+  background: rgba(0, 0, 0, 0.82) !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 24px 16px !important;
+  box-sizing: border-box !important;
+}
+
+.video-popup.is-open,
+#videoPopup.is-open {
+  display: flex !important;
+}
+
+/* 3. Popup close button (X) positioned correctly & above iframe */
+.video-popup .close-popup,
+#closePopup {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  z-index: 1000000000 !important;
+  background: #082326 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 50% !important;
+  width: 44px !important;
+  height: 44px !important;
+  font-size: 18px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  transition: transform .2s ease, background .2s ease !important;
+}
+
+.video-popup .close-popup:hover,
+#closePopup:hover {
+  transform: scale(1.08) !important;
+  background: #0d3a3f !important;
+}
+
+/* 4. Iframe sizing */
+.video-popup iframe,
+#videoPopup iframe {
+  width: min(1100px, 100%) !important;
+  height: min(620px, 85vh) !important;
+  aspect-ratio: 16 / 9 !important;
+  max-width: 100% !important;
+  border-radius: 10px !important;
+  border: 0 !important;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5) !important;
+}
+
+/* Mobile: smaller padding, smaller close button */
+@media (max-width: 767px) {
+  .video-popup,
+  #videoPopup {
+    padding: 12px 8px !important;
+  }
+  .video-popup .close-popup,
+  #closePopup {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 15px !important;
+    top: 8px !important;
+    right: 8px !important;
+  }
+  .video-popup iframe,
+  #videoPopup iframe {
+    height: min(260px, 42vh) !important;
+  }
+}
+

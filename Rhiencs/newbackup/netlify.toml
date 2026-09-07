@@ -1,0 +1,51 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[[headers]]
+  for = "/css/custom.used.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/all.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/style2.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/videos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/webfonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Explicitly handle ebook landing pages first
+[[redirects]]
+  from = "/LP/*"
+  to = "/404.html"
+  status = 200
+
+[[redirects]]
+  from = "/EbookLanding/*"
+  to = "/404.html"
+  status = 200
+
+# SPA fallback - let Next.js handle routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
