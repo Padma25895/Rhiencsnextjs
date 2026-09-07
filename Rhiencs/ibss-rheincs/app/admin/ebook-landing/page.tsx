@@ -44,6 +44,16 @@ interface FormField {
   options?: string[]
 }
 
+interface EbookSpeaker {
+  label: string
+  name: string
+  role: string
+  avatar_url: string
+  avatar_svg: string
+  bio: string
+  linkedin_url: string
+}
+
 interface EbookLandingPage {
   id: string
   slug: string
@@ -68,6 +78,7 @@ interface EbookLandingPage {
   author_bio: string | null
   author_avatar_url: string | null
   author_avatar_svg: string | null
+  speakers?: EbookSpeaker[] | null
   footer_color: string | null
   pdf_url: string | null
   created_at: string
@@ -81,6 +92,17 @@ export default function AdminEbookLandingPage() {
   const [uploading, setUploading] = useState(false)
   const [showForm, setShowForm] = useState(false)
   const [editingPage, setEditingPage] = useState<EbookLandingPage | null>(null)
+
+  const emptySpeaker = (label = 'Speaker'): EbookSpeaker => ({
+    label,
+    name: '',
+    role: '',
+    avatar_url: '',
+    avatar_svg: '',
+    bio: '',
+    linkedin_url: '',
+  })
+
   const [formData, setFormData] = useState({
     slug: 'default',
     title: '',
@@ -104,6 +126,7 @@ export default function AdminEbookLandingPage() {
     author_bio: '',
     author_avatar_url: '',
     author_avatar_svg: '',
+    speakers: [emptySpeaker('Speaker'), emptySpeaker('Moderator')] as EbookSpeaker[],
     footer_color: '#3aaee0',
     pdf_url: '',
   })
@@ -240,7 +263,11 @@ export default function AdminEbookLandingPage() {
     setFormData(prev => ({ ...prev, ...updatedData }))
   }
 
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, fieldName: string) => {
+  const handleFileUpload = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    fieldName: string,
+    speakerIndex?: number,
+  ) => {
     const file = e.target.files?.[0]
     if (!file) return
 
@@ -255,7 +282,7 @@ export default function AdminEbookLandingPage() {
       return
     }
 
-    if (file.size > 5 * 1024 * 1024) { // Increased limit to 5MB for PDF
+    if (file.size > 5 * 1024 * 1024) {
       alert('File size should be less than 5MB')
       return
     }
@@ -264,11 +291,12 @@ export default function AdminEbookLandingPage() {
 
     try {
       const fileExt = file.name.split('.').pop()
-      const fileName = `${fieldName}-${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`
+      const prefix = typeof speakerIndex === 'number' ? `speaker-${speakerIndex}-${fieldName}` : fieldName
+      const fileName = `${prefix}-${Date.now()}-${Math.random().toString(36).substring(7)}.${fileExt}`
       const filePath = `ebook-landing/${fileName}`
 
       const { error: uploadError } = await supabase.storage
-        .from('case-study-images') // Reusing existing bucket for now, or create new one if preferred
+        .from('case-study-images')
         .upload(filePath, file, {
           cacheControl: '3600',
           upsert: false
@@ -280,7 +308,16 @@ export default function AdminEbookLandingPage() {
         .from('case-study-images')
         .getPublicUrl(filePath)
 
-      setFormData(prev => ({ ...prev, [fieldName]: publicUrl }))
+      if (typeof speakerIndex === 'number') {
+        setFormData(prev => ({
+          ...prev,
+          speakers: prev.speakers.map((s, i) =>
+            i === speakerIndex ? { ...s, [fieldName]: publicUrl } : s
+          ),
+        }))
+      } else {
+        setFormData(prev => ({ ...prev, [fieldName]: publicUrl }))
+      }
       alert(isPdf ? 'PDF uploaded successfully!' : 'Image uploaded successfully!')
     } catch (error: any) {
       console.error('Upload error:', error)
@@ -288,6 +325,44 @@ export default function AdminEbookLandingPage() {
     } finally {
       setUploading(false)
     }
+  }
+
+  const handleAddSpeaker = () => {
+    setFormData(prev => {
+      const safeSpeakers = Array.isArray(prev.speakers) ? prev.speakers : []
+      const cloned = safeSpeakers.map(s => ({ ...emptySpeaker(s.label || `Speaker`), ...s }))
+      const nextIndex = cloned.length + 1
+      return {
+        ...prev,
+        speakers: [...cloned, emptySpeaker(`Speaker ${nextIndex}`)],
+      }
+    })
+  }
+
+  const handleRemoveSpeaker = (index: number) => {
+    setFormData(prev => {
+      const safeSpeakers = Array.isArray(prev.speakers) ? prev.speakers : []
+      return {
+        ...prev,
+        speakers: safeSpeakers.filter((_, i) => i !== index),
+      }
+    })
+  }
+
+  const handleSpeakerChange = (
+    index: number,
+    field: keyof EbookSpeaker,
+    value: string,
+  ) => {
+    setFormData(prev => {
+      const safeSpeakers = Array.isArray(prev.speakers) ? prev.speakers : []
+      return {
+        ...prev,
+        speakers: safeSpeakers.map((s, i) =>
+          i === index ? { ...s, [field]: value } : s
+        ),
+      }
+    })
   }
 
   const handleAddBenefit = () => {
@@ -336,45 +411,65 @@ export default function AdminEbookLandingPage() {
     try {
       setLoading(true)
       const expectedPdfUrl = formData.pdf_url || null
-      
-      // Clean data: only include fields that might already exist in database
-      // Start with core fields that definitely exist
+
+      const safeSpeakers: EbookSpeaker[] = (() => {
+        const existing = Array.isArray(formData.speakers) ? formData.speakers : []
+        const upgraded: EbookSpeaker[] = existing.map(s => ({
+          ...emptySpeaker(s?.label || 'Speaker'),
+          label: s?.label ?? 'Speaker',
+          name: s?.name ?? '',
+          role: s?.role ?? '',
+          avatar_url: s?.avatar_url ?? '',
+          avatar_svg: s?.avatar_svg ?? '',
+          bio: s?.bio ?? '',
+          linkedin_url: s?.linkedin_url ?? '',
+        }))
+        return upgraded
+      })()
+
+      // Sync: first speaker's details always feed the legacy author_* fields so old
+      // single-author pages keep working in both directions.
+      const syncedAuthor = safeSpeakers[0] || null
+      const finalAuthorName = syncedAuthor?.name || formData.author_name || null
+      const finalAuthorRole = syncedAuthor?.role || formData.author_role || null
+      const finalAuthorBio = syncedAuthor?.bio || formData.author_bio || null
+      const finalAuthorAvatarUrl = syncedAuthor?.avatar_url || formData.author_avatar_url || null
+      const finalAuthorAvatarSvg = syncedAuthor?.avatar_svg || formData.author_avatar_svg || null
+
+      const safeFormFields = Array.isArray(formData.form_fields) ? formData.form_fields : []
+
       const payload: any = {
         slug: formData.slug,
         title: formData.title,
         headline: formData.headline || null,
         subheadline: formData.subheadline || null,
+        additional_paragraph: formData.additional_paragraph || null,
+        extra_content: formData.extra_content || null,
         logo_text: formData.logo_text || null,
         logo_image_url: formData.logo_image_url || null,
         book_image_url: formData.book_image_url || null,
         learning_title: formData.learning_title || null,
         learning_description: formData.learning_description || null,
         benefits_heading: formData.benefits_heading || null,
-        benefits: formData.benefits,
+        benefits: Array.isArray(formData.benefits) ? formData.benefits : [],
         form_title: formData.form_title || null,
         form_button_text: formData.form_button_text || null,
+        form_fields: safeFormFields,
         author_heading: formData.author_heading || null,
-        author_name: formData.author_name || null,
-        author_role: formData.author_role || null,
-        author_bio: formData.author_bio || null,
-        author_avatar_url: formData.author_avatar_url || null,
-        author_avatar_svg: formData.author_avatar_svg || null,
+        author_name: finalAuthorName,
+        author_role: finalAuthorRole,
+        author_bio: finalAuthorBio,
+        author_avatar_url: finalAuthorAvatarUrl,
+        author_avatar_svg: finalAuthorAvatarSvg,
+        speakers: safeSpeakers.length > 0 ? safeSpeakers : null,
         footer_color: formData.footer_color || null,
         pdf_url: formData.pdf_url || null,
         updated_at: new Date().toISOString(),
       }
 
-      // Try to add new columns, but they might not exist yet
-      try {
-        payload.additional_paragraph = formData.additional_paragraph || null
-        payload.extra_content = formData.extra_content || null
-        payload.form_fields = formData.form_fields
-        payload.form_button_text = formData.form_button_text || null
-      } catch (err) {
-        // Ignore if these fields don't exist yet
-      }
-
       console.log("Admin handleSubmit - payload being sent:", payload);
+
+      const fieldsThatMustSurvive = ['speakers', 'form_fields', 'additional_paragraph', 'extra_content', 'form_button_text', 'pdf_url']
 
       if (editingPage) {
         try {
@@ -385,19 +480,21 @@ export default function AdminEbookLandingPage() {
 
           if (error) throw error
         } catch (updateErr: any) {
-          // If update failed because of new columns, try without them
-          if (updateErr.message && (updateErr.message.includes('additional_paragraph') || updateErr.message.includes('form_fields') || updateErr.message.includes('extra_content') || updateErr.message.includes('form_button_text') || updateErr.message.includes('pdf_url'))) {
-            console.warn('Retrying update without new columns...')
+          const msg: string = (updateErr && typeof updateErr.message === 'string') ? updateErr.message : ''
+          const droppedCol = fieldsThatMustSurvive.find(col => msg.includes(col))
+          if (droppedCol) {
+            console.warn(`Retrying update without missing columns (${droppedCol}): `, msg)
             const fallbackPayload = { ...payload }
-            delete fallbackPayload.additional_paragraph
-            delete fallbackPayload.extra_content
-            delete fallbackPayload.form_fields
-            delete fallbackPayload.form_button_text
-            const { error } = await supabase
+            fieldsThatMustSurvive.forEach(col => { delete fallbackPayload[col] })
+            const { error: retryErr } = await supabase
               .from('ebook_landing_pages')
               .update(fallbackPayload)
               .eq('id', editingPage.id)
-            if (error) throw error
+            if (retryErr) throw retryErr
+            alert(
+              `⚠ Saved, but the column "${droppedCol}" is missing from your Supabase table, so the new ${droppedCol} data was NOT saved.\n` +
+              `Please run the latest ebook_landing_pages migration (ALTER TABLE ebook_landing_pages ADD COLUMN IF NOT EXISTS ${droppedCol} ...) in Supabase SQL Editor and re-save this page.`
+            )
           } else {
             throw updateErr
           }
@@ -405,7 +502,7 @@ export default function AdminEbookLandingPage() {
         if (expectedPdfUrl !== (editingPage.pdf_url || null)) {
           const { data: savedPage, error: verifyError } = await supabase
             .from('ebook_landing_pages')
-            .select('pdf_url')
+            .select('pdf_url, speakers')
             .eq('id', editingPage.id)
             .single()
 
@@ -416,11 +513,20 @@ export default function AdminEbookLandingPage() {
           if ((savedPage?.pdf_url || null) !== expectedPdfUrl) {
             throw new Error('PDF update did not save in database. Please run the latest ebook_landing_pages migration on live.')
           }
+
+          const expectedSpeakersCount = payload.speakers?.length ?? 0
+          const actualSpeakersCount = Array.isArray((savedPage as any)?.speakers) ? (savedPage as any).speakers.length : 0
+          if (expectedSpeakersCount > 0 && actualSpeakersCount !== expectedSpeakersCount) {
+            alert(
+              `⚠ Speakers column missing!\n` +
+              `Expected ${expectedSpeakersCount} speakers, but the table returned ${actualSpeakersCount}.\n` +
+              `Please run: ALTER TABLE ebook_landing_pages ADD COLUMN IF NOT EXISTS speakers JSONB NULL;`
+            )
+          }
         }
 
         alert('Page updated successfully!')
       } else {
-        // For insert, we might need to be more careful
         try {
           const { error } = await supabase
             .from('ebook_landing_pages')
@@ -428,18 +534,20 @@ export default function AdminEbookLandingPage() {
 
           if (error) throw error
         } catch (insertErr: any) {
-          // If insert failed because of new columns, try without them
-          if (insertErr.message && (insertErr.message.includes('additional_paragraph') || insertErr.message.includes('form_fields') || insertErr.message.includes('extra_content') || insertErr.message.includes('form_button_text') || insertErr.message.includes('pdf_url'))) {
-            console.warn('Retrying insert without new columns...')
+          const msg: string = (insertErr && typeof insertErr.message === 'string') ? insertErr.message : ''
+          const droppedCol = fieldsThatMustSurvive.find(col => msg.includes(col))
+          if (droppedCol) {
+            console.warn(`Retrying insert without missing columns (${droppedCol}): `, msg)
             const fallbackPayload = { ...payload }
-            delete fallbackPayload.additional_paragraph
-            delete fallbackPayload.extra_content
-            delete fallbackPayload.form_fields
-            delete fallbackPayload.form_button_text
-            const { error } = await supabase
+            fieldsThatMustSurvive.forEach(col => { delete fallbackPayload[col] })
+            const { error: retryErr } = await supabase
               .from('ebook_landing_pages')
               .insert([fallbackPayload])
-            if (error) throw error
+            if (retryErr) throw retryErr
+            alert(
+              `⚠ Created, but the column "${droppedCol}" is missing from your Supabase table, so the new ${droppedCol} data was NOT saved.\n` +
+              `Please run the latest ebook_landing_pages migration (ALTER TABLE ebook_landing_pages ADD COLUMN IF NOT EXISTS ${droppedCol} ...) in Supabase SQL Editor.`
+            )
           } else {
             throw insertErr
           }
@@ -447,7 +555,7 @@ export default function AdminEbookLandingPage() {
         if (expectedPdfUrl) {
           const { data: savedPage, error: verifyError } = await supabase
             .from('ebook_landing_pages')
-            .select('pdf_url')
+            .select('pdf_url, speakers')
             .eq('slug', formData.slug)
             .single()
 
@@ -457,6 +565,16 @@ export default function AdminEbookLandingPage() {
 
           if ((savedPage?.pdf_url || null) !== expectedPdfUrl) {
             throw new Error('PDF save did not persist in database. Please run the latest ebook_landing_pages migration on live.')
+          }
+
+          const expectedSpeakersCount = payload.speakers?.length ?? 0
+          const actualSpeakersCount = Array.isArray((savedPage as any)?.speakers) ? (savedPage as any).speakers.length : 0
+          if (expectedSpeakersCount > 0 && actualSpeakersCount !== expectedSpeakersCount) {
+            alert(
+              `⚠ Speakers column missing!\n` +
+              `Expected ${expectedSpeakersCount} speakers, but the table returned ${actualSpeakersCount}.\n` +
+              `Please run: ALTER TABLE ebook_landing_pages ADD COLUMN IF NOT EXISTS speakers JSONB NULL;`
+            )
           }
         }
 
@@ -483,6 +601,33 @@ export default function AdminEbookLandingPage() {
 
   const handleEdit = (page: EbookLandingPage) => {
     setEditingPage(page)
+    const legacySpeakers: EbookSpeaker[] = (() => {
+      if (Array.isArray(page.speakers) && page.speakers.length > 0) {
+        return page.speakers.map(raw => ({
+          ...emptySpeaker(raw?.label || 'Speaker'),
+          label: raw?.label ?? 'Speaker',
+          name: raw?.name ?? '',
+          role: raw?.role ?? '',
+          avatar_url: raw?.avatar_url ?? '',
+          avatar_svg: raw?.avatar_svg ?? '',
+          bio: raw?.bio ?? '',
+          linkedin_url: raw?.linkedin_url ?? '',
+        }))
+      }
+      if (page.author_name || page.author_avatar_url || page.author_role) {
+        return [{
+          ...emptySpeaker('Author'),
+          label: 'Author',
+          name: page.author_name || '',
+          role: page.author_role || '',
+          avatar_url: page.author_avatar_url || '',
+          avatar_svg: page.author_avatar_svg || '',
+          bio: page.author_bio || '',
+          linkedin_url: '',
+        }]
+      }
+      return [emptySpeaker('Speaker'), emptySpeaker('Moderator')]
+    })()
     setFormData({
       slug: page.slug,
       title: page.title,
@@ -506,6 +651,7 @@ export default function AdminEbookLandingPage() {
       author_bio: page.author_bio || '',
       author_avatar_url: page.author_avatar_url || '',
       author_avatar_svg: page.author_avatar_svg || '',
+      speakers: legacySpeakers,
       footer_color: page.footer_color || '',
       pdf_url: page.pdf_url || '',
     })
@@ -1043,6 +1189,18 @@ export default function AdminEbookLandingPage() {
             grid-column: span 1;
           }
 
+          .admin-speakers-grid {
+            grid-template-columns: 1fr !important;
+          }
+
+          .admin-speaker-card {
+            grid-template-columns: 1fr !important;
+          }
+
+          .admin-speaker-card > div[style*="grid-template-columns: 140px"] {
+            grid-template-columns: 1fr !important;
+          }
+
           .admin-ebook-header {
             flex-direction: column;
             gap: 16px;
@@ -1088,6 +1246,7 @@ export default function AdminEbookLandingPage() {
               author_bio: '',
               author_avatar_url: '',
               author_avatar_svg: '',
+              speakers: [emptySpeaker('Speaker'), emptySpeaker('Moderator')],
               footer_color: '#3aaee0',
               pdf_url: '',
             })
@@ -1568,10 +1727,10 @@ export default function AdminEbookLandingPage() {
                 )}
               </div>
               
-            <h3 className="admin-ebook-section-title">Author Information</h3>
+            <h3 className="admin-ebook-section-title">Speaker / Author Information</h3>
             <div className="admin-ebook-grid">
               <div className="admin-ebook-field admin-ebook-grid-full">
-                <label className="admin-ebook-label">Author Heading</label>
+                <label className="admin-ebook-label">Section Heading (shows above the 2-column speaker list)</label>
                 {isClient && (
                   <ReactQuill
                     key={`author-heading-${editingPage?.id || 'new'}`}
@@ -1580,79 +1739,191 @@ export default function AdminEbookLandingPage() {
                     onChange={(content) => setFormData(prev => ({ ...prev, author_heading: content }))}
                     modules={quillModules}
                     formats={formats}
-                    placeholder="e.g., About the Author"
+                    placeholder="e.g., Speaker / About the Authors"
                   />
                 )}
               </div>
-              <div className="admin-ebook-field">
-                <label className="admin-ebook-label">Author Name</label>
-                <input
-                  type="text"
-                  name="author_name"
-                  value={formData.author_name}
-                  onChange={handleInputChange}
-                  className="admin-ebook-input"
-                  placeholder="Author's full name"
-                />
-              </div>
-              <div className="admin-ebook-field">
-                <label className="admin-ebook-label">Author Role</label>
-                <input
-                  type="text"
-                  name="author_role"
-                  value={formData.author_role}
-                  onChange={handleInputChange}
-                  className="admin-ebook-input"
-                  placeholder="e.g., Senior Consultant, RheinBrücke"
-                />
-              </div>
-              <div className="admin-ebook-field">
-                <label className="admin-ebook-label">Author Avatar URL</label>
-                <input
-                  type="text"
-                  name="author_avatar_url"
-                  value={formData.author_avatar_url}
-                  onChange={handleInputChange}
-                  className="admin-ebook-input"
-                  placeholder="https://example.com/avatar.webp"
-                />
-              </div>
-              <div className="admin-ebook-field">
-                <label className="admin-ebook-label">Upload Author Avatar</label>
-                <input
-                  type="file"
-                  onChange={(e) => handleFileUpload(e, 'author_avatar_url')}
-                  className="admin-ebook-input"
-                  accept="image/*"
-                />
-                {formData.author_avatar_url && <p className="text-xs text-green-600 mt-1">Uploaded: {formData.author_avatar_url.split('/').pop()}</p>}
-              </div>
-              <div className="admin-ebook-field admin-ebook-grid-full">
-                <label className="admin-ebook-label">Author Bio</label>
-                {isClient && (
-                  <ReactQuill
-                    key={`author-bio-${editingPage?.id || 'new'}`}
-                    theme="snow"
-                    value={formData.author_bio}
-                    onChange={(content) => setFormData(prev => ({ ...prev, author_bio: content }))}
-                    modules={quillModules}
-                    formats={formats}
-                    placeholder="Short biography of the author"
-                  />
-                )}
-              </div>
-              <div className="admin-ebook-field admin-ebook-grid-full">
-                <label className="admin-ebook-label">Author Avatar SVG (Optional - overrides URL)</label>
-                <textarea
-                  name="author_avatar_svg"
-                  value={formData.author_avatar_svg}
-                  onChange={handleInputChange}
-                  className="admin-ebook-textarea"
-                  rows={4}
-                  placeholder="<svg>...</svg>"
-                  style={{ fontFamily: 'helvetica-neue-lt-pro', fontSize: '12px' }}
-                />
-              </div>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '12px', marginBottom: '12px' }}>
+              <button
+                type="button"
+                onClick={handleAddSpeaker}
+                className="admin-ebook-btn-add"
+                style={{ padding: '10px 18px', fontSize: '13px' }}
+              >
+                ➕ Add Speaker / Author
+              </button>
+            </div>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+                gap: '20px',
+                marginTop: '8px',
+                marginBottom: '16px',
+              }}
+              className="admin-speakers-grid"
+            >
+              {(formData.speakers ?? []).map((speaker, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '10px',
+                    padding: '18px',
+                    background: '#fafafa',
+                    boxShadow: '0 1px 2px rgba(0,0,0,0.04)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '10px',
+                  }}
+                  className="admin-speaker-card"
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '10px' }}>
+                    <input
+                      type="text"
+                      value={speaker.label}
+                      onChange={(e) => handleSpeakerChange(idx, 'label', e.target.value)}
+                      className="admin-ebook-input"
+                      placeholder="Label (e.g., Speaker, Moderator, Author)"
+                      style={{ fontSize: '14px', fontWeight: 600 }}
+                    />
+                    {(formData.speakers?.length ?? 0) > 1 && (
+                      <button
+                        type="button"
+                        onClick={() => handleRemoveSpeaker(idx)}
+                        className="admin-ebook-btn-remove"
+                        title={`Remove ${speaker.label || 'speaker'}`}
+                      >
+                        ✕
+                      </button>
+                    )}
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr', gap: '16px', alignItems: 'flex-start' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+                      <div
+                        style={{
+                          width: '128px',
+                          height: '128px',
+                          borderRadius: '50%',
+                          border: '3px solid #2d3e50',
+                          overflow: 'hidden',
+                          background: '#fff',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          color: '#9ca3af',
+                          fontSize: '11px',
+                          textAlign: 'center',
+                          padding: '6px',
+                        }}
+                      >
+                        {speaker.avatar_svg ? (
+                          <div
+                            style={{ width: '100%', height: '100%' }}
+                            dangerouslySetInnerHTML={{ __html: speaker.avatar_svg }}
+                          />
+                        ) : speaker.avatar_url ? (
+                          <img
+                            src={speaker.avatar_url}
+                            alt={speaker.name || `speaker-${idx}`}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                          />
+                        ) : (
+                          <span>No avatar<br />uploaded</span>
+                        )}
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', width: '100%' }}>
+                        <input
+                          type="file"
+                          onChange={(e) => handleFileUpload(e, 'avatar_url', idx)}
+                          className="admin-ebook-input"
+                          accept="image/*"
+                          style={{ fontSize: '11px', padding: '4px' }}
+                        />
+                        {speaker.avatar_url && (
+                          <p style={{ fontSize: '10px', color: '#059669', wordBreak: 'break-all' }}>
+                            ✓ {speaker.avatar_url.split('/').pop()}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                      <div className="admin-ebook-field" style={{ margin: 0 }}>
+                        <label className="admin-ebook-label" style={{ fontSize: '12px' }}>Full Name</label>
+                        <input
+                          type="text"
+                          value={speaker.name}
+                          onChange={(e) => handleSpeakerChange(idx, 'name', e.target.value)}
+                          className="admin-ebook-input"
+                          placeholder="Hari Krishnan"
+                        />
+                      </div>
+                      <div className="admin-ebook-field" style={{ margin: 0 }}>
+                        <label className="admin-ebook-label" style={{ fontSize: '12px' }}>Role / Title</label>
+                        <input
+                          type="text"
+                          value={speaker.role}
+                          onChange={(e) => handleSpeakerChange(idx, 'role', e.target.value)}
+                          className="admin-ebook-input"
+                          placeholder="Co-Founder & CEO, Company"
+                        />
+                      </div>
+                      <div className="admin-ebook-field" style={{ margin: 0 }}>
+                        <label className="admin-ebook-label" style={{ fontSize: '12px' }}>LinkedIn Profile URL</label>
+                        <input
+                          type="text"
+                          value={speaker.linkedin_url}
+                          onChange={(e) => handleSpeakerChange(idx, 'linkedin_url', e.target.value)}
+                          className="admin-ebook-input"
+                          placeholder="https://www.linkedin.com/in/..."
+                        />
+                      </div>
+                      <div className="admin-ebook-field" style={{ margin: 0 }}>
+                        <label className="admin-ebook-label" style={{ fontSize: '12px' }}>Avatar URL (overrides upload)</label>
+                        <input
+                          type="text"
+                          value={speaker.avatar_url}
+                          onChange={(e) => handleSpeakerChange(idx, 'avatar_url', e.target.value)}
+                          className="admin-ebook-input"
+                          placeholder="https://..."
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="admin-ebook-field" style={{ margin: 0 }}>
+                    <label className="admin-ebook-label" style={{ fontSize: '12px' }}>Short Bio</label>
+                    {isClient && (
+                      <ReactQuill
+                        key={`speaker-${editingPage?.id || 'new'}-bio-${idx}`}
+                        theme="snow"
+                        value={speaker.bio}
+                        onChange={(content) => handleSpeakerChange(idx, 'bio', content)}
+                        modules={quillModules}
+                        formats={formats}
+                        placeholder="1-2 line biography of the speaker/author"
+                      />
+                    )}
+                  </div>
+
+                  <div className="admin-ebook-field" style={{ margin: 0 }}>
+                    <label className="admin-ebook-label" style={{ fontSize: '12px' }}>Avatar SVG (optional, overrides URL/upload)</label>
+                    <textarea
+                      value={speaker.avatar_svg}
+                      onChange={(e) => handleSpeakerChange(idx, 'avatar_svg', e.target.value)}
+                      className="admin-ebook-textarea"
+                      rows={3}
+                      placeholder="<svg viewBox=...>...</svg>"
+                      style={{ fontFamily: 'helvetica-neue-lt-pro', fontSize: '11px' }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div className="admin-ebook-form-actions">
@@ -1697,7 +1968,11 @@ export default function AdminEbookLandingPage() {
                     {extractPlainTextFromHtml(page.title)}
                   </Link>
                 </td>
-                <td className="admin-ebook-author-cell">{page.author_name}</td>
+                <td className="admin-ebook-author-cell">
+                  {(Array.isArray(page.speakers) && page.speakers.length > 0)
+                    ? page.speakers.filter(s => s && s.name).map(s => s.name).join(' · ') || '—'
+                    : page.author_name || '—'}
+                </td>
                 <td>
                   <div className="admin-ebook-actions">
                     <Link

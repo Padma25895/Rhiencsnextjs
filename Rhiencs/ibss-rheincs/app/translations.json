@@ -1115,7 +1115,7 @@
 
 
 
-    "Engineering, Procurement & Construction (EPC)": "Engineering, Procurement & Construction (EPC)",
+    "ERP Solutions for EPC (Engineering, Procurement & Construction)": "ERP Solutions for EPC (Engineering, Procurement & Construction)",
     "The EPC sector operates at the intersection of contract complexity, evolving project scopes, and relentless schedule and cost pressures. Large, capital-intensive projects demand rigorous operational control, integrated data visibility, and the agility to manage risks and changes in real time. As market volatility, compliance demands, and sustainability requirements grow, digital transformation has become essential for EPC firms to protect margins, improve governance, and enhance delivery performance.": "The EPC sector operates at the intersection of contract complexity, evolving project scopes, and relentless schedule and cost pressures. Large, capital-intensive projects demand rigorous operational control, integrated data visibility, and the agility to manage risks and changes in real time. As market volatility, compliance demands, and sustainability requirements grow, digital transformation has become essential for EPC firms to protect margins, improve governance, and enhance delivery performance.",
 
     "Challenges in EPC Operations": "Challenges in EPC Operations",
@@ -1165,7 +1165,7 @@
 
 
 
-"Process Manufacturing": "Process Manufacturing",
+"Process Manufacturing ": "Process Manufacturing",
     "Process manufacturing industries, including food, pharma, chemicals, oil, personal care, paints, plastics, and rubber, operate in highly regulated, complex, and cost-sensitive environments. Success demands operational agility, end-to-end traceability, and the ability to respond rapidly to shifting market, regulatory, and sustainability pressures.": "Process manufacturing industries, including food, pharma, chemicals, oil, personal care, paints, plastics, and rubber, operate in highly regulated, complex, and cost-sensitive environments. Success demands operational agility, end-to-end traceability, and the ability to respond rapidly to shifting market, regulatory, and sustainability pressures.",
 
     "Challenges in Process Manufacturing": "Challenges in Process Manufacturing",
@@ -4018,7 +4018,7 @@
     "Engineering Procurement and Construction": "Engineering Beschaffung & Konstruktion",
     "Engineering Procurement & Construction": "Engineering Beschaffung & Konstruktion",
     "Engineering, Procurement & Construction": "Engineering, Beschaffung & Konstruktion",
-    "Engineering, Procurement & Construction (EPC)": "Engineering, Beschaffung & Konstruktion",
+    "ERP Solutions for EPC (Engineering, Procurement & Construction)": "Engineering, Beschaffung & Konstruktion",
     "Process Manufacturing": "Prozessfertigung",
     "Private Equity & Funding Backed Ventures": "Private Equity & finanzierte Unternehmen",
     "Cable Manufacturing": "Kabelherstellung",
@@ -4145,8 +4145,8 @@
     "Digital Solutions and Services": "Digitale Lösungen & Services",
     "Industries We Serve": "Branchen, die wir unterstützen",
 
-    "Let us Modernise Your Enterprise": "Modernisieren Sie Ihr Unternehmen mit RheinBrücke",
-    "Discover how RheinBrücke can help you optimise core systems, automate processes, and build future-ready platforms.": "Erfahren Sie, wie RheinBrücke Ihnen hilft, Kernsysteme zu optimieren, Prozesse zu automatisieren und zukunftssichere Plattformen aufzubauen.",
+    "Strengthen EPC Project Delivery": "Modernisieren Sie Ihr Unternehmen mit RheinBrücke",
+    "Improve project visibility, control costs, streamline execution, enhance site-level profitability and protect margins with connected systems and digital processes built around the realities of EPC operations.": "Erfahren Sie, wie RheinBrücke Ihnen hilft, Kernsysteme zu optimieren, Prozesse zu automatisieren und zukunftssichere Plattformen aufzubauen.",
     "Talk to our enterprise solutions experts today.": "Sprechen Sie noch heute mit unseren Enterprise-Experten!",
 
 
@@ -5043,33 +5043,33 @@
 
 
     
-    "The EPC sector operates at the intersection of contract complexity, evolving project scopes, and relentless schedule and cost pressures. Large, capital-intensive projects demand rigorous operational control, integrated data visibility, and the agility to manage risks and changes in real time. As market volatility, compliance demands, and sustainability requirements grow, digital transformation has become essential for EPC firms to protect margins, improve governance, and enhance delivery performance.": "EPC-Unternehmen sind auf die Abwicklung komplexer Projekte spezialisiert. Die Herausforderungen reichen von vielschichtigen Vertragsverhandlungen über sich ändernde Projektumfänge bis hin zu hohem Zeit- und Kostendruck. Große, kapitalintensive Projekte erfordern strenge operative Kontrolle, integrierte Datentransparenz und die Fähigkeit, Risiken und Änderungen in Echtzeit zu bewältigen. Angesichts zunehmender Marktvolatilität, Compliance-Anforderungen und Nachhaltigkeitsvorgaben ist die digitale Transformation unverzichtbar geworden, um Margen zu sichern, Governance zu stärken und die Projektleistung zu verbessern.",
+    "EPC solutions for engineering, procurement, and construction companies managing complex projects, demanding schedules, evolving scopes, and tight margins. Connect project management, engineering, procurement, contract management, project controls, cost management, and risk across the project lifecycle to improve visibility, strengthen governance, and keep EPC projects on schedule and within budget.": "EPC-Unternehmen sind auf die Abwicklung komplexer Projekte spezialisiert. Die Herausforderungen reichen von vielschichtigen Vertragsverhandlungen über sich ändernde Projektumfänge bis hin zu hohem Zeit- und Kostendruck. Große, kapitalintensive Projekte erfordern strenge operative Kontrolle, integrierte Datentransparenz und die Fähigkeit, Risiken und Änderungen in Echtzeit zu bewältigen. Angesichts zunehmender Marktvolatilität, Compliance-Anforderungen und Nachhaltigkeitsvorgaben ist die digitale Transformation unverzichtbar geworden, um Margen zu sichern, Governance zu stärken und die Projektleistung zu verbessern.",
 
     "Challenges in EPC Operations": "Die Herausforderungen im EPC-Betrieb",
     "Complex, multi-phase projects with shifting scopes, dependencies, and contractual penalties": "Komplexe, mehrphasige Projekte mit wechselnden Umfängen, Abhängigkeiten und vertraglichen Strafklauseln",
-    "Fragmented data across engineering, procurement, finance, site operations, and project management teams": "Uneinheitliche Daten zwischen Engineering, Beschaffung, Finanzen, Baustellenbetrieb und Projektmanagement-Teams",
-    "Limited real-time visibility into project status, budget, resource utilisation, and risks across multiple sites": "Begrenzte Echtzeit-Transparenz zu Projektstatus, Budget, Ressourcennutzung und Risiken über mehrere Standorte hinweg",
-    "Manual, paper-driven workflows delaying approvals, change orders, procurement, and billing cycles": "Manuelle, papierbasierte Workflows, die Genehmigungen, Nachträge, Beschaffung und Abrechnungszyklen verzögern",
-    "Fragmented subcontractor, vendor, and asset management processes increasing operational exposure": "Fragmentierte Prozesse im Subunternehmer-, Lieferanten- und Asset-Management erhöhen das operative Risiko",
-    "Slow, reactive risk management due to disconnected systems and delayed issue identification": "Langsames, reaktives Risikomanagement durch isolierte Systeme und verspätete Problemerkennung",
-    "Ineffective project cost tracking and revenue recognition weakening financial governance": "Unzureichendes Projektkosten-Tracking und mangelhafte Umsatzrealisierung schwächen die Finanzsteuerung",
+    "Engineering, procurement, finance, site operations, and project management teams often work across systems that do not share timely, reliable information.": "Uneinheitliche Daten zwischen Engineering, Beschaffung, Finanzen, Baustellenbetrieb und Projektmanagement-Teams",
+    "EPC firms lack a consolidated view of project progress, budgets, resource utilisation, procurement status, and risks across sites.": "Begrenzte Echtzeit-Transparenz zu Projektstatus, Budget, Ressourcennutzung und Risiken über mehrere Standorte hinweg",
+    "Paper-based and disconnected workflows slow down approvals, procurement, change orders, timesheets, invoicing, and payment cycles.": "Manuelle, papierbasierte Workflows, die Genehmigungen, Nachträge, Beschaffung und Abrechnungszyklen verzögern",
+    "Managing subcontractors, suppliers, vendors, equipment, and project assets across multiple locations": "Fragmentierte Prozesse im Subunternehmer-, Lieferanten- und Asset-Management erhöhen das operative Risiko",
+    "Delayed identification of risks, cost overruns, schedule delays, and site issues limits timely intervention.": "Langsames, reaktives Risikomanagement durch isolierte Systeme und verspätete Problemerkennung",
+    "Inconsistent cost tracking, forecasting, revenue recognition, and billing make it harder to protect margins": "Unzureichendes Projektkosten-Tracking und mangelhafte Umsatzrealisierung schwächen die Finanzsteuerung",
 
     "Why It Matters": "Warum es wichtig ist, diese Herausforderungen zu meistern",
     "Lack of integrated control leads to budget overruns, missed milestones, and margin leakage": "Mangelnde integrierte Steuerung führt zu Budgetüberschreitungen, verpassten Meilensteinen und Margenverlusten",
-    "Delayed approvals and disjointed workflows escalate project risk and operational delays": "Verzögerte Genehmigungen und unverbundene Workflows erhöhen Projektrisiken und operative Verzögerungen",
+    "Approval delays cause project disruption, slowing procurement, change orders, contractor payments, and critical site decisions increases risks.": "Verzögerte Genehmigungen und unverbundene Workflows erhöhen Projektrisiken und operative Verzögerungen",
     "Inadequate risk visibility restricts proactive issue management and opportunity capture": "Unzureichende Risikotransparenz verhindert proaktives Problemmanagement und das Erkennen von Chancen",
     "Inefficient asset, material, and subcontractor coordination increases downtime and delivery disruption": "Ineffiziente Koordination von Assets, Material und Subunternehmern erhöht Ausfallzeiten und Lieferunterbrechungen",
-    "Weak project financial governance results in inaccurate revenue recognition, cash flow issues, and contract disputes": "Schwache finanzielle Projektsteuerung führt zu ungenauer Umsatzrealisierung, Cashflow-Problemen und Vertragsstreitigkeiten",
+    "Poor financial governance results in inaccurate revenue recognition and cash flow gaps to billing disputes and contractual claims.": "Schwache finanzielle Projektsteuerung führt zu ungenauer Umsatzrealisierung, Cashflow-Problemen und Vertragsstreitigkeiten",
 
     "How We Help": "Unser Lösungsansatz",
-    "Deploy centralised project control systems integrating cost, schedule, procurement, engineering, and site operations": "Einführung zentraler Projektsteuerungssysteme zur Integration von Kosten, Zeitplänen, Beschaffung, Engineering und Baustellenbetrieb",
-    "Enable multi-level work breakdown structures (WBS) and real-time tracking of project cost, resource allocation, and milestone performance": "Mehrstufige Work Breakdown Structures (WBS) und Echtzeit-Tracking von Projektkosten, Ressourcenzuteilung und Meilenstein-Performance",
-    "Automate contract change management, variation order processing, billing, and revenue recognition workflows": "Automatisierung von Vertragsänderungen, Nachtragsbearbeitung, Abrechnung und Umsatzrealisierung",
+    "Connect cost, schedules, procurement, engineering, and site operations through a unified project control environment.": "Einführung zentraler Projektsteuerungssysteme zur Integration von Kosten, Zeitplänen, Beschaffung, Engineering und Baustellenbetrieb",
+    "Track projects with multi-level WBS and monitor costs, resources, milestones, and progress in real time.": "Mehrstufige Work Breakdown Structures (WBS) und Echtzeit-Tracking von Projektkosten, Ressourcenzuteilung und Meilenstein-Performance",
+    "Streamline contract change management, variation orders, billing, and revenue recognition to reduce delays and financial leakage.": "Automatisierung von Vertragsänderungen, Nachtragsbearbeitung, Abrechnung und Umsatzrealisierung",
     "Digitise procurement, subcontractor, and vendor management processes for improved compliance and supply reliability": "Digitalisierung von Beschaffungs-, Subunternehmer- und Lieferantenmanagement für bessere Compliance und Versorgungssicherheit",
-    "Integrate asset, material, and site resource management for optimal utilisation and on-site efficiency": "Integration von Asset-, Material- und Ressourcenmanagement für optimale Auslastung und Effizienz vor Ort",
-    "Provide early warning risk indicators, project risk registers, and predictive analytics for proactive issue resolution": "Bereitstellung von Frühwarnindikatoren, Risikoregistern und Predictive Analytics für proaktives Risikomanagement",
+    "Coordinate materials, equipment, assets, and site resources to improve utilisation and reduce operational downtime.": "Integration von Asset-, Material- und Ressourcenmanagement für optimale Auslastung und Effizienz vor Ort",
+    "Combine risk registers, early-warning indicators, and predictive analytics to identify issues before they affect project milestones.": "Bereitstellung von Frühwarnindikatoren, Risikoregistern und Predictive Analytics für proaktives Risikomanagement",
     "Support bid and tender management, project pipeline tracking, and margin risk analysis for improved project selection and financial control": "Unterstützung von Ausschreibungsmanagement, Pipeline-Tracking und Margenrisikoanalysen für bessere Projektwahl und Finanzkontrolle",
-    "Deliver scalable, offshore-enabled digital transformation programmes for multi-project, multi-country operations": "Bereitstellung skalierbarer, offshore-gestützter Digitalisierungsprogramme für Multi-Projekt- und Multi-Country-Operationen",
+    "Build flexible digital capabilities that support multi-project, multi-country EPC operations without unnecessary complexity.": "Bereitstellung skalierbarer, offshore-gestützter Digitalisierungsprogramme für Multi-Projekt- und Multi-Country-Operationen",
 
     "Tangible Outcomes": "Konkrete Ergebnisse",
     "Improved cost control, schedule adherence, and cash flow management through integrated operational data visibility": "Verbesserte Kostenkontrolle, Termineinhaltung und Cashflow-Management durch integrierte Datentransparenz",
@@ -5080,7 +5080,7 @@
     "Reduced operational overheads and increased delivery resilience through connected, scalable digital infrastructure": "Reduzierte Betriebskosten und höhere Resilienz durch vernetzte, skalierbare digitale Infrastrukturen",
 
     "Why Choose Us": "Warum wir?",
-    "Deep expertise in operational transformation for EPC and capital project delivery businesses": "Umfassende Expertise in der operativen Transformation von EPC- und Capital-Project-Unternehmen",
+    "EPC and capital project expertise grounded in the operational, commercial, and delivery challenges of complex engineering and construction projects.": "Umfassende Expertise in der operativen Transformation von EPC- und Capital-Project-Unternehmen",
     "Proven capability implementing project, cost, asset, and risk control frameworks for complex, multi-year, multi-location projects": "Nachweisliche Kompetenz in der Implementierung von Projekt-, Kosten-, Asset- und Risikosteuerungs-Frameworks für komplexe Multi-Standort-Projekte",
     "Commercially focused approach, driven by operational outcomes, profitability protection, and governance enhancement": "Klarer Business-Fokus auf operative Ergebnisse, Profitabilitätssicherung und verbesserte Governance",
     "Offshore-enabled delivery model ensuring scalable, cost-efficient, high-quality project execution without global consultancy overhead": "Offshore-fähiges Liefermodell für skalierbare, kosteneffiziente und hochwertige Projektausführung ohne den Overhead globaler Beratungen",
@@ -5092,35 +5092,35 @@
 
 
 
-    "Process Manufacturing": "Prozessfertigung",
-    "Process manufacturing industries, including food, pharma, chemicals, oil, personal care, paints, plastics, and rubber, operate in highly regulated, complex, and cost-sensitive environments. Success demands operational agility, end-to-end traceability, and the ability to respond rapidly to shifting market, regulatory, and sustainability pressures.": "Prozessfertigungsbranchen – darunter Lebensmittel, Pharma, Chemie, Öl, Körperpflege, Farben, Kunststoffe und Gummi – operieren in stark regulierten, komplexen und kostenbewussten Umgebungen. Erfolg erfordert operative Agilität, durchgängige Rückverfolgbarkeit und die Fähigkeit, schnell auf sich ändernde Markt-, Regulierungs- und Nachhaltigkeitsanforderungen zu reagieren.",
+    "Process Manufacturing Solutions": "Prozessfertigung",
+    "Process manufacturing solutions for food, pharma, chemicals, oil and gas, personal care, paints, plastics, and rubber manufacturers. Connect production planning, formulation management, quality, inventory, traceability, regulatory compliance, and cost control to manage complex manufacturing operations with greater visibility and operational control.": "Prozessfertigungsbranchen – darunter Lebensmittel, Pharma, Chemie, Öl, Körperpflege, Farben, Kunststoffe und Gummi – operieren in stark regulierten, komplexen und kostenbewussten Umgebungen. Erfolg erfordert operative Agilität, durchgängige Rückverfolgbarkeit und die Fähigkeit, schnell auf sich ändernde Markt-, Regulierungs- und Nachhaltigkeitsanforderungen zu reagieren.",
 
     "Challenges in Process Manufacturing": "Die Herausforderungen in der Prozessfertigung",
-    "Increasing complexity across multi-step formulations, stringent regulations, and volatile input costs": "Steigende Komplexität durch mehrstufige Formulierungen, strenge Vorschriften und volatile Rohstoffpreise",
-    "Operational silos between R&D, production, quality, compliance, and logistics": "Operative Silos zwischen F&E, Produktion, Qualität, Compliance und Logistik",
-    "Limited real-time visibility into batch performance, yield, and cost-to-serve metrics": "Begrenzte Echtzeit-Transparenz bei Chargenleistung, Ausbeute und Kostenkennzahlen",
-    "Transformation initiatives often too slow, theoretical, or cost-prohibitive": "Transformationsinitiativen oft zu langsam, theoretisch oder kostspielig",
-    "Rising ESG, traceability, and sustainability mandates, particularly in chemicals and oil sectors": "Wachsende ESG-, Rückverfolgbarkeits- und Nachhaltigkeitsvorgaben, besonders in Chemie und Öl",
+    "Increasing complexity across multi-stage formulations, variable recipes, production processes, and volatile raw material costs.": "Steigende Komplexität durch mehrstufige Formulierungen, strenge Vorschriften und volatile Rohstoffpreise",
+    "Operational silos between R&D, formulation, production, quality, procurement, compliance, inventory, and logistics.": "Operative Silos zwischen F&E, Produktion, Qualität, Compliance und Logistik",
+    "Limited real-time visibility into batch performance, production yield, material consumption, quality, and cost-to-serve.": "Begrenzte Echtzeit-Transparenz bei Chargenleistung, Ausbeute und Kostenkennzahlen",
+    "Digital transformation initiatives are lengthy, expensive, and disconnected from the operational realities.": "Transformationsinitiativen oft zu langsam, theoretisch oder kostspielig",
+    "Rising regulatory, ESG, sustainability, and end-to-end traceability requirements across Industrial manufacturing sectors.": "Wachsende ESG-, Rückverfolgbarkeits- und Nachhaltigkeitsvorgaben, besonders in Chemie und Öl",
 
     "Why It Matters": "Warum es wichtig ist, die Herausforderungen zu meistern",
-    "Delayed time-to-market affects profitability": "Verzögerte Markteinführung wirkt sich direkt auf die Profitabilität aus",
-    "Compliance breaches risk costly recalls and potential lawsuits, especially in pharma, food, and oil processing": "Compliance-Verstöße können kostspielige Rückrufe und rechtliche Risiken verursachen, insbesondere in Pharma, Lebensmitteln und Ölverarbeitung",
-    "Inefficient operations squeeze margins that are already low in this sector": "Ineffiziente Abläufe drücken Margen, die in diesem Sektor ohnehin knapp sind",
-    "Failure to leverage data for agile decision-making weakens competitiveness across regulated markets": "Fehlende Datennutzung für agile Entscheidungen schwächt die Wettbewerbsfähigkeit in regulierten Märkten",
+    "Delays in formulation, production, quality approval, and scale-up can push products to market delay": "Verzögerte Markteinführung wirkt sich direkt auf die Profitabilität aus",
+    "Compliance failures can lead to product recalls, regulatory penalties, litigation, and reputational damage and potential lawsuits": "Compliance-Verstöße können kostspielige Rückrufe und rechtliche Risiken verursachen, insbesondere in Pharma, Lebensmitteln und Ölverarbeitung",
+    "Material waste, production inefficiencies, yield losses, and rising input costs add further pressure": "Ineffiziente Abläufe drücken Margen, die in diesem Sektor ohnehin knapp sind",
+    "Poor cost visibility delays manufacturers' decision-making to respond to demand shifts, quality issues and supply disruptions": "Fehlende Datennutzung für agile Entscheidungen schwächt die Wettbewerbsfähigkeit in regulierten Märkten",
 
     "How We Help": "Unser Lösungsansatz",
-    "Deploy agile, data-driven operating models": "Einführung agiler, datengetriebener Betriebsmodelle",
-    "Digitize QA/QC processes, batch tracking, and formula control for improved traceability and regulatory compliance": "Digitalisierung von QA/QC-Prozessen, Chargenverfolgung und Formularkontrolle für bessere Rückverfolgbarkeit und Compliance",
-    "Integrate MES and ERP systems to enable seamless production planning, inventory control, and shop-floor monitoring": "Integration von MES- und ERP-Systemen für nahtlose Produktionsplanung, Bestandskontrolle und Shop-Floor-Monitoring",
-    "Implement ESG-aligned traceability and compliance reporting": "Umsetzung von ESG-konformer Rückverfolgbarkeit und Compliance-Berichterstattung",
-    "Use intelligent data structures and automation to optimize yield, waste reduction, and cost control without global consultancy overhead": "Nutzung intelligenter Datenstrukturen und Automatisierung zur Optimierung von Ausbeute, Abfallreduktion und Kostenkontrolle ohne globalen Beratungsaufwand",
-    "Build scalable, offshore-led digital infrastructure for operational consistency and rapid ROI": "Aufbau skalierbarer, offshore-geführter Digitalinfrastruktur für konsistente Abläufe und schnellen ROI",
+    "Deploy agile, data-driven manufacturing solutions that connect production, quality, inventory, procurement, and supply chain operations.": "Einführung agiler, datengetriebener Betriebsmodelle",
+    "Digitise formula management, batch tracking, QA/QC, and production records to maintain consistency from development to manufacturing.": "Digitalisierung von QA/QC-Prozessen, Chargenverfolgung und Formularkontrolle für bessere Rückverfolgbarkeit und Compliance",
+    "Link business planning like MES and ERP with shop-floor execution for better production scheduling, inventory visibility and control.": "Integration von MES- und ERP-Systemen für nahtlose Produktionsplanung, Bestandskontrolle und Shop-Floor-Monitoring",
+    "Establish consistent controls, audit trails, and reporting to meet evolving regulatory and ESG requirements.": "Umsetzung von ESG-konformer Rückverfolgbarkeit und Compliance-Berichterstattung",
+    "Turn production data into actionable insights to optimize yield & identify losses, reduce material waste, and improve cost efficiency.": "Nutzung intelligenter Datenstrukturen und Automatisierung zur Optimierung von Ausbeute, Abfallreduktion und Kostenkontrolle ohne globalen Beratungsaufwand",
+    "Build practical digital infrastructure for standardisation, growth, and faster returns, without large-scale consulting costs.": "Aufbau skalierbarer, offshore-geführter Digitalinfrastruktur für konsistente Abläufe und schnellen ROI",
 
     "Tangible Outcomes": "Konkrete Ergebnisse",
-    "Faster product development cycles and reduced time-to-market": "Schnellere Produktentwicklungszyklen und verkürzte Markteinführungszeiten",
-    "Improved yield, cost control, and reduced waste through real-time analytics": "Verbesserte Ausbeute, Kostenkontrolle und reduzierte Abfälle durch Echtzeit-Analysen",
-    "End-to-end regulatory compliance and automated traceability": "Durchgängige regulatorische Compliance und automatisierte Rückverfolgbarkeit",
-    "Scalable digital operating models delivering measurable, sustainable ROI": "Skalierbare digitale Betriebsmodelle mit messbarem, nachhaltigem ROI",
+    "Higher production reliability with better planning, scheduling, and capacity utilisation": "Schnellere Produktentwicklungszyklen und verkürzte Markteinführungszeiten",
+    "Improved inventory accuracy and material availability with optimised stock levels": "Verbesserte Ausbeute, Kostenkontrolle und reduzierte Abfälle durch Echtzeit-Analysen",
+    "Consistent product quality through integrated quality control and batch management": "Durchgängige regulatorische Compliance und automatisierte Rückverfolgbarkeit",
+    "Better demand, supply, and production visibility for faster, data-driven decision-making": "Skalierbare digitale Betriebsmodelle mit messbarem, nachhaltigem ROI",
 
     "Global Industry Best Practices We Apply": "Globale Best Practices, die wir anwenden",
     "L’Oréal and Unilever use AI-driven R&D and lean digital PLM to cut time-to-market by over 40% - we apply the same principles for mid-tier personal care and contract manufacturers": "L’Oréal und Unilever nutzen KI-gestützte F&E und Lean Digital PLM, um die Markteinführung um über 40 % zu verkürzen - dieselben Prinzipien übertragen wir auf mittlere Anbieter in Körperpflege und Lohnfertigung",
@@ -5130,11 +5130,11 @@
     "Why Choose Us": "Warum wir?",
     "Deep, cross-sector transformation expertise covering food, pharma, chemicals, oil, personal care, paints, plastics, and rubber": "Tiefgreifende, branchenübergreifende Transformationskompetenz in Lebensmitteln, Pharma, Chemie, Öl, Körperpflege, Farben, Kunststoffen und Gummi",
     "Offshore delivery model ensuring high-quality, cost-effective, scalable execution": "Offshore-Delivery-Modell für hochwertige, kosteneffiziente und skalierbare Umsetzung",
-    "Commercially focused on operational outcomes, not endless diagnostics": "Fokus auf operative Ergebnisse, nicht endlose Diagnosen",
+    "Outcome-led implementation focused on solving operational problems rather than extending the diagnostic phase": "Fokus auf operative Ergebnisse, nicht endlose Diagnosen",
     "Proven ability to deliver rapid, scalable digital transformation programs designed for operational realities": "Nachweisliche Fähigkeit, schnelle, skalierbare digitale Transformationsprogramme umzusetzen, die den realen Betriebsanforderungen entsprechen",
 
-    "Ready to future-proof your process manufacturing operations?": "Sind Sie bereit, Ihre Prozessfertigung zukunftssicher zu machen?",
-    "Contact us today to learn how we can help optimize your plant, processes, and profitability with data-driven, scalable solutions.": "Kontaktieren Sie uns und erfahren Sie, wie wir Ihnen mit datengestützten, skalierbaren Lösungen dabei helfen können, Ihre Anlage, Ihre Prozesse und Ihre Rentabilität zu optimieren.",
+    "Ready to Transform Your Process Manufacturing Operations?": "Sind Sie bereit, Ihre Prozessfertigung zukunftssicher zu machen?",
+    "Connect your processes, data, and systems to improve operational control, reduce inefficiencies, and support sustainable growth.": "Kontaktieren Sie uns und erfahren Sie, wie wir Ihnen mit datengestützten, skalierbaren Lösungen dabei helfen können, Ihre Anlage, Ihre Prozesse und Ihre Rentabilität zu optimieren.",
 
 
 
@@ -5142,44 +5142,44 @@
 
 
 
-    "Private Equity & Funding-Backed Ventures": "Private Equity und finanzierungsgestützte Unternehmen",
+    "ERP Solutions for Private Equity Portfolio Companies": "Private Equity und finanzierungsgestützte Unternehmen",
     "Private Equity (PE) firms and funding-backed ventures operate in fast-moving, margin-focused environments where value creation depends on operational discipline, rapid transformation, and scalable governance. Whether navigating carve-outs, integrations, platform roll-ups, or pre-exit optimisations, portfolio companies must modernise operational models, improve data visibility, and de-risk execution to meet growth targets and return expectations.": "Private-Equity-Gesellschaften und finanzierungsgetriebene Ventures bewegen sich in dynamischen, margenorientierten Umfeldern, in denen Wertschöpfung von operativer Disziplin, schneller Transformation und skalierbarer Governance abhängt. Ob bei Carve-outs, Integrationen, Plattform-Roll-ups oder Pre-Exit-Optimierungen – Portfoliounternehmen müssen ihre Betriebsmodelle modernisieren, Daten- und Transparenzstandards verbessern und die Umsetzung absichern, um Wachstumsziele und Renditeerwartungen zu erfüllen.",
 
     "Challenges in PE and Fund-Backed Portfolios": "Die Herausforderungen bei PE- und fondsgestützten Portfolios",
-    "Inconsistent operational maturity across portfolio companies acquired from diverse backgrounds": "Unterschiedliche Reifegrade der Portfoliounternehmen durch heterogene Herkunft",
+    "Uneven operational maturity across portfolio companies acquired from different markets, systems, and operating environments.": "Unterschiedliche Reifegrade der Portfoliounternehmen durch heterogene Herkunft",
     "Fragmented systems, siloed data, and limited operational transparency restricting performance oversight": "Fragmentierte Systeme, isolierte Daten und begrenzte Transparenz erschweren die Performance-Steuerung",
-    "Slow, high-cost transformation programmes delaying value capture and exit-readiness": "Langsame, kostenintensive Transformationsprogramme verzögern Wertschöpfung und Exit-Readiness",
-    "Unstructured reporting and KPI tracking hindering real-time operational and financial control": "Unstrukturierte Berichterstattung und KPI-Tracking behindern die operative und finanzielle Steuerung in Echtzeit",
-    "Limited scalability in operational models restricting integration of bolt-ons, carve-outs, and acquisitions": "Eingeschränkte Skalierbarkeit operativer Modelle erschwert Integration von Zukäufen, Carve-outs und Akquisitionen",
+    "Slow transformation programmes delay value capture, operational improvements, and exit readiness.": "Langsame, kostenintensive Transformationsprogramme verzögern Wertschöpfung und Exit-Readiness",
+    "Inconsistent KPIs and reporting limit timely visibility into financial and operational performance across the portfolio.": "Unstrukturierte Berichterstattung und KPI-Tracking behindern die operative und finanzielle Steuerung in Echtzeit",
+    "Rigid operating models make it harder to integrate bolt-ons, acquisitions, and newly consolidated businesses at scale.": "Eingeschränkte Skalierbarkeit operativer Modelle erschwert Integration von Zukäufen, Carve-outs und Akquisitionen",
     "High-risk integrations and carve-out transitions with potential value leakage during deal execution": "Risikoreiche Integrationen und Carve-out-Übergänge mit potenziellem Wertverlust bei Deal-Umsetzung",
     "Disconnected financial, commercial, and operational reporting frameworks weakening governance": "Unverbundene Finanz-, Vertriebs- und Operations-Reportingstrukturen schwächen die Governance",
 
     "Why It Matters": "Warum es wichtig ist, die Herausforderungen zu meistern",
-    "Delayed operational improvements slow down EBITDA uplift and exit-readiness": "Verzögerte operative Verbesserungen bremsen EBITDA-Steigerung und Exit-Readiness",
-    "Inconsistent reporting limits the ability to monitor and manage portfolio performance proactively": "Uneinheitliches Reporting erschwert proaktive Steuerung und Kontrolle der Portfolio-Performance",
+    "Delayed operational improvements slow EBITDA growth and reduce exit readiness.": "Verzögerte operative Verbesserungen bremsen EBITDA-Steigerung und Exit-Readiness",
+    "Inconsistent reporting limits proactive oversight of portfolio performance and value creation.": "Uneinheitliches Reporting erschwert proaktive Steuerung und Kontrolle der Portfolio-Performance",
     "Inefficient, disjointed systems increase operational costs, delivery risks, and integration complexity": "Ineffiziente, isolierte Systeme erhöhen Kosten, Lieferrisiken und Integrationskomplexität",
-    "Lack of scalable, repeatable transformation models reduces the speed and success of post-acquisition value creation": "Fehlende skalierbare, wiederholbare Transformationsmodelle verlangsamen Wertschöpfung nach Akquisitionen",
+    "Non-repeatable transformation models slow post-acquisition value capture across the portfolio.": "Fehlende skalierbare, wiederholbare Transformationsmodelle verlangsamen Wertschöpfung nach Akquisitionen",
     "Poor risk visibility during integrations and transitions leads to financial leakage and reputational risk": "Geringe Risikotransparenz bei Integrationen und Übergängen führt zu finanziellen Verlusten und Reputationsrisiken",
 
     "How We Help": "Unser Lösungsansatz",
-    "Rapidly assess operational, financial, and digital maturity across portfolio companies": "Schnelle Bewertung von operativer, finanzieller und digitaler Reife über alle Portfoliounternehmen hinweg",
-    "Deploy integrated data platforms and operational dashboards for consolidated, real-time performance oversight": "Einführung integrierter Datenplattformen und Dashboards für konsolidierte Performance-Steuerung in Echtzeit",
+    "Rapidly assess operational, financial, technology, and digital maturity across portfolio companies": "Schnelle Bewertung von operativer, finanzieller und digitaler Reife über alle Portfoliounternehmen hinweg",
+    "Connect data sources and build dashboards that give investment and operating teams a consolidated view of performance.": "Einführung integrierter Datenplattformen und Dashboards für konsolidierte Performance-Steuerung in Echtzeit",
     "Implement repeatable transformation playbooks for platform integrations, carve-outs, and roll-ups": "Einsatz wiederholbarer Transformations-Playbooks für Plattform-Integrationen, Carve-outs und Roll-ups",
     "Build standard operating models (SOM) to align procurement, supply chain, finance, and operational governance": "Aufbau standardisierter Operating Models (SOM) zur Harmonisierung von Einkauf, Supply Chain, Finanzen und Governance",
-    "Support deal execution with carve-out, integration, and post-acquisition operational readiness frameworks": "Unterstützung bei Deal Execution durch Frameworks für Carve-outs, Integrationen und Post-Akquisitions-Readiness",
-    "Integrate risk management, compliance, and ESG reporting into operational oversight structures": "Integration von Risikomanagement, Compliance und ESG-Reporting in Steuerungsstrukturen",
+    "Support carve-outs, integrations, and post-acquisition transitions with structured operational readiness frameworks and execution planning.": "Unterstützung bei Deal Execution durch Frameworks für Carve-outs, Integrationen und Post-Akquisitions-Readiness",
+    "Integrate risk controls, compliance requirements, and ESG reporting into portfolio governance and performance management.": "Integration von Risikomanagement, Compliance und ESG-Reporting in Steuerungsstrukturen",
     "Deliver scalable, offshore-enabled operational modernisation programmes for multi-country, multi-sector portfolios": "Umsetzung skalierbarer, offshore-fähiger Modernisierungsprogramme für internationale Multi-Sektor-Portfolios",
 
     "Tangible Outcomes": "Konkrete Ergebnisse",
     "Faster operational stabilisation post-deal through standardised, scalable governance models": "Schnellere operative Stabilisierung nach Deals durch standardisierte, skalierbare Governance-Modelle",
     "Improved portfolio performance tracking and risk oversight via integrated reporting frameworks": "Verbesserte Portfolio-Steuerung und Risikotransparenz durch integrierte Reporting-Frameworks",
-    "Accelerated EBITDA improvement through operational streamlining, cost control, and data-driven decision-making": "Beschleunigte EBITDA-Steigerung durch Prozessoptimierung, Kostenkontrolle und datenbasierte Entscheidungen",
+    "Faster EBITDA improvement through cost control, process optimisation, and data-led operational decisions.": "Beschleunigte EBITDA-Steigerung durch Prozessoptimierung, Kostenkontrolle und datenbasierte Entscheidungen",
     "Reduced integration risk and value leakage during carve-outs, platform mergers, and add-on acquisitions": "Reduziertes Integrationsrisiko und geringerer Wertverlust bei Carve-outs, Plattform-Mergers und Add-on-Akquisitionen",
     "Increased exit-readiness with auditable, scalable operational processes and governance structures": "Höhere Exit-Readiness dank prüfbarer, skalierbarer Prozesse und Governance-Strukturen",
     "Lower operational overhead and higher ROI through cost-effective, offshore-supported transformation delivery": "Geringere Betriebskosten und höherer ROI durch kosteneffiziente, offshore-gestützte Transformationsprogramme",
 
     "Why Choose Us": "Warum wir?",
-    "Deep experience in operational transformation and performance improvement for PE and fund-backed ventures": "Umfassende Erfahrung in operativer Transformation und Performance-Steigerung für PE- und fondsfinanzierte Beteiligungen",
+    "PE and portfolio transformation expertise spanning operational improvement, performance management, integrations, and post-acquisition stabilisation.": "Umfassende Erfahrung in operativer Transformation und Performance-Steigerung für PE- und fondsfinanzierte Beteiligungen",
     "Proven track record in integration, carve-out, and post-acquisition operational stabilisation projects": "Nachweisbare Erfolgsbilanz bei Integrationen, Carve-outs und Post-Akquisitions-Stabilisierungen",
     "Focused on delivering measurable EBITDA impact, operational resilience, and exit-readiness": "Klare Fokussierung auf messbaren EBITDA-Impact, operative Resilienz und Exit-Readiness",
     "Offshore-enabled delivery capability ensuring scalable, high-quality, cost-efficient execution across multi-sector, multi-region portfolios": "Offshore-gestützte Delivery-Modelle für skalierbare, qualitativ hochwertige und kosteneffiziente Umsetzung über Sektoren und Regionen hinweg",
@@ -7811,8 +7811,8 @@
     "Which data protection rights do you have?": "Welche Datenschutzrechte haben Sie?",
     "16 DSGVO, the right to cancellation under Art. 17 GDPR...": "Art. 16 DSGVO, das Recht auf Löschung gemäß Art. 17 DSGVO...",
     "If you have any questions about how we should handle your information...": "Wenn Sie Fragen dazu haben, wie wir mit Ihren Daten umgehen...",
-    "Ready to accelerate value creation across your portfolio?": "Sind Sie bereit, die Wertschöpfung in Ihrem gesamten Portfolio zu beschleunigen?",
-    "Contact us today to learn how we can help modernise operations, de-risk integrations, and improve commercial outcomes.": "Kontaktieren Sie uns noch heute, um zu erfahren, wie wir Ihnen helfen können, Abläufe zu modernisieren, Integrationsrisiken zu minimieren und geschäftliche Ergebnisse zu verbessern.",
+    "Accelerate Value Creation Across Your Portfolio": "Sind Sie bereit, die Wertschöpfung in Ihrem gesamten Portfolio zu beschleunigen?",
+    "Modernise portfolio operations, de-risk integrations, strengthen governance, and unlock measurable performance improvements with scalable transformation built around your investment objectives.": "Kontaktieren Sie uns noch heute, um zu erfahren, wie wir Ihnen helfen können, Abläufe zu modernisieren, Integrationsrisiken zu minimieren und geschäftliche Ergebnisse zu verbessern.",
     "Contact us": "Kontaktieren Sie uns",
 
 

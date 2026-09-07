@@ -21,10 +21,10 @@ export default function EnterpriseSolutions() {
         <div className="col-lg-5">
           <div className="pe-main-hadding-waber">
             <h2 className="main-hadding-1 text-white" data-cursor="-opaque">
-              {t("Process Manufacturing")}
+              {t("Process Manufacturing Solutions")}
             </h2>
             <p>
-              {t("Process manufacturing industries, including food, pharma, chemicals, oil, personal care, paints, plastics, and rubber, operate in highly regulated, complex, and cost-sensitive environments. Success demands operational agility, end-to-end traceability, and the ability to respond rapidly to shifting market, regulatory, and sustainability pressures.")}
+              {t("Process manufacturing solutions for food, pharma, chemicals, oil and gas, personal care, paints, plastics, and rubber manufacturers. Connect production planning, formulation management, quality, inventory, traceability, regulatory compliance, and cost control to manage complex manufacturing operations with greater visibility and operational control.")}
             </p>
             <div className="ser-btn m-0">
               <Link href="/contact-us" className="animated-svg-link">
@@ -154,19 +154,19 @@ export default function EnterpriseSolutions() {
               <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Increasing complexity across multi-step formulations, stringent regulations, and volatile input costs")}
+                {t("Increasing complexity across multi-stage formulations, variable recipes, production processes, and volatile raw material costs.")}
               </p>
             </div>
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Transformation initiatives often too slow, theoretical, or cost-prohibitive")}
+                {t("Digital transformation initiatives are lengthy, expensive, and disconnected from the operational realities.")}
               </p>
             </div>
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Operational silos between R&D, production, quality, compliance, and logistics")}
+                {t("Operational silos between R&D, formulation, production, quality, procurement, compliance, inventory, and logistics.")}
               </p>
             </div>
             </div>
@@ -174,13 +174,13 @@ export default function EnterpriseSolutions() {
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Rising ESG, traceability, and sustainability mandates, particularly in chemicals and oil sectors")}
+                {t("Rising regulatory, ESG, sustainability, and end-to-end traceability requirements across Industrial manufacturing sectors.")}
               </p>
             </div>
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Limited real-time visibility into batch performance, yield, and cost-to-serve metrics")}
+                {t("Limited real-time visibility into batch performance, production yield, material consumption, quality, and cost-to-serve.")}
               </p>
             </div>
             </div>
@@ -204,27 +204,27 @@ export default function EnterpriseSolutions() {
 
     <div className="pe-matters-content-waber">
       <div className="pe-matters-content">
-        <img src="/new/g501.svg" alt="" />
+        <img src="/new/g501.svg" alt="Production launch delays in process manufacturing icon" />
         <p>
-          {t("Delayed time-to-market affects profitability")}
+          {t("Delays in formulation, production, quality approval, and scale-up can push products to market delay")}
         </p>
       </div>
       <div className="pe-matters-content">
-        <img src="/new/ad2.svg" alt="" />
+        <img src="/new/ad2.svg" alt="Compliance failure in process manufacturing icon" />
         <p>
-          {t("Compliance breaches risk costly recalls and potential lawsuits, especially in pharma, food, and oil processing")}
+          {t("Compliance failures can lead to product recalls, regulatory penalties, litigation, and reputational damage and potential lawsuits")}
         </p>
       </div>
       <div className="pe-matters-content">
-        <img src="/new/ad3.svg" alt="" />
+        <img src="/new/ad3.svg" alt="Margin erosion risks icon" />
         <p>
-          {t("Inefficient operations squeeze margins that are already low in this sector")}
+          {t("Material waste, production inefficiencies, yield losses, and rising input costs add further pressure")}
         </p>
       </div>
       <div className="pe-matters-content">
-        <img src="/new/ad4.svg" alt="" />
+        <img src="/new/ad4.svg" alt="Poor data leveraging in process manufacturing icon" />
         <p>
-          {t("Failure to leverage data for agile decision-making weakens competitiveness across regulated markets")}
+          {t("Poor cost visibility delays manufacturers' decision-making to respond to demand shifts, quality issues and supply disruptions")}
         </p>
       </div>
     </div>
@@ -239,37 +239,37 @@ export default function EnterpriseSolutions() {
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Deploy agile, data-driven operating models")}
+            {t("Deploy agile, data-driven manufacturing solutions that connect production, quality, inventory, procurement, and supply chain operations.")}
           </p>
         </div>
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Implement ESG-aligned traceability and compliance reporting")}
+            {t("Establish consistent controls, audit trails, and reporting to meet evolving regulatory and ESG requirements.")}
           </p>
         </div>
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Digitize QA/QC processes, batch tracking, and formula control for improved traceability and regulatory compliance")}
+            {t("Digitise formula management, batch tracking, QA/QC, and production records to maintain consistency from development to manufacturing.")}
           </p>
         </div>
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Use intelligent data structures and automation to optimize yield, waste reduction, and cost control without global consultancy overhead")}
+            {t("Turn production data into actionable insights to optimize yield & identify losses, reduce material waste, and improve cost efficiency.")}
           </p>
         </div>
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Integrate MES and ERP systems to enable seamless production planning, inventory control, and shop-floor monitoring")}
+            {t("Link business planning like MES and ERP with shop-floor execution for better production scheduling, inventory visibility and control.")}
           </p>
         </div>
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Build scalable, offshore-led digital infrastructure for operational consistency and rapid ROI")}
+            {t("Build practical digital infrastructure for standardisation, growth, and faster returns, without large-scale consulting costs.")}
           </p>
         </div>
       </div>
@@ -291,25 +291,37 @@ export default function EnterpriseSolutions() {
                 <div className="bf-content">
                   <img src="/new/lp.svg" alt="" />
                   <p>
-                    {t("Faster product development cycles and reduced time-to-market")}
+                    {t("Higher production reliability with better planning, scheduling, and capacity utilisation")}
                   </p>
                 </div>
                 <div className="bf-content">
                   <img src="/new/lp.svg" alt="" />
                   <p>
-                    {t("Improved yield, cost control, and reduced waste through real-time analytics")}
+                    {t("Improved inventory accuracy and material availability with optimised stock levels")}
                   </p>
                 </div>
                 <div className="bf-content">
                   <img src="/new/lp.svg" alt="" />
                   <p>
-                    {t("End-to-end regulatory compliance and automated traceability")}
+                    {t("Consistent product quality through integrated quality control and batch management")}
                   </p>
                 </div>
                 <div className="bf-content">
                   <img src="/new/lp.svg" alt="" />
                   <p>
-                    {t("Scalable digital operating models delivering measurable, sustainable ROI")}
+                    {t("Better demand, supply, and production visibility for faster, data-driven decision-making")}
+                  </p>
+                </div>
+                <div className="bf-content">
+                  <img src="/new/lp.svg" alt="" />
+                  <p>
+                    {t("Reduced downtime and production disruptions through proactive maintenance and real-time operational visibility")}
+                  </p>
+                </div>
+                <div className="bf-content">
+                  <img src="/new/lp.svg" alt="" />
+                  <p>
+                    {t("Improved collaboration across procurement, production, quality, inventory, and distribution with connected workflows")}
                   </p>
                 </div>
               </div>
@@ -373,7 +385,7 @@ export default function EnterpriseSolutions() {
                 <div className="bf-content">
                   <img src="/new/lp.svg" alt="" />
                   <p>
-                    {t("Commercially focused on operational outcomes, not endless diagnostics")}
+                    {t("Outcome-led implementation focused on solving operational problems rather than extending the diagnostic phase")}
                   </p>
                 </div>
                 <div className="bf-content">
@@ -391,7 +403,192 @@ export default function EnterpriseSolutions() {
     </div>
   </div>
 
+
   <TestimonialandAward />
+  
+        {/* Page Faqs Start */}
+        <div className="page-faqs bggray pd60">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-2" />
+              <div className="col-lg-8">
+                {/* Page FAQs Category Start */}
+                <div className="page-faqs-catagery">
+                  {/* FAQs section start */}
+                  <div
+                    className="our-faq-section page-faq-accordion"
+                    id="general_information"
+                  >
+                    <div className="section-title text-center">
+                      <h2 className="text-anime-style-2" data-cursor="-opaque">
+                        {t("Wondering Why? We’re Here to Answer")}
+                      </h2>
+                    </div>
+                    {/* FAQ Accordion Start */}
+                    <div className="faq-accordion" id="accordion">
+                      {/* FAQ Item Start */}
+                      <div className="accordion-item wow fadeInUp">
+                        <h2 className="accordion-header" id="heading1">
+                          <button
+                            className="accordion-button collapsein"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse1"
+                            aria-expanded="true"
+                            aria-controls="collapse1"
+                          >
+                            {t("What specific challenges does a Process Manufacturing ERP address?")}
+                          </button>
+                        </h2>
+                        <div
+                          id="collapse1"
+                          className="accordion-collapse collapse show"
+                          aria-labelledby="heading1"
+                          data-bs-parent="#accordion"
+                        >
+                          <div className="accordion-body">
+                            <p>
+                              {t("Integrated ERP systems manage the core challenges: Batch Production, precise Recipe/Formula Control, complex Compliance, and continuous Cost Optimization to drive profitability.")}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      {/* FAQ Item End */}
+                      {/* FAQ Item Start */}
+                      <div
+                        className="accordion-item wow fadeInUp"
+                        data-wow-delay="0.2s"
+                      >
+                        <h2 className="accordion-header" id="heading2">
+                          <button
+                            className="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse2"
+                            aria-expanded="false"
+                            aria-controls="collapse2"
+                          >
+                            {t("Which ERP systems are recommended for Process Industries?")}
+                          </button>
+                        </h2>
+                        <div
+                          id="collapse2"
+                          className="accordion-collapse collapse "
+                          aria-labelledby="heading2"
+                          data-bs-parent="#accordion"
+                        >
+                          <div className="accordion-body">
+                            <p>
+                              {t("Both Epicor ERP and SAP are top choices, as they offer robust, specialized modules designed specifically for advanced process manufacturing.")}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      {/* FAQ Item End */}
+                      {/* FAQ Item Start */}
+                      <div
+                        className="accordion-item wow fadeInUp"
+                        data-wow-delay="0.4s"
+                      >
+                        <h2 className="accordion-header" id="heading3">
+                          <button
+                            className="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse3"
+                            aria-expanded="false"
+                            aria-controls="collapse3"
+                          >
+                            {t("Is Quality Management and Traceability fully supported?")}
+                          </button>
+                        </h2>
+                        <div
+                          id="collapse3"
+                          className="accordion-collapse collapse"
+                          aria-labelledby="heading3"
+                          data-bs-parent="#accordion"
+                        >
+                          <div className="accordion-body">
+                            <p>
+                              {t("Absolutely. Key features include full Lot Traceability (bidirectional, from raw material to finished good), comprehensive Quality Tracking, and automated Compliance Reporting for regulatory needs.")}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      {/* FAQ Item End */}
+                      {/* FAQ Item Start */}
+                      <div
+                        className="accordion-item wow fadeInUp"
+                        data-wow-delay="0.6s"
+                      >
+                        <h2 className="accordion-header" id="heading4">
+                          <button
+                            className="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse4"
+                            aria-expanded="false"
+                            aria-controls="collapse4"
+                          >
+                            {t("How is process efficiency and performance enhanced?")}
+                          </button>
+                        </h2>
+                        <div
+                          id="collapse4"
+                          className="accordion-collapse collapse"
+                          aria-labelledby="heading4"
+                          data-bs-parent="#accordion"
+                        >
+                          <div className="accordion-body">
+                            <p>
+                              {t("Efficiency is boosted through Automation, Real-Time Monitoring (MES/IoT), and AI-enabled Analytics that actively reduce material waste, minimize rework, and slash costly downtime.")}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      {/* FAQ Item End */}
+                      {/* FAQ Item Start */}
+                      <div
+                        className="accordion-item wow fadeInUp"
+                        data-wow-delay="0.8s"
+                      >
+                        <h2 className="accordion-header" id="heading5">
+                          <button
+                            className="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse5"
+                            aria-expanded="false"
+                            aria-controls="collapse5"
+                          >
+                            {t("What is the difference between process manufacturing and discrete manufacturing?")}
+                          </button>
+                        </h2>
+                        <div
+                          id="collapse5"
+                          className="accordion-collapse collapse"
+                          aria-labelledby="heading5"
+                          data-bs-parent="#accordion"
+                        >
+                          <div className="accordion-body">
+                            <p>
+                              {t("Process manufacturing produces goods through formulas, recipes, or chemical processes, often in batches or continuous production. Examples include food, pharmaceuticals, chemicals, paints, plastics, and beverages. Discrete manufacturing produces distinct, countable products assembled from individual components, such as automobiles, machinery, and electronics. Process manufacturing typically prioritises formulation, batch control, yield, traceability, and regulatory compliance, while discrete manufacturing focuses on bills of materials, assembly, units, and production routing.")}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      {/* FAQ Item End */}
+                    </div>
+                    {/* FAQ Accordion End */}
+                  </div>
+                  {/* FAQs section End */}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Page Faq End */}
+
   {/* Footer Start */}
   <footer className="main-footer pd0">
     {/* Footer Main Start */}
@@ -401,10 +598,10 @@ export default function EnterpriseSolutions() {
           <div className="row">
             <div className="col-sm-8">
               <h2 data-cursor="-opaque">
-                  {t("Ready to future-proof your process manufacturing operations?")}
+                  {t("Ready to Transform Your Process Manufacturing Operations?")}
               </h2>
               <p>
-                {t("Contact us today to learn how we can help optimize your plant, processes, and profitability with data-driven, scalable solutions.")}
+                {t("Connect your processes, data, and systems to improve operational control, reduce inefficiencies, and support sustainable growth.")}
               </p>
             </div>
             <div className="col-sm-4">

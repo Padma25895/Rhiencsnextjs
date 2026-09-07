@@ -19,10 +19,10 @@ export default function EnterpriseSolutions() {
         <div className="col-lg-5">
           <div className="pe-main-hadding-waber">
             <h2 className="main-hadding-1 text-white" data-cursor="-opaque">
-              {t("Engineering, Procurement & Construction (EPC)")}
+              {t("ERP Solutions for EPC (Engineering, Procurement & Construction)")}
             </h2>
             <p>
-              {t("The EPC sector operates at the intersection of contract complexity, evolving project scopes, and relentless schedule and cost pressures. Large, capital-intensive projects demand rigorous operational control, integrated data visibility, and the agility to manage risks and changes in real time. As market volatility, compliance demands, and sustainability requirements grow, digital transformation has become essential for EPC firms to protect margins, improve governance, and enhance delivery performance.")}
+              {t("EPC solutions for engineering, procurement, and construction companies managing complex projects, demanding schedules, evolving scopes, and tight margins. Connect project management, engineering, procurement, contract management, project controls, cost management, and risk across the project lifecycle to improve visibility, strengthen governance, and keep EPC projects on schedule and within budget.")}
             </p>
             <div className="ser-btn m-0">
               <Link href="/contact-us" className="animated-svg-link">
@@ -157,37 +157,37 @@ export default function EnterpriseSolutions() {
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Fragmented subcontractor, vendor, and asset management processes increasing operational exposure")}
+                {t("Managing subcontractors, suppliers, vendors, equipment, and project assets across multiple locations")}
               </p>
             </div>
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Fragmented data across engineering, procurement, finance, site operations, and project management teams")}
+                {t("Engineering, procurement, finance, site operations, and project management teams often work across systems that do not share timely, reliable information.")}
               </p>
             </div>
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Slow, reactive risk management due to disconnected systems and delayed issue identification")}
+                {t("Delayed identification of risks, cost overruns, schedule delays, and site issues limits timely intervention.")}
               </p>
             </div>
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Limited real-time visibility into project status, budget, resource utilisation, and risks across multiple sites")}
+                {t("EPC firms lack a consolidated view of project progress, budgets, resource utilisation, procurement status, and risks across sites.")}
               </p>
             </div>
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Ineffective project cost tracking and revenue recognition weakening financial governance")}
+                {t("Inconsistent cost tracking, forecasting, revenue recognition, and billing make it harder to protect margins")}
               </p>
             </div>
             <div className="challenge-point-waber">
               <img src="/new/qs-2.svg" alt="" />
               <p>
-                {t("Manual, paper-driven workflows delaying approvals, change orders, procurement, and billing cycles")}
+                {t("Paper-based and disconnected workflows slow down approvals, procurement, change orders, timesheets, invoicing, and payment cycles.")}
               </p>
             </div>
           </div>
@@ -208,33 +208,33 @@ export default function EnterpriseSolutions() {
     <div className="container">
     <div className="pe-matters-content-waber">
       <div className="pe-matters-content">
-        <img src="/new/mat-1.svg" alt="" />
+        <img src="/new/mat-1.svg" alt="EPC budget and schedule risks icon" />
         <p>
           {t("Lack of integrated control leads to budget overruns, missed milestones, and margin leakage")}
         </p>
       </div>
       <div className="pe-matters-content">
-        <img src="/new/met-2.svg" alt="" />
+        <img src="/new/met-2.svg" alt="Delayed project approvals in EPC icon" />
         <p>
-          {t("Delayed approvals and disjointed workflows escalate project risk and operational delays")}
+          {t("Approval delays cause project disruption, slowing procurement, change orders, contractor payments, and critical site decisions increases risks.")}
         </p>
       </div>
       <div className="pe-matters-content">
-        <img src="/new/met-3.svg" alt="" />
+        <img src="/new/met-3.svg" alt="Poor risk visibility in EPC icon" />
         <p>
           {t("Inadequate risk visibility restricts proactive issue management and opportunity capture")}
         </p>
       </div>
       <div className="pe-matters-content">
-        <img src="/new/met-4.svg" alt="" />
+        <img src="/new/met-4.svg" alt="Material supply disruptions in EPC icon" />
         <p>
           {t("Inefficient asset, material, and subcontractor coordination increases downtime and delivery disruption")}
         </p>
       </div>
       <div className="pe-matters-content">
-        <img src="/new/met-5.svg" alt="" />
+        <img src="/new/met-5.svg" alt="EPC cash flow challenges icon" />
         <p>
-          {t("Weak project financial governance results in inaccurate revenue recognition, cash flow issues, and contract disputes")}
+          {t("Poor financial governance results in inaccurate revenue recognition and cash flow gaps to billing disputes and contractual claims.")}
         </p>
       </div>
     </div>
@@ -249,31 +249,31 @@ export default function EnterpriseSolutions() {
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Deploy centralised project control systems integrating cost, schedule, procurement, engineering, and site operations")}
+            {t("Connect cost, schedules, procurement, engineering, and site operations through a unified project control environment.")}
           </p>
         </div>
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Integrate asset, material, and site resource management for optimal utilisation and on-site efficiency")}
+            {t("Coordinate materials, equipment, assets, and site resources to improve utilisation and reduce operational downtime.")}
           </p>
         </div>
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Enable multi-level work breakdown structures (WBS) and real-time tracking of project cost, resource allocation, and milestone performance")}
+            {t("Track projects with multi-level WBS and monitor costs, resources, milestones, and progress in real time.")}
           </p>
         </div>
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Provide early warning risk indicators, project risk registers, and predictive analytics for proactive issue resolution")}
+            {t("Combine risk registers, early-warning indicators, and predictive analytics to identify issues before they affect project milestones.")}
           </p>
         </div>
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Automate contract change management, variation order processing, billing, and revenue recognition workflows")}
+            {t("Streamline contract change management, variation orders, billing, and revenue recognition to reduce delays and financial leakage.")}
           </p>
         </div>
         <div className="pe-help-content">
@@ -291,7 +291,7 @@ export default function EnterpriseSolutions() {
         <div className="pe-help-content">
           <img src="/new/Headset.svg" alt="" />
           <p>
-            {t("Deliver scalable, offshore-enabled digital transformation programmes for multi-project, multi-country operations")}
+            {t("Build flexible digital capabilities that support multi-project, multi-country EPC operations without unnecessary complexity.")}
           </p>
         </div>
       </div>
@@ -359,7 +359,7 @@ export default function EnterpriseSolutions() {
                 <div className="bf-content">
                   <img src="/new/lp.svg" alt="" />
                   <p>
-                    {t("Deep expertise in operational transformation for EPC and capital project delivery businesses")}
+                    {t("EPC and capital project expertise grounded in the operational, commercial, and delivery challenges of complex engineering and construction projects.")}
                   </p>
                 </div>
                 <div className="bf-content">
@@ -392,6 +392,220 @@ export default function EnterpriseSolutions() {
   </div>
 
   <TestimonialandAward />
+
+  
+        {/* Page Faqs Start */}
+<div className="page-faqs bggray pd60">
+  <div className="container">
+    <div className="row">
+      <div className="col-sm-2" />
+      <div className="col-lg-8">
+        {/* Page FAQs Category Start */}
+        <div className="page-faqs-catagery">
+
+          {/* FAQs section start */}
+          <div
+            className="our-faq-section page-faq-accordion"
+            id="general_information"
+          >
+            <div className="section-title text-center">
+              <h2 className="text-anime-style-2" data-cursor="-opaque">
+                {t("Frequently Asked Questions")}
+              </h2>
+            </div>
+
+            {/* FAQ Accordion Start */}
+            <div className="faq-accordion" id="accordion">
+
+              {/* FAQ 1 */}
+              <div className="accordion-item wow fadeInUp">
+                <h2 className="accordion-header" id="heading1">
+                  <button
+                    className="accordion-button collapsein"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse1"
+                    aria-expanded="true"
+                    aria-controls="collapse1"
+                  >
+                    {t("What is EPC?")}
+                  </button>
+                </h2>
+
+                <div
+                  id="collapse1"
+                  className="accordion-collapse collapse show"
+                  aria-labelledby="heading1"
+                  data-bs-parent="#accordion"
+                >
+                  <div className="accordion-body">
+                    <p>
+                      {t(
+                        "EPC stands for Engineering, Procurement and Construction. It is a project delivery model where a single contractor manages the engineering and design, procurement of materials and equipment, construction, commissioning, and handover of a project against agreed cost, schedule, and performance requirements."
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ 2 */}
+              <div
+                className="accordion-item wow fadeInUp"
+                data-wow-delay="0.2s"
+              >
+                <h2 className="accordion-header" id="heading2">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse2"
+                    aria-expanded="false"
+                    aria-controls="collapse2"
+                  >
+                    {t(
+                      "How does RheinBrücke support EPC companies with digital transformation?"
+                    )}
+                  </button>
+                </h2>
+
+                <div
+                  id="collapse2"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="heading2"
+                  data-bs-parent="#accordion"
+                >
+                  <div className="accordion-body">
+                    <p>
+                      {t(
+                        "We implement Enterprise Resource Planning (ERP) systems that unify core EPC processes: project management, sophisticated procurement, real-time cost control, and financial billing. This integration drives process efficiency for complex construction projects and infrastructure development."
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ 3 */}
+              <div
+                className="accordion-item wow fadeInUp"
+                data-wow-delay="0.4s"
+              >
+                <h2 className="accordion-header" id="heading3">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse3"
+                    aria-expanded="false"
+                    aria-controls="collapse3"
+                  >
+                    {t(
+                      "Which industry-leading ERP platforms are customized for EPC project management?"
+                    )}
+                  </button>
+                </h2>
+
+                <div
+                  id="collapse3"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="heading3"
+                  data-bs-parent="#accordion"
+                >
+                  <div className="accordion-body">
+                    <p>
+                      {t(
+                        "We strategically deploy and customize Epicor Kinetic and SAP S/4HANA solutions. These are enhanced with project-based modules, including Work Breakdown Structure (WBS) management, to provide robust, real-time reporting and granular control over project financials."
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ 4 */}
+              <div
+                className="accordion-item wow fadeInUp"
+                data-wow-delay="0.6s"
+              >
+                <h2 className="accordion-header" id="heading4">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse4"
+                    aria-expanded="false"
+                    aria-controls="collapse4"
+                  >
+                    {t(
+                      "Can these ERP solutions handle complex, multi-location EPC projects?"
+                    )}
+                  </button>
+                </h2>
+
+                <div
+                  id="collapse4"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="heading4"
+                  data-bs-parent="#accordion"
+                >
+                  <div className="accordion-body">
+                    <p>
+                      {t(
+                        "Absolutely. Our solutions provide centralized project control and financial governance for multi-site and international projects. They deliver precise site-level visibility into resource utilization, equipment tracking, and budget adherence across all project locations."
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* FAQ 5 */}
+              <div
+                className="accordion-item wow fadeInUp"
+                data-wow-delay="0.8s"
+              >
+                <h2 className="accordion-header" id="heading5">
+                  <button
+                    className="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse5"
+                    aria-expanded="false"
+                    aria-controls="collapse5"
+                  >
+                    {t(
+                      "What measurable business results can EPC firms expect from these ERP solutions?"
+                    )}
+                  </button>
+                </h2>
+
+                <div
+                  id="collapse5"
+                  className="accordion-collapse collapse"
+                  aria-labelledby="heading5"
+                  data-bs-parent="#accordion"
+                >
+                  <div className="accordion-body">
+                    <p>
+                      {t(
+                        "EPC clients gain three critical outcomes: Improved Project Profitability via early cost overrun detection; Optimized Material Utilization through better inventory and logistics management; and Enhanced Stakeholder Transparency via real-time financial and progress dashboards."
+                      )}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            {/* FAQ Accordion End */}
+          </div>
+          {/* FAQs section End */}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        {/* Page Faq End */}
+
+
   {/* Footer Start */}
   <footer className="main-footer pd0">
     {/* Footer Main Start */}
@@ -401,10 +615,10 @@ export default function EnterpriseSolutions() {
           <div className="row">
             <div className="col-sm-8">
               <h2 data-cursor="-opaque">
-                {t("Ready to modernise your EPC project delivery and enhance profitability?")}
+                {t("Strengthen EPC Project Delivery")}
               </h2>
               <p>
-                {t("Discover how RheinBrücke can help you optimise core systems, automate processes, and build future-ready platforms.")}
+                {t("Improve project visibility, control costs, streamline execution, enhance site-level profitability and protect margins with connected systems and digital processes built around the realities of EPC operations.")}
               </p>
             </div>
             <div className="col-sm-4">

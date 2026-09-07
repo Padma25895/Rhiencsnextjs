@@ -4878,7 +4878,9 @@ body:has(.offcanvas) {
   .team-single-content h2 {
     font-size: 30px
   }
-
+.indexbanner .section-title{
+  margin-bottom: 0px !important;
+}
   .hero-content {
     text-align: left;
     padding-top: 0
@@ -7567,7 +7569,7 @@ body:has(.offcanvas) {
 
   .learn-more-circle span {
     position: absolute;
-    top: 24px;
+    top: 51px;
     left: 24px;
     text-align: center;
     color: #1e8a8a;
@@ -16655,7 +16657,7 @@ screen and (max-height:300px) {
 }
 
 .benifithght {
-  min-height: 385px
+  min-height: 430px;
 }
 
 .benifet-content-2 .text-center img,

@@ -19,6 +19,16 @@ interface FormField {
   options?: string[];
 }
 
+interface EbookSpeaker {
+  label: string;
+  name: string;
+  role: string;
+  avatar_url: string;
+  avatar_svg: string;
+  bio: string;
+  linkedin_url: string;
+}
+
 interface EbookLandingData {
   id: string;
   slug: string;
@@ -43,6 +53,7 @@ interface EbookLandingData {
   author_bio: string | null;
   author_avatar_url: string | null;
   author_avatar_svg: string | null;
+  speakers?: EbookSpeaker[] | null;
   footer_color: string | null;
   pdf_url: string | null;
 }
@@ -131,6 +142,7 @@ export default function EbookLandingClient({ initialData, slug: propSlug }: { in
     author_bio: null,
     author_avatar_url: null,
     author_avatar_svg: null,
+    speakers: null,
     footer_color: "#3aaee0",
     pdf_url: null,
   };
@@ -196,6 +208,16 @@ export default function EbookLandingClient({ initialData, slug: propSlug }: { in
           return value;
         };
         
+        const resolvedSpeakers = (Array.isArray(data.speakers) ? data.speakers : []).map((s: any) => ({
+          label: s?.label ?? '',
+          name: emptyToNull(s?.name) ?? '',
+          role: emptyToNull(s?.role) ?? '',
+          avatar_url: resolveImageUrl(s?.avatar_url),
+          avatar_svg: emptyToNull(s?.avatar_svg) ?? '',
+          bio: emptyToNull(s?.bio) ?? '',
+          linkedin_url: emptyToNull(s?.linkedin_url) ?? '',
+        }));
+
         const resolvedData: EbookLandingData = {
           ...data,
           logo_image_url: resolveImageUrl(data.logo_image_url),
@@ -206,6 +228,7 @@ export default function EbookLandingClient({ initialData, slug: propSlug }: { in
           author_bio: emptyToNull(data.author_bio),
           author_avatar_url: resolveImageUrl(data.author_avatar_url),
           author_avatar_svg: emptyToNull(data.author_avatar_svg),
+          speakers: resolvedSpeakers.length > 0 ? resolvedSpeakers : null,
           form_fields: data.form_fields || [],
         };
         setPageData(resolvedData);
@@ -604,69 +627,215 @@ Object.keys(formData).forEach(key => {
 
 
         {(() => {
-          // Debug: log author fields
-          console.log("Author fields debug (client):", {
-            author_heading: data.author_heading,
-            author_name: data.author_name,
-            author_role: data.author_role,
-            author_bio: data.author_bio,
-            author_avatar_url: data.author_avatar_url,
-            author_avatar_svg: data.author_avatar_svg,
-            pageData: pageData,
-            initialData: initialData
-          });
+          const speakersList: EbookSpeaker[] = [];
 
-          // Check if any author field has actual content (not just empty HTML)
-          const hasAuthorInfo =
-            hasContent(data.author_heading) ||
-            hasContent(data.author_name) ||
-            hasContent(data.author_role) ||
-            hasContent(data.author_bio) ||
-            hasContent(data.author_avatar_url) ||
-            hasContent(data.author_avatar_svg);
-
-          console.log("hasAuthorInfo (client):", hasAuthorInfo);
-
-          if (hasAuthorInfo) {
-                return (
-                  <section style={{ background: "#2d3e50", color: "#fff", padding: "50px 20px", textAlign: "center" }}>
-                    {hasContent(data.author_heading) && (
-                      <h2
-                        dangerouslySetInnerHTML={{
-                          __html: String(data.author_heading ?? ""),
-                        }}
-                      />
-                    )}
-                    {hasContent(data.author_avatar_url) && (
-                      <img
-                        src={typeof data.author_avatar_url === "string" ? data.author_avatar_url : undefined}
-                        alt="Author"
-                        style={{
-                          width: "100px",
-                          height: "100px",
-                          borderRadius: "50%",
-                          marginTop: "20px",
-                          objectFit: "cover",
-                        }}
-                      />
-                    )}
-                    {hasContent(data.author_name) && (
-                      <h3 style={{ marginTop: "20px" }}>{data.author_name}</h3>
-                    )}
-                    {hasContent(data.author_role) && <p>{data.author_role}</p>}
-                    {hasContent(data.author_bio) && (
-                      <div
-                        className="lp-rich-text"
-                        style={{ maxWidth: "700px", margin: "20px auto 0" }}
-                        dangerouslySetInnerHTML={{
-                          __html: normalizeRichHtml(data.author_bio),
-                        }}
-                      />
-                    )}
-                  </section>
-            );
+          if (Array.isArray(data.speakers) && data.speakers.length > 0) {
+            data.speakers.forEach(s => {
+              if (s && (s.name || s.avatar_url || s.avatar_svg || s.role)) {
+                speakersList.push(s);
+              }
+            });
           }
-          return null;
+
+          if (speakersList.length === 0) {
+            if (hasContent(data.author_name) || hasContent(data.author_avatar_url) || hasContent(data.author_avatar_svg) || hasContent(data.author_role)) {
+              speakersList.push({
+                label: 'Author',
+                name: data.author_name || '',
+                role: data.author_role || '',
+                avatar_url: data.author_avatar_url || '',
+                avatar_svg: data.author_avatar_svg || '',
+                bio: data.author_bio || '',
+                linkedin_url: '',
+              });
+            }
+          }
+
+          const showHeading = hasContent(data.author_heading) && speakersList.length > 0;
+          const showSection = speakersList.length > 0 || showHeading;
+
+          if (!showSection) return null;
+
+          return (
+            <section
+              style={{
+                background: "#f5f5f5",
+                padding: "50px 20px",
+                borderTop: "4px solid #082326",
+                borderBottom: "4px solid #082326",
+              }}
+            >
+              <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+                {showHeading && (
+                  <h2
+                    style={{ textAlign: "center", marginBottom: "30px", color: "#000" }}
+                    dangerouslySetInnerHTML={{
+                      __html: String(data.author_heading ?? ""),
+                    }}
+                  />
+                )}
+
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: `repeat(2, minmax(0, 1fr))`,
+                    gap: "40px",
+                    width: "100%",
+                  }}
+                  className="lp-speakers-grid"
+                >
+                  {speakersList.map((speaker, idx) => {
+                    const nameShown = speaker.name || "";
+                    const roleShown = speaker.role || "";
+                    const avatarUrl = speaker.avatar_svg
+                      ? ""
+                      : typeof speaker.avatar_url === "string" && speaker.avatar_url
+                      ? speaker.avatar_url
+                      : "";
+
+                    return (
+                      <div
+                        key={idx}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          textAlign: "center",
+                        }}
+                      >
+                        {speaker.label && (
+                          <h2
+                            style={{
+                              fontSize: "clamp(28px, 4vw, 44px)",
+                              fontWeight: 700,
+                              color: "#666",
+                              margin: "0 0 20px 0",
+                              letterSpacing: "0.5px",
+                            }}
+                          >
+                            {speaker.label}
+                          </h2>
+                        )}
+
+                        <div
+                          style={{
+                            width: "180px",
+                            height: "180px",
+                            borderRadius: "50%",
+                            border: "4px solid #082326",
+                            overflow: "hidden",
+                            background: "#fff",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            marginBottom: "16px",
+                            flexShrink: 0,
+                          }}
+                        >
+                          {speaker.avatar_svg ? (
+                            <div
+                              style={{ width: "100%", height: "100%" }}
+                              dangerouslySetInnerHTML={{ __html: speaker.avatar_svg }}
+                            />
+                          ) : avatarUrl ? (
+                            <img
+                              src={avatarUrl}
+                              alt={nameShown || `speaker-${idx}`}
+                              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                            />
+                          ) : (
+                            <span style={{ color: "#999", fontSize: "12px" }}>
+                              {nameShown
+                                ? nameShown
+                                    .split(" ")
+                                    .map(n => n[0])
+                                    .slice(0, 2)
+                                    .join("")
+                                    .toUpperCase()
+                                : "?"}
+                            </span>
+                          )}
+                        </div>
+
+                        {speaker.linkedin_url ? (
+                          <a
+                            href={speaker.linkedin_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              display: "inline-flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              width: "34px",
+                              height: "34px",
+                              background: "#0a66c2",
+                              borderRadius: "2px",
+                              marginBottom: "14px",
+                              textDecoration: "none",
+                              color: "#fff",
+                              fontWeight: 800,
+                              fontSize: "18px",
+                              lineHeight: 1,
+                              fontFamily: "Arial, Helvetica, sans-serif",
+                            }}
+                            aria-label={nameShown ? `${nameShown} LinkedIn` : "LinkedIn"}
+                          >
+                            in
+                          </a>
+                        ) : (
+                          <div style={{ width: "34px", height: "34px", marginBottom: "14px" }} />
+                        )}
+
+                        {nameShown && (
+                          <h3
+                            style={{
+                              fontSize: "clamp(18px, 2vw, 22px)",
+                              fontWeight: 700,
+                              color: "#082326",
+                              margin: "0 0 6px 0",
+                            }}
+                          >
+                            {nameShown}
+                          </h3>
+                        )}
+
+                        {roleShown && (
+                          <p
+                            style={{
+                              fontSize: "clamp(13px, 1.6vw, 16px)",
+                              color: "#333",
+                              margin: "0",
+                              padding: "0 10px",
+                              lineHeight: 1.5,
+                            }}
+                          >
+                            {roleShown}
+                          </p>
+                        )}
+
+                        {speaker.bio && hasContent(speaker.bio) && (
+                          <div
+                            className="lp-rich-text"
+                            style={{
+                              marginTop: "12px",
+                              fontSize: "13px",
+                              color: "#555",
+                              maxWidth: "400px",
+                              width: "100%",
+                              padding: "0 10px",
+                            }}
+                            dangerouslySetInnerHTML={{
+                              __html: normalizeRichHtml(speaker.bio),
+                            }}
+                          />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          );
         })()}
 
         <div style={{ height: "10px", background: accentColor }} />
@@ -728,6 +897,11 @@ Object.keys(formData).forEach(key => {
           .lp-form-heading span {
             font-size: 24px !important;
             line-height: 1.3 !important;
+          }
+
+          .lp-speakers-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
           }
         }
 

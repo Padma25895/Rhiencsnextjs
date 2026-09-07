@@ -195,6 +195,22 @@ export default function Corushr() {
 	
 	                // ✅ LeadSquared (best-effort, before reset/redirect)
 	                await captureLeadSquared();
+
+                    // Auto-download CorusHR Brochure PDF (same pattern as collaterals page)
+                    const pdfPath = '/contracts/RIC-Brochure-CorusHR-for-Website.pdf';
+                    try {
+                        const link = document.createElement('a');
+                        link.href = pdfPath;
+                        link.download = pdfPath.split('/').pop() || 'RIC-Brochure-CorusHR-for-Website.pdf';
+                        link.target = '_blank';
+                        link.rel = 'noopener noreferrer';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    } catch (err) {
+                        console.warn('PDF download failed:', err);
+                    }
+
 	                // Reset form
 	                setFormData({
 	                    fullName: '',

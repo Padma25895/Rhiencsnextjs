@@ -45,7 +45,7 @@ const Page = () => {
                     {/* Main Content */}
                     <div className="thankyou-content">
                         <div className="check-icon">
-                            <i className="fa-solid fa-check" />
+                            <i className="bi bi-check-lg" />
                         </div>
                         <h1>{t("Thank you!")}</h1>
                         <p>

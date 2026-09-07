@@ -10,6 +10,16 @@ interface FormField {
   options?: string[];
 }
 
+interface EbookSpeaker {
+  label: string;
+  name: string;
+  role: string;
+  avatar_url: string;
+  avatar_svg: string;
+  bio: string;
+  linkedin_url: string;
+}
+
 interface EbookLandingData {
   id: string;
   slug: string;
@@ -34,6 +44,7 @@ interface EbookLandingData {
   author_bio: string | null;
   author_avatar_url: string | null;
   author_avatar_svg: string | null;
+  speakers?: EbookSpeaker[] | null;
   footer_color: string | null;
   pdf_url: string | null;
 }
@@ -148,6 +159,16 @@ async function getPageData(slug: string): Promise<EbookLandingData | null> {
           return null;
         }
 
+        const resolvedSpeakers = (Array.isArray(page.speakers) ? page.speakers : []).map((s: any) => ({
+          label: s?.label ?? '',
+          name: emptyToNull(s?.name) ?? '',
+          role: emptyToNull(s?.role) ?? '',
+          avatar_url: resolveImageUrl(s?.avatar_url),
+          avatar_svg: emptyToNull(s?.avatar_svg) ?? '',
+          bio: emptyToNull(s?.bio) ?? '',
+          linkedin_url: emptyToNull(s?.linkedin_url) ?? '',
+        }));
+
         const resolvedData: EbookLandingData = {
           ...page,
           logo_image_url: resolveImageUrl(page.logo_image_url),
@@ -158,6 +179,7 @@ async function getPageData(slug: string): Promise<EbookLandingData | null> {
           author_bio: emptyToNull(page.author_bio),
           author_avatar_url: resolveImageUrl(page.author_avatar_url),
           author_avatar_svg: emptyToNull(page.author_avatar_svg),
+          speakers: resolvedSpeakers.length > 0 ? resolvedSpeakers : null,
           form_fields: page.form_fields || [],
         };
 
