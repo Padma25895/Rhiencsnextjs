@@ -57,6 +57,7 @@ interface EbookSpeaker {
 interface EbookLandingPage {
   id: string
   slug: string
+  template_type?: 'ebook' | 'webinar'
   title: string
   headline: string | null
   subheadline: string | null
@@ -65,6 +66,7 @@ interface EbookLandingPage {
   logo_text: string | null
   logo_image_url: string | null
   book_image_url: string | null
+  hero_image_url: string | null
   learning_title: string | null
   learning_description: string | null
   benefits_heading: string | null
@@ -105,6 +107,7 @@ export default function AdminEbookLandingPage() {
 
   const [formData, setFormData] = useState({
     slug: 'default',
+    template_type: 'ebook' as 'ebook' | 'webinar',
     title: '',
     headline: '',
     subheadline: '',
@@ -113,6 +116,7 @@ export default function AdminEbookLandingPage() {
     logo_text: 'Logo',
     logo_image_url: '',
     book_image_url: '',
+    hero_image_url: '',
     learning_title: '',
     learning_description: '',
     benefits_heading: '',
@@ -440,6 +444,7 @@ export default function AdminEbookLandingPage() {
 
       const payload: any = {
         slug: formData.slug,
+        template_type: formData.template_type,
         title: formData.title,
         headline: formData.headline || null,
         subheadline: formData.subheadline || null,
@@ -448,6 +453,7 @@ export default function AdminEbookLandingPage() {
         logo_text: formData.logo_text || null,
         logo_image_url: formData.logo_image_url || null,
         book_image_url: formData.book_image_url || null,
+        hero_image_url: formData.hero_image_url || null,
         learning_title: formData.learning_title || null,
         learning_description: formData.learning_description || null,
         benefits_heading: formData.benefits_heading || null,
@@ -469,7 +475,7 @@ export default function AdminEbookLandingPage() {
 
       console.log("Admin handleSubmit - payload being sent:", payload);
 
-      const fieldsThatMustSurvive = ['speakers', 'form_fields', 'additional_paragraph', 'extra_content', 'form_button_text', 'pdf_url']
+      const fieldsThatMustSurvive = ['template_type', 'speakers', 'form_fields', 'additional_paragraph', 'extra_content', 'form_button_text', 'pdf_url', 'hero_image_url']
 
       if (editingPage) {
         try {
@@ -483,9 +489,12 @@ export default function AdminEbookLandingPage() {
           const msg: string = (updateErr && typeof updateErr.message === 'string') ? updateErr.message : ''
           const droppedCol = fieldsThatMustSurvive.find(col => msg.includes(col))
           if (droppedCol) {
+            if (droppedCol === 'template_type') {
+              throw new Error('The template_type column is missing from your Supabase table. Run the landing page template migration before saving webinar pages.')
+            }
             console.warn(`Retrying update without missing columns (${droppedCol}): `, msg)
             const fallbackPayload = { ...payload }
-            fieldsThatMustSurvive.forEach(col => { delete fallbackPayload[col] })
+            delete fallbackPayload[droppedCol]
             const { error: retryErr } = await supabase
               .from('ebook_landing_pages')
               .update(fallbackPayload)
@@ -537,9 +546,12 @@ export default function AdminEbookLandingPage() {
           const msg: string = (insertErr && typeof insertErr.message === 'string') ? insertErr.message : ''
           const droppedCol = fieldsThatMustSurvive.find(col => msg.includes(col))
           if (droppedCol) {
+            if (droppedCol === 'template_type') {
+              throw new Error('The template_type column is missing from your Supabase table. Run the landing page template migration before creating webinar pages.')
+            }
             console.warn(`Retrying insert without missing columns (${droppedCol}): `, msg)
             const fallbackPayload = { ...payload }
-            fieldsThatMustSurvive.forEach(col => { delete fallbackPayload[col] })
+            delete fallbackPayload[droppedCol]
             const { error: retryErr } = await supabase
               .from('ebook_landing_pages')
               .insert([fallbackPayload])
@@ -630,6 +642,7 @@ export default function AdminEbookLandingPage() {
     })()
     setFormData({
       slug: page.slug,
+      template_type: page.template_type || 'ebook',
       title: page.title,
       headline: page.headline || '',
       subheadline: page.subheadline || '',
@@ -638,6 +651,7 @@ export default function AdminEbookLandingPage() {
       logo_text: page.logo_text || '',
       logo_image_url: page.logo_image_url || '',
       book_image_url: page.book_image_url || '',
+      hero_image_url: (page as any).hero_image_url || '',
       learning_title: page.learning_title || '',
       learning_description: page.learning_description || '',
       benefits_heading: page.benefits_heading || '',
@@ -657,6 +671,47 @@ export default function AdminEbookLandingPage() {
     })
     setShowForm(true)
   }
+
+  const handleCreateWebinarPage = () => {
+    setEditingPage(null)
+    setFormData({
+      slug: '',
+      template_type: 'webinar',
+      title: '',
+      headline: '',
+      subheadline: '',
+      additional_paragraph: '',
+      extra_content: '',
+      logo_text: '',
+      logo_image_url: '',
+      book_image_url: '',
+      hero_image_url: '',
+      learning_title: '',
+      learning_description: '',
+      benefits_heading: '',
+      benefits: [],
+      form_title: '',
+      form_button_text: '',
+      form_fields: [
+        { id: 'name', type: 'text', placeholder: 'Name *', required: true },
+        { id: 'email', type: 'email', placeholder: 'Email *', required: true },
+      ],
+      author_heading: '',
+      author_name: '',
+      author_role: '',
+      author_bio: '',
+      author_avatar_url: '',
+      author_avatar_svg: '',
+      speakers: [emptySpeaker('Speaker'), emptySpeaker('Moderator')],
+      footer_color: '#0b7778',
+      pdf_url: '',
+    })
+    setShowForm(true)
+  }
+
+  const getPreviewPath = (page: EbookLandingPage) => page.template_type === 'webinar'
+    ? `/webinar/${page.slug}`
+    : `/LP/${page.slug}`
 
   const handleDelete = async (id: string) => {
     if (confirm('Are you sure you want to delete this page?')) {
@@ -1040,6 +1095,7 @@ export default function AdminEbookLandingPage() {
           padding: 16px 20px;
           border-bottom: 1px solid #f0f0f0;
           font-size: 14px;
+          color:#000;
         }
 
         .admin-ebook-table tbody tr {
@@ -1214,8 +1270,8 @@ export default function AdminEbookLandingPage() {
       `}</style>
 
       <div className="admin-ebook-header">
-        <h1 className="admin-ebook-title">📖 E-Book Landing Pages</h1>
-        <div style={{ display: 'flex', gap: '12px' }}>
+        <h1 className="admin-ebook-title">📄 Landing Pages</h1>
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           <Link href="/admin/ebook-enquiries" className="admin-ebook-btn" style={{ background: '#48bb78', boxShadow: '0 4px 15px rgba(72, 187, 120, 0.4)' }}>
             📊 View Enquiries
           </Link>
@@ -1223,6 +1279,7 @@ export default function AdminEbookLandingPage() {
             setEditingPage(null)
             setFormData({
               slug: '',
+              template_type: 'ebook',
               title: '',
               headline: '',
               subheadline: '',
@@ -1231,6 +1288,7 @@ export default function AdminEbookLandingPage() {
               logo_text: 'Logo',
               logo_image_url: '',
               book_image_url: '',
+              hero_image_url: '',
               learning_title: '',
               learning_description: '',
               benefits_heading: '',
@@ -1252,7 +1310,10 @@ export default function AdminEbookLandingPage() {
             })
             setShowForm(true)
           }}>
-            ➕ Create New Page
+            ➕ Create E-Book Page
+          </button>
+          <button className="admin-ebook-btn" style={{ background: '#087d82' }} onClick={handleCreateWebinarPage}>
+            🎥 Create Webinar Page
           </button>
         </div>
       </div>
@@ -1267,6 +1328,21 @@ export default function AdminEbookLandingPage() {
           )}
           <form onSubmit={handleSubmit}>
             <div className="admin-ebook-grid">
+              <div className="admin-ebook-field">
+                <label className="admin-ebook-label">Landing Page Template</label>
+                <select
+                  name="template_type"
+                  value={formData.template_type}
+                  onChange={(event) => setFormData((previous) => ({ ...previous, template_type: event.target.value as 'ebook' | 'webinar' }))}
+                  className="admin-ebook-input"
+                >
+                  <option value="ebook">E-Book</option>
+                  <option value="webinar">Webinar</option>
+                </select>
+                <small style={{ color: '#667', display: 'block', marginTop: '5px' }}>
+                  Webinar pages use the event hero, registration form, and speaker layout.
+                </small>
+              </div>
               <div className="admin-ebook-field">
                 <label className="admin-ebook-label">Slug (Unique ID)</label>
                 <input
@@ -1340,25 +1416,25 @@ export default function AdminEbookLandingPage() {
                 )}
               </div>
               <div className="admin-ebook-field">
-                <label className="admin-ebook-label">Logo Text</label>
+                <label className="admin-ebook-label">{formData.template_type === 'webinar' ? 'Partner Names / Logos Text (separate with ·)' : 'Logo Text'}</label>
                 <input
                   type="text"
                   name="logo_text"
                   value={formData.logo_text}
                   onChange={handleInputChange}
                   className="admin-ebook-input"
-                  placeholder="Text inside logo circle"
+                  placeholder={formData.template_type === 'webinar' ? 'RheinBrücke · compliance.io · AMA Global' : 'Text inside logo circle'}
                 />
               </div>
               <div className="admin-ebook-field">
-                <label className="admin-ebook-label">Logo Image (Optional - overrides text)</label>
+                <label className="admin-ebook-label">{formData.template_type === 'webinar' ? 'Partner Logos Image (Optional - combined logos strip)' : 'Logo Image (Optional - overrides text)'}</label>
                 <input
                   type="text"
                   name="logo_image_url"
                   value={formData.logo_image_url}
                   onChange={handleInputChange}
                   className="admin-ebook-input"
-                  placeholder="https://.../logo.webp"
+                  placeholder={formData.template_type === 'webinar' ? 'Upload combined partner logos strip image' : 'https://.../logo.webp'}
                 />
                 {formData.logo_image_url && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '8px', gap: '8px' }}>
@@ -1396,39 +1472,27 @@ export default function AdminEbookLandingPage() {
                 )}
               </div>
               <div className="admin-ebook-field">
-                <label className="admin-ebook-label">Book Image</label>
+                <label className="admin-ebook-label">{formData.template_type === 'webinar' ? 'Webinar Hero Banner Image' : 'Book Image'}</label>
+                {formData.template_type === 'webinar' && <small style={{ display: 'block', marginBottom: '8px', color: '#667' }}>Upload the complete hero banner image (logos + headline + illustration combined in one image).</small>}
                 <input
                   type="text"
                   name="book_image_url"
                   value={formData.book_image_url}
                   onChange={handleInputChange}
                   className="admin-ebook-input"
-                  placeholder="/images/book.webp"
+                  placeholder={formData.template_type === 'webinar' ? 'Upload or paste the complete banner image URL' : '/images/book.webp'}
                 />
                 {formData.book_image_url && (
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '8px', gap: '8px' }}>
                     <p className="text-xs text-green-600">Current: {formData.book_image_url.split('/').pop()}</p>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                      {/* <label
-                        style={{
-                          padding: '4px 8px',
-                          background: '#e0f2fe',
-                          color: '#0369a1',
-                          border: 'none',
-                          borderRadius: '4px',
-                          fontSize: '12px',
-                          fontWeight: '600',
-                          cursor: 'pointer'
-                        }}
-                      >
-                        Upload New
-                        <input
-                          type="file"
-                          style={{ display: 'none' }}
-                          onChange={(e) => handleFileUpload(e, 'book_image_url')}
-                          accept="image/*"
+                      {formData.book_image_url.startsWith('http') && (
+                        <img
+                          src={formData.book_image_url}
+                          alt="Banner preview"
+                          style={{ maxWidth: '180px', maxHeight: '100px', border: '1px solid #ddd', borderRadius: '4px', objectFit: 'cover' }}
                         />
-                      </label> */}
+                      )}
                       <button
                         type="button"
                         style={{
@@ -1459,7 +1523,7 @@ export default function AdminEbookLandingPage() {
                   </div>
                 )}
               </div>
-              <div className="admin-ebook-field">
+              {formData.template_type === 'ebook' && <div className="admin-ebook-field">
                 <label className="admin-ebook-label">E-Book PDF</label>
                 <input
                   type="text"
@@ -1522,9 +1586,9 @@ export default function AdminEbookLandingPage() {
                     />
                   </div>
                 )}
-              </div>
+              </div>}
               <div className="admin-ebook-field admin-ebook-grid-full">
-                <label className="admin-ebook-label">Learning Title</label>
+                <label className="admin-ebook-label">{formData.template_type === 'webinar' ? 'Session Intro Heading' : 'Learning Title'}</label>
                 {isClient && (
                   <ReactQuill
                     key={`learning-title-${editingPage?.id || 'new'}`}
@@ -1533,12 +1597,12 @@ export default function AdminEbookLandingPage() {
                     onChange={(content) => setFormData(prev => ({ ...prev, learning_title: content }))}
                     modules={quillModules}
                     formats={formats}
-                    placeholder="Title for what they'll learn section"
+                    placeholder={formData.template_type === 'webinar' ? 'e.g. Webinar Registration' : "Title for what they'll learn section"}
                   />
                 )}
               </div>
               <div className="admin-ebook-field admin-ebook-grid-full">
-                <label className="admin-ebook-label">Learning Description</label>
+                <label className="admin-ebook-label">{formData.template_type === 'webinar' ? 'Session Introduction' : 'Learning Description'}</label>
                 {isClient && (
                   <ReactQuill
                     key={`learning-desc-${editingPage?.id || 'new'}`}
@@ -1567,7 +1631,7 @@ export default function AdminEbookLandingPage() {
               </div>
             </div>
 
-            <h3 className="admin-ebook-section-title">Benefits List</h3>
+            <h3 className="admin-ebook-section-title">{formData.template_type === 'webinar' ? 'Session Topics' : 'Benefits List'}</h3>
             <div className="admin-ebook-benefits-box">
               <div className="admin-ebook-benefits-header">
                 <input
@@ -1575,7 +1639,7 @@ export default function AdminEbookLandingPage() {
                   value={newBenefit}
                   onChange={(e) => setNewBenefit(e.target.value)}
                   className="admin-ebook-benefits-input"
-                  placeholder="Enter a benefit item..."
+                  placeholder={formData.template_type === 'webinar' ? 'Add a session topic or key takeaway...' : 'Enter a benefit item...'}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                       e.preventDefault()
@@ -1649,7 +1713,7 @@ export default function AdminEbookLandingPage() {
               </div> */}
             </div>
 
-            <h3 className="admin-ebook-section-title">Form Fields (Dynamic)</h3>
+            <h3 className="admin-ebook-section-title">{formData.template_type === 'webinar' ? 'Registration Fields (Dynamic)' : 'Form Fields (Dynamic)'}</h3>
             <div className="admin-ebook-benefits-box">
               <div className="admin-ebook-benefits-header">
                 <input
@@ -1727,7 +1791,7 @@ export default function AdminEbookLandingPage() {
                 )}
               </div>
               
-            <h3 className="admin-ebook-section-title">Speaker / Author Information</h3>
+            <h3 className="admin-ebook-section-title">{formData.template_type === 'webinar' ? 'Speaker Information' : 'Speaker / Author Information'}</h3>
             <div className="admin-ebook-grid">
               <div className="admin-ebook-field admin-ebook-grid-full">
                 <label className="admin-ebook-label">Section Heading (shows above the 2-column speaker list)</label>
@@ -1739,7 +1803,7 @@ export default function AdminEbookLandingPage() {
                     onChange={(content) => setFormData(prev => ({ ...prev, author_heading: content }))}
                     modules={quillModules}
                     formats={formats}
-                    placeholder="e.g., Speaker / About the Authors"
+                    placeholder={formData.template_type === 'webinar' ? 'e.g., Meet the Speakers' : 'e.g., Speaker / About the Authors'}
                   />
                 )}
               </div>
@@ -1953,18 +2017,20 @@ export default function AdminEbookLandingPage() {
         <table className="admin-ebook-table">
           <thead>
             <tr>
+              <th>Template</th>
               <th>Slug</th>
               <th>Title</th>
-              <th>Author</th>
+              <th>Speakers / Author</th>
               <th style={{ textAlign: 'right' }}>Actions</th>
             </tr>
           </thead>
           <tbody>
             {pages.map((page) => (
               <tr key={page.id}>
+                <td>{page.template_type === 'webinar' ? 'Webinar' : 'E-Book'}</td>
                 <td className="admin-ebook-slug">{page.slug}</td>
                 <td className="admin-ebook-title-cell">
-                  <Link href={`/LP/${page.slug}`} target="_blank">
+                  <Link href={getPreviewPath(page)} target="_blank">
                     {extractPlainTextFromHtml(page.title)}
                   </Link>
                 </td>
@@ -1976,7 +2042,7 @@ export default function AdminEbookLandingPage() {
                 <td>
                   <div className="admin-ebook-actions">
                     <Link
-                      href={`/LP/${page.slug}`}
+                      href={getPreviewPath(page)}
                       target="_blank"
                       className="admin-ebook-btn-preview"
                       style={{ textDecoration: 'none' }}
@@ -2001,8 +2067,8 @@ export default function AdminEbookLandingPage() {
             ))}
             {pages.length === 0 && (
               <tr>
-                <td colSpan={4} className="admin-ebook-empty">
-                  No e-book landing pages found. Create your first one above!
+                <td colSpan={5} className="admin-ebook-empty">
+                  No landing pages found. Create your first eBook or webinar page above!
                 </td>
               </tr>
             )}

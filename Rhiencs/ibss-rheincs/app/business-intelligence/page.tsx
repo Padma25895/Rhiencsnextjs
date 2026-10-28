@@ -1369,7 +1369,7 @@ export default function AlMl() {
                         <div className="row section-row1 align-items-center">
                             <div className="col-lg-12">
                                 <div className="section-title text-center">
-                                    <h2 className="text-anime-style-2" data-cursor="-opaque">
+                                    <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
                                         {t("Technologies")}
                                     </h2>
                                     <p className="mt-5">
@@ -1649,7 +1649,7 @@ export default function AlMl() {
                         <div className="row section-row1 align-items-center">
                             <div className="col-sm-12">
                                 <div className="section-title text-center text-black">
-                                    <h2 className="text-anime-style-2" data-cursor="-opaque">
+                                    <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
                                         {t("The RheinBrücke Advantage")}
                                     </h2>
                                     <p>
@@ -1713,7 +1713,7 @@ export default function AlMl() {
                     </div>
                     <div className="container">
                         <div className="row section-row1 align-items-center builtsec">
-                            <div className="col-sm-7 col-12">
+                            <div className="col-sm-6 col-12">
                                 <div className="section-title casetitle">
                                     <h2 className="text-anime-style-2" data-cursor="-opaque">
                                         {t("Case Study")}

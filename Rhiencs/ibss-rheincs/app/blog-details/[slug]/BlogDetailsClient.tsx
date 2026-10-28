@@ -42,10 +42,10 @@ export default function BlogDetailsClient({ initialBlog, initialRelatedBlogs, sl
       fetchBlog();
     } else if (slug === 'placeholder') {
       // Handle placeholder case - redirect to blog list
-      router.push('/blog');
+      router.replace('/blogs/');
       return;
     } else {
-      router.push('/blog');
+      router.replace('/blogs/');
     }
   }, [slug]);
 
@@ -79,21 +79,21 @@ export default function BlogDetailsClient({ initialBlog, initialRelatedBlogs, sl
         console.error(`[BlogDetailsClient] Supabase error:`, blogError);
         // If blog not found, redirect to blog list
         if (blogError.code === 'PGRST116') {
-          router.push('/blog');
+          router.replace('/blogs/');
           return;
         }
         throw blogError;
       }
       
       if (!blogData) {
-        router.push('/blog');
+        router.replace('/blogs/');
         return;
       }
 
 
       // Check if blog is published or user is admin
       if (!blogData.published && !userIsAdmin) {
-        router.push('/blog');
+        router.replace('/blogs/');
         return;
       }
 
@@ -116,7 +116,7 @@ export default function BlogDetailsClient({ initialBlog, initialRelatedBlogs, sl
     } catch (err) {
       console.error('[BlogDetailsClient] Error fetching blog:', err);
       // Always redirect on error - never show stale data
-      router.push('/blog');
+      router.replace('/blogs/');
     } finally {
       setLoading(false);
     }

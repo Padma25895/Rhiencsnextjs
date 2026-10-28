@@ -59,7 +59,7 @@ export default function Footer() {
         <>
             <footer className="main-footer pd0">
                 {/* Footer Main Start */}
-                <div className="footer-main pd40">
+                <div className="footer-main" style={{ padding: "40px 0" }}>
                     <div className="container">
                         <hr className="firsthr" />
                         <div className="row pd60 align-items-center secondrow">

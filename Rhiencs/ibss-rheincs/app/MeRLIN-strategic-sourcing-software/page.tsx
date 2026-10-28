@@ -28,8 +28,8 @@ export default function EnterpriseSolutions() {
         </div>
       </div>
     </div>
-    <div className="marline-baner-img" style={{ position: 'relative', width: '100%', height: '100%' }}>
-      <Image src="/new/fr.webp" className="mob-none" alt="MeRLIN Banner" fill priority style={{ objectFit: 'cover' }} />
+    <div className="marline-baner-img">
+      <Image src="/new/fr.webp" className="merlin-banner-desktop" alt="MeRLIN Banner" fill priority style={{ objectFit: 'cover' }} />
       <Image src="/new/fr.webp" className="system-none" alt="MeRLIN Banner Mobile" fill priority style={{ objectFit: 'cover' }} />
     </div>
   </div>
@@ -39,7 +39,7 @@ export default function EnterpriseSolutions() {
       <div className="row section-row align-items-center">
         <div className="col-lg-6">
           <div className="section-title testidescriptio">
-            <h2 className="text-anime-style-2" data-cursor="-opaque">
+            <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
               {" "}
               {t("What are MeRLIN’s features?")}
             </h2>
@@ -1378,6 +1378,13 @@ export default function EnterpriseSolutions() {
   </div>
   {/* Our Testimonial Section End */}
   <div className="marline-bg-video-waber">
+    <div className="marline-bg-video merlinimgnew">
+      {/* <video autoPlay={true} muted={true} loop={true} id="myVideo" height="" width="auto">
+        <source src="/videos/benefits.mp4" type="video/mp4" />
+      </video> */}
+      <Image src="/images/whymerlin.webp" className="mob-none" alt="Why MeRLIN" fill style={{ objectFit: 'cover' }} />
+      <Image src="/images/whymerlin.webp" className="system-none" alt="Why MeRLIN Mobile" fill style={{ objectFit: 'cover' }} />
+    </div>
     <div className="container">
       <div className="row justify-content-end">
         <div className="col-sm-6">
@@ -1431,14 +1438,6 @@ export default function EnterpriseSolutions() {
           </div>
         </div>
       </div>
-    </div>
-    <div className="marline-bg-video merlinimgnew" style={{ position: 'relative', width: '100%', height: '100%', minHeight: '400px' }}>
-      {/* <video autoPlay={true} muted={true} loop={true} id="myVideo" height="" width="auto">
-        <source src="/videos/benefits.mp4" type="video/mp4" />
-      </video> */}
-      
-      <Image src="/images/whymerlin.webp" className="mob-none" alt="Why MeRLIN" fill style={{ objectFit: 'cover' }} />
-      <Image src="/images/whymerlin.webp" className="system-none" alt="Why MeRLIN Mobile" fill style={{ objectFit: 'cover' }} />
     </div>
   </div>
   <div className=" retail-baner1 sscr-4 retail-baner-11 merlinbenefit kineticsec1 approachh pd60">

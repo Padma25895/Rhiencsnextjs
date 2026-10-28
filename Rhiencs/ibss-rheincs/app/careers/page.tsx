@@ -6,7 +6,6 @@ import Link from "next/link";
 import { createClient } from '@/lib/supabase-browser';
 import {useTranslation} from "../hooks/useTranslation";
 import Awards from "../Components/Awards";
-
 import Swiper from 'swiper/bundle';
 
 interface Job {
@@ -31,55 +30,6 @@ export default function AlMl() {
 
     useEffect(() => {
         fetchJobs();
-        
-        const swiperContainer = document.querySelector('.testimonial-slider59 .swiper');
-        if (swiperContainer && swiperContainer.getAttribute('dir') === 'rtl') {
-            swiperContainer.removeAttribute('dir');
-        }
-        const swiper = new Swiper('.testimonial-slider59 .swiper', {
-            loop: true,
-            slidesPerView: 1.5,
-            spaceBetween: 15,
-            centeredSlides: true,
-            observer: true,
-            observeParents: true,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: '.testimonial-slider59 .testimonial-button-next',
-                prevEl: '.testimonial-slider59 .testimonial-button-prev',
-            },
-            pagination: {
-                el: '.testimonial-slider59 .swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                0: { slidesPerView: 1.5, spaceBetween: 10 },
-                576: { slidesPerView: 2.5, spaceBetween: 12 },
-                768: { slidesPerView: 3.5, spaceBetween: 15 },
-                991: { slidesPerView: 5, spaceBetween: 18 },
-                1200: { slidesPerView: 5, spaceBetween: 20 },
-                1440: { slidesPerView: 6, spaceBetween: 20 },
-            },
-            on: {
-                init: (s: any) => {
-                    const testspace = document.querySelector('.testimonial-slider59 .testspace');
-                    if (testspace) {
-                        const realSlides = s.slides.filter((slide: any) => !slide.classList.contains('swiper-slide-duplicate')).length;
-                        testspace.textContent = `1/${realSlides}`;
-                    }
-                },
-                slideChange: (s: any) => {
-                    const testspace = document.querySelector('.testimonial-slider59 .testspace');
-                    if (testspace) {
-                        const realSlides = s.slides.filter((slide: any) => !slide.classList.contains('swiper-slide-duplicate')).length;
-                        testspace.textContent = `${s.realIndex + 1}/${realSlides}`;
-                    }
-                },
-            },
-        });
 
         // Refetch jobs when window gains focus (user returns to tab)
         const handleFocus = () => {
@@ -96,7 +46,57 @@ export default function AlMl() {
         return () => {
             window.removeEventListener('focus', handleFocus);
             clearInterval(intervalId);
-            swiper.destroy();
+        };
+    }, []);
+
+    useEffect(() => {
+        const slider = document.querySelector<HTMLElement>('.testimonial-slider59 .swiper');
+        const sliderRoot = slider?.closest<HTMLElement>('.testimonial-slider59');
+        if (!slider || !sliderRoot) return;
+
+        const counter = sliderRoot.querySelector<HTMLElement>('.testspace');
+        const slideCount = slider.querySelectorAll(
+            '.swiper-wrapper > .swiper-slide:not(.swiper-slide-duplicate)'
+        ).length;
+        const existingSwiper = (slider as HTMLElement & { swiper?: Swiper }).swiper;
+        existingSwiper?.destroy(true, true);
+
+        const swiper = new Swiper(slider, {
+            loop: true,
+            speed: 800,
+            slidesPerView: 1.5,
+            spaceBetween: 10,
+            centeredSlides: true,
+            observer: true,
+            observeParents: true,
+            updateOnWindowResize: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            navigation: {
+                nextEl: sliderRoot.querySelector<HTMLElement>('.testimonial-button-next'),
+                prevEl: sliderRoot.querySelector<HTMLElement>('.testimonial-button-prev'),
+            },
+            breakpoints: {
+                576: { slidesPerView: 2.5, spaceBetween: 12 },
+                768: { slidesPerView: 3.5, spaceBetween: 15 },
+                991: { slidesPerView: 5, spaceBetween: 18 },
+                1440: { slidesPerView: 5, spaceBetween: 20 },
+            },
+            on: {
+                init(instance) {
+                    if (counter) counter.textContent = `${instance.realIndex + 1}/${slideCount}`;
+                },
+                slideChange(instance) {
+                    if (counter) counter.textContent = `${instance.realIndex + 1}/${slideCount}`;
+                },
+            },
+        });
+
+        return () => {
+            if (!swiper.destroyed) swiper.destroy(true, true);
         };
     }, []);
 
@@ -493,7 +493,6 @@ export default function AlMl() {
                         >
                             <source src="/new/cr-v1.mp4" type="video/mp4" />
                             <source src="movie.ogg" type="video/ogg" />
-                            Your browser does not support the video tag.
                         </video>
                     </div>
                 </div>
@@ -564,35 +563,35 @@ export default function AlMl() {
                                         {/* Testimonial Slide Start */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l1.webp" alt="" />
+                                                <img src="/images/ll1.JPG" alt="" />
                                             </div>
                                         </div>
                                         {/* Testimonial Slide End */}
                                         {/* Testimonial Slide Start */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l2.webp" alt="" />
+                                                <img src="/images/ll2.JPG" alt="" />
                                             </div>
                                         </div>
                                         {/* Testimonial Slide End */}
                                         {/* Testimonial Slide Start */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l3.webp" alt="" />
+                                                <img src="/images/ll3.jpg" alt="" />
                                             </div>
                                         </div>
                                         {/* Testimonial Slide End */}
                                         {/* Testimonial Slide Start */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l4.webp" alt="" />
+                                                <img src="/images/ll4.jpg" alt="" />
                                             </div>
                                         </div>
                                         {/* Testimonial Slide End */}
                                         {/* Testimonial Slide Start */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l5.webp" alt="" />
+                                                <img src="/images/ll5.jpg" alt="" />
                                             </div>
                                         </div>
                                         {/* Testimonial Slide End */}
@@ -606,36 +605,37 @@ export default function AlMl() {
                                         {/* Testimonial Slide Start */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l7.webp" alt="" />
+                                                <img src="/images/ll7.jpg" alt="" />
                                             </div>
                                         </div>
                                         {/* Testimonial Slide End */}
                                         {/* Testimonial Slide Start */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l8.webp" alt="" />
+                                                <img src="/images/ll8.jpg" alt="" />
                                             </div>
                                         </div>
                                         {/* Testimonial Slide End */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l9.webp" alt="" />
+                                                <img src="/images/ll9.jpg" alt="" />
                                             </div>
                                         </div>
                                         {/* Testimonial Slide End */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l10.webp" alt="" />
+                                                <img src="/images/ll10.JPG" alt="" />
                                             </div>
                                         </div>
                                         {/* Testimonial Slide End */}
                                         <div className="swiper-slide">
                                             <div className="ric-slider-img">
-                                                <img src="/images/l11.jfif" alt="" />
+                                                <img src="/images/ll11.jfif" alt="" />
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="testimonial-btn">
+                                </div>
+                                <div className="testimonial-btn">
                                         <div className="testimonial-button-prev">
                                             <div className="animated-svg-link1 btn-style-3">
                                                 <span className="svg-container ">
@@ -845,7 +845,6 @@ export default function AlMl() {
                                                 </span>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
                             {/* Testimonial Slider End */}

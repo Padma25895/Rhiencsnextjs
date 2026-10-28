@@ -146,7 +146,7 @@ export default function EnterpriseSolutions() {
             className="main-hadding-1 them-dark-text-color"
             data-cursor="-opaque"
           >
-            {t("Challenges in PE and Fund-Backed Portfolios")}
+            {t("Challenges in PE and Fund Backed Portfolios")}
           </h2>
           <div className="d-g24 flex-wrap">
             <div className="challenge-point-waber">

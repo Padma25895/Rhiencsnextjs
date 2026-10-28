@@ -6,6 +6,7 @@ import CommomLayout from "../../Components/CommomLayout";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase-browser";
 import {useTranslation} from "../../hooks/useTranslation";
+import Loading from "../../Components/Loading";
 
 interface Blog {
   id: string;
@@ -58,14 +59,17 @@ export default function BlogDetailsClient({
   const [faqs, setFaqs] = useState<Faq[]>([]);
 
   useEffect(() => {
-    if (slug === "placeholder") {
-      router.push("/blog");
+    const requestedSlug =
+      slug === "placeholder"
+        ? window.location.pathname.split("/").filter(Boolean).at(-1) || ""
+        : slug;
+
+    if (!requestedSlug || requestedSlug === "placeholder") {
+      router.replace("/blogs/");
       return;
     }
 
-    if (slug) {
-      fetchBlog();
-    }
+    fetchBlog(requestedSlug);
   }, [slug]);
 
   useEffect(() => {
@@ -108,8 +112,8 @@ export default function BlogDetailsClient({
       canonical.setAttribute("rel", "canonical");
       document.head.appendChild(canonical);
     }
-    canonical.setAttribute("href", `https://www.rheincs.com/blogs/${slug}/`);
-  }, [blog, slug]);
+    canonical.setAttribute("href", `https://www.rheincs.com/blogs/${blog.slug}/`);
+  }, [blog]);
 
   const checkAdminStatus = async () => {
     try {
@@ -186,7 +190,7 @@ export default function BlogDetailsClient({
     }
   };
 
-  const fetchBlog = async () => {
+  const fetchBlog = async (requestedSlug: string) => {
     try {
       setLoading(true);
 
@@ -204,27 +208,27 @@ export default function BlogDetailsClient({
         .select(
           "id,title,slug,content,excerpt,author,author_linkedin,category,published,created_at,meta_title,meta_description",
         )
-        .eq("slug", slug)
+        .eq("slug", requestedSlug)
         .single();
 
       if (blogError) {
         console.error(`[BlogDetailsClient] Supabase error:`, blogError);
         // If blog not found, redirect to blog list
         if (blogError.code === "PGRST116") {
-          router.push("/blog");
+          router.replace("/blogs/");
           return;
         }
         throw blogError;
       }
 
       if (!blogData) {
-        router.push("/blog");
+        router.replace("/blogs/");
         return;
       }
 
       // Check if blog is published or user is admin
       if (!blogData.published && !userIsAdmin) {
-        router.push("/blog");
+        router.replace("/blogs/");
         return;
       }
 
@@ -239,7 +243,7 @@ export default function BlogDetailsClient({
     } catch (err) {
       console.error("[BlogDetailsClient] Error fetching blog:", err);
       // Always redirect on error - never show stale data
-      router.push("/blog");
+      router.replace("/blogs/");
     } finally {
       setLoading(false);
     }
@@ -589,45 +593,8 @@ export default function BlogDetailsClient({
     </svg>
   );
 
-  // Only show loading if we don't have initial blog data
-  // This prevents flash of loading state when we have cached data
   if (loading && !blog) {
-    return (
-      <CommomLayout>
-        <div
-          style={{
-            minHeight: "400px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-            gap: "20px",
-          }}
-        >
-          <div
-            style={{
-              width: "60px",
-              height: "60px",
-              border: "4px solid #f3f3f3",
-              borderTop: "4px solid #667eea",
-              borderRadius: "50%",
-              animation: "spin 1s linear infinite",
-            }}
-          ></div>
-          <p style={{ color: "#666", fontSize: "18px" }}>Loading blog...</p>
-          <style jsx>{`
-            @keyframes spin {
-              0% {
-                transform: rotate(0deg);
-              }
-              100% {
-                transform: rotate(360deg);
-              }
-            }
-          `}</style>
-        </div>
-      </CommomLayout>
-    );
+    return <Loading message="Loading blog..." fullScreen size="medium" />;
   }
 
   if (!blog) {

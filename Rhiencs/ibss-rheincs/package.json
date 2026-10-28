@@ -42,6 +42,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.11.30",
     "cross-env": "^10.1.0",
     "css-tree": "^3.2.1",
     "eslint": "^9",

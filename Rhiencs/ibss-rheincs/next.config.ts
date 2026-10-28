@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 let nextConfig = {
   // Static export enabled - using client-side Supabase calls instead of API routes
-  output: 'export',
+  output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
   images: {
     unoptimized: true, // Keep for static export, but optimize images manually (webp, proper size)
     formats: ['image/avif', 'image/webp'],

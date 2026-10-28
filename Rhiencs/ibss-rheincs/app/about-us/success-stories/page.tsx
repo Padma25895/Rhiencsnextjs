@@ -141,7 +141,7 @@ function SuccessStories() {
                         <div className="row section-row1 align-items-center">
                             <div className="col-sm-12">
                                 <div className="section-title text-center text-black">
-                                    <h2 className="text-anime-style-2" data-cursor="-opaque">
+                                    <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
                                         {t("Success Stories")}
                                     </h2>
                                 </div>

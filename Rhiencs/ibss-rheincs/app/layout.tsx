@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import InitializerComponents from "./Components/InitializerComponents";
 import CookieConsentBanner from "./Components/CookieConsentBanner";
+import Canonical from "./Components/Canonical";
 import LoadingWrapper from "./Components/LoadingWrapper";
 import RouteTracker from "./Components/RouteTracker";
 import LeadSquaredInit from "./Components/LeadSquaredInit";
@@ -34,6 +35,10 @@ const helvetica = localFont({
 export const metadata: Metadata = {
   title: "Enterprise Digital Transformation & ERP Solutions | RheinBrücke",
   description: "Driving Digital Innovation with Integrated Business Platforms",
+  metadataBase: new URL("https://www.rheincs.com"),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({
@@ -47,24 +52,60 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index,follow" />
 
-        <meta property="og:title" content="Enterprise Digital Transformation & ERP Solutions | RheinBrücke" />
-<meta property="og:description" content="Driving Digital Innovation with Integrated Business Platforms" />
-<meta property="og:image" content="https://www.rheincs.com/images/rlogo.webp" />
-<meta property="og:url" content="https://www.rheincs.com/" />
-<meta property="og:type" content="website" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-
+        <meta
+          property="og:title"
+          content="Enterprise Digital Transformation & ERP Solutions | RheinBrücke"
+        />
+        <meta
+          property="og:description"
+          content="Driving Digital Innovation with Integrated Business Platforms"
+        />
+        <meta
+          property="og:image"
+          content="https://www.rheincs.com/images/rlogo.webp"
+        />
+        <meta property="og:url" content="https://www.rheincs.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         {/* <link rel="icon" type="image/png" sizes="60x60" href="/images/fav.png" /> */}
-        <link rel="icon" type="image/png" sizes="60x60" href="https://www.rheincs.com/images/fav.png" />
-        <link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/png" href="/images/favicon/web-app-manifest-192x192.png" sizes="192x192" />
-        <link rel="icon" type="image/png" href="/images/favicon/web-app-manifest-512x512.png" sizes="512x512" />
-<link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg" />
-<link rel="shortcut icon" href="/images/favicon/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
-<link rel="manifest" href="/images/favicon/site.webmanifest" />
-        
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="60x60"
+          href="https://www.rheincs.com/images/fav.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/images/favicon/favicon-96x96.png"
+          sizes="96x96"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/images/favicon/web-app-manifest-192x192.png"
+          sizes="192x192"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/images/favicon/web-app-manifest-512x512.png"
+          sizes="512x512"
+        />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="/images/favicon/favicon.svg"
+        />
+        <link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/images/favicon/apple-touch-icon.png"
+        />
+        <link rel="manifest" href="/images/favicon/site.webmanifest" />
+
         {/* Preload critical fonts - HERO HEADING FONT FIRST (LCP text candidate - cuts FOIT) */}
         <link
           rel="preload"
@@ -102,9 +143,17 @@ export default function RootLayout({
            Everything else gets dns-prefetch (lighter, no unused warnings).
            ============================================= */}
         {/* USED CRITICALLY: OwlCarousel 2.3.4 + BxSlider 4.2.12 (loaded on most pages in legacy loader) */}
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://cdnjs.cloudflare.com"
+          crossOrigin="anonymous"
+        />
         {/* USED CRITICALLY: If any Google Font ever loads, this is the actual file host (fast TLS handshake) */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
 
         {/* =============================================
            DNS-PREFETCH (OPTIONAL / NON-CRITICAL ORIGINS)
@@ -150,31 +199,22 @@ export default function RootLayout({
           media="(min-width: 992px)"
         />
 
-        {/* Critical site CSS: preload early, then inject via JS with instant media swap (no FOUC, no TS/React onload attribute errors) */}
-        <link
-          rel="preload"
-          as="style"
-          href="/css/custom.used.css?v=20260811-1"
-          fetchPriority="high"
-        />
-        {/*
-          Synchronous script runs IMMEDIATELY when parser hits it (before first paint).
-          Creates a <link rel=stylesheet media=print onload="media='all'"> element in JS
-          so React/TS never see an invalid "onload" HTML attribute on a <link>.
-          This matches Filament Group / WP Rocket's loadCSS pattern.
-          Bootstrap-icons are decorative-only (non-render-blocking async).
-        */}
+        {/* Keep the main stylesheet render-blocking to prevent unstyled page flashes. */}
+        <link rel="stylesheet" href="/css/custom.used.css?v=20261016-3" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var h=document.head;var l=document.createElement('link');l.rel='stylesheet';l.href='/css/custom.used.css?v=20260811-1';l.media='print';l.onload=function(){l.media='all'};var s=document.createElement('link');s.rel='stylesheet';s.href='/css/swiper-bundle.min.css';s.media='print';s.onload=function(){s.media='all'};var b=document.createElement('link');b.rel='stylesheet';b.href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css';b.media='print';b.onload=function(){b.media='all'};h.appendChild(l);h.appendChild(s);h.appendChild(b);})();`,
+            __html: `(function(){var h=document.head;var s=document.createElement('link');s.rel='stylesheet';s.href='/css/swiper-bundle.min.css';s.media='print';s.onload=function(){s.media='all'};var b=document.createElement('link');b.rel='stylesheet';b.href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css';b.media='print';b.onload=function(){b.media='all'};h.appendChild(s);h.appendChild(b);})();`,
           }}
         />
 
         {/* Fallback for non-render-blocking styles if JS is disabled */}
         <noscript>
-          <link rel="stylesheet" href="/css/custom.used.css?v=20260811-1" />
+          <link rel="stylesheet" href="/css/custom.used.css?v=20261016-3" />
           <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+          />
           <link rel="stylesheet" href="/css/all.css?v=20260807" />
           <link rel="stylesheet" href="/style2.css?v=20260807" />
           <link
@@ -388,6 +428,7 @@ export default function RootLayout({
       </head>
       <body>
         <Suspense fallback={null}>
+          <Canonical />
           <RouteTracker />
         </Suspense>
         <LoadingWrapper>{children}</LoadingWrapper>
@@ -412,7 +453,6 @@ export default function RootLayout({
             __html: `window._vwo_code = window._vwo_code || { use_existing_jquery: function () { return false; } }; (function () { var script = document.createElement('script'); script.src = 'https://dev.visualwebsiteoptimizer.com/j.php?a=292694&u=' + encodeURIComponent(location.href) + '&r=' + Math.random(); script.async = true; document.head.appendChild(script); }());`,
           }}
         />
-
 
         {/* Google Conversion Tracking - noscript */}
         <noscript>

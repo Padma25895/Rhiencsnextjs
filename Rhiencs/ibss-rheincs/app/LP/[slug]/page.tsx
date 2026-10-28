@@ -23,6 +23,7 @@ interface EbookSpeaker {
 interface EbookLandingData {
   id: string;
   slug: string;
+  template_type?: "ebook" | "webinar";
   title: string;
   headline: string | null;
   subheadline: string | null;
@@ -31,6 +32,7 @@ interface EbookLandingData {
   logo_text: string | null;
   logo_image_url: string | null;
   book_image_url: string | null;
+  hero_image_url: string | null;
   learning_title: string | null;
   learning_description: string | null;
   benefits_heading: string | null;
@@ -143,15 +145,26 @@ async function getPageData(slug: string): Promise<EbookLandingData | null> {
       ? createClient(supabaseUrl, supabaseServiceKey)
       : createClient(supabaseUrl, supabaseAnonKey || "")
     
-    const { data: page, error } = await supabase
+    let { data: page, error } = await supabase
       .from("ebook_landing_pages")
       .select("*")
       .eq("slug", slug)
-      .single()
+      .maybeSingle()
 
     if (error) {
       console.error("[getPageData] Error fetching ebook landing page:", error)
       return null
+    }
+
+    if (!page && slug) {
+      const res = await supabase
+        .from("ebook_landing_pages")
+        .select("*")
+        .ilike("slug", slug)
+        .limit(1)
+      if (!res.error && Array.isArray(res.data) && res.data.length > 0) {
+        page = res.data[0]
+      }
     }
 
     if (!page) {
@@ -173,6 +186,7 @@ async function getPageData(slug: string): Promise<EbookLandingData | null> {
           ...page,
           logo_image_url: resolveImageUrl(page.logo_image_url),
           book_image_url: resolveImageUrl(page.book_image_url),
+          hero_image_url: resolveImageUrl((page as any).hero_image_url),
           author_heading: emptyToNull(page.author_heading),
           author_name: emptyToNull(page.author_name),
           author_role: emptyToNull(page.author_role),

@@ -31,6 +31,9 @@ export default function SwiperInit() {
       
       // Destroy all existing Swiper instances first
       document.querySelectorAll('.swiper').forEach((el: any) => {
+        // The Careers Life at RIC carousel owns its own Swiper lifecycle.
+        if (el.closest('.testimonial-slider59')) return;
+
         try {
           if (el.swiper && typeof el.swiper.destroy === 'function') {
             el.swiper.destroy(true, true);
@@ -315,71 +318,58 @@ export default function SwiperInit() {
         }
         
         // 5. testslide1
-        const testslide1El = document.querySelector('.testslide1 .swiper');
-        if (testslide1El && !(testslide1El as any).swiper) {
+        document.querySelectorAll('.testslide1').forEach((sliderRoot) => {
+          const testslide1El = sliderRoot.querySelector('.swiper');
+          const counterEl = sliderRoot.querySelector('.testspace');
+          const prevButton = sliderRoot.querySelector<HTMLElement>('.testimonial-button-prev');
+          const nextButton = sliderRoot.querySelector<HTMLElement>('.testimonial-button-next');
+
+          if (!testslide1El || (testslide1El as any).swiper) return;
+
           try {
+            const realTotalSlides = testslide1El.querySelectorAll(
+              '.swiper-wrapper > .swiper-slide:not(.swiper-slide-duplicate)',
+            ).length;
+            const isEpicorOfferingsDesktop =
+              sliderRoot.matches('.epicoroffer .testslide1.systemview');
+
             new SwiperConstructor(testslide1El, {
               loop: true,
+              observer: true,
+              observeParents: true,
               autoplay: {
                 delay: 3000,
                 disableOnInteraction: false
               },
               spaceBetween: 20,
-              navigation: {
-                nextEl: ".testslide1 .testimonial-button-next",
-                prevEl: ".testslide1 .testimonial-button-prev",
-              },
+              ...(prevButton && nextButton
+                ? {
+                    navigation: {
+                      nextEl: nextButton,
+                      prevEl: prevButton,
+                    },
+                  }
+                : {}),
               breakpoints: {
                 0: { slidesPerView: 1.2 },
                 480: { slidesPerView: 1.2 },
                 768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
+                1024: { slidesPerView: isEpicorOfferingsDesktop ? 4 : 3 },
                 1366: { slidesPerView: 4 }
+              },
+              on: {
+                init: function (this: any) {
+                  if (counterEl) counterEl.textContent = `1/${realTotalSlides}`;
+                },
+                slideChange: function (this: any) {
+                  if (counterEl) counterEl.textContent = `${this.realIndex + 1}/${realTotalSlides}`;
+                }
               }
             });
           } catch (e) {
             console.error('Error initializing testslide1:', e);
           }
-        }
-        
-        // 6. testimonial-slider59
-        const slider59El = document.querySelector('.testimonial-slider59 .swiper');
-        const slider59CounterEl = document.querySelector('.testimonial-slider59 .testspace');
-        
-        if (slider59El && slider59CounterEl && !(slider59El as any).swiper) {
-          try {
-            const realTotalSlides = slider59El.querySelectorAll('.swiper-wrapper .swiper-slide').length;
-            new SwiperConstructor(slider59El, {
-              slidesPerView: 6,
-              spaceBetween: 30,
-              loop: true,
-              speed: 800,
-              centeredSlides: true,
-              autoplay: true,
-              navigation: {
-                nextEl: '.testimonial-slider59 .testimonial-button-next',
-                prevEl: '.testimonial-slider59 .testimonial-button-prev',
-              },
-              breakpoints: {
-                0: { slidesPerView: 1.5 },
-                768: { slidesPerView: 3 },
-                991: { slidesPerView: 5 },
-                1200: { slidesPerView: 6 },
-              },
-              on: {
-                init: function (this: any) {
-                  if (slider59CounterEl) slider59CounterEl.textContent = `1/${realTotalSlides}`;
-                },
-                slideChange: function (this: any) {
-                  const currentSlide = this.realIndex + 1;
-                  if (slider59CounterEl) slider59CounterEl.textContent = `${currentSlide}/${realTotalSlides}`;
-                }
-              }
-            });
-          } catch (e) {
-            console.error('Error initializing slider59:', e);
-          }
-        }
+        });
         
         // 7. industries slider
         const industriesEl = document.querySelector('.industries .swiper');
@@ -389,6 +379,7 @@ export default function SwiperInit() {
         if (industriesEl && industriesCounterEl && !(industriesEl as any).swiper) {
           try {
             const realTotalSlides = industriesEl.querySelectorAll('.industries .swiper-slide').length;
+            const showSingleIndustrySlide = industriesEl.closest('.epicor-page, .sap-page') !== null;
             const swiperInstance = new SwiperConstructor(industriesEl, {
               spaceBetween: 15,
                 loop: true,
@@ -403,7 +394,7 @@ export default function SwiperInit() {
                 prevEl: '.industries .testimonial-button-prev',
               },
               breakpoints: {
-                0: { slidesPerView: 1.3 },
+                0: { slidesPerView: showSingleIndustrySlide ? 1 : 1.3 },
                 768: { slidesPerView: 3 },
                 991: { slidesPerView: 4 },
                 1300: { slidesPerView: 5 },

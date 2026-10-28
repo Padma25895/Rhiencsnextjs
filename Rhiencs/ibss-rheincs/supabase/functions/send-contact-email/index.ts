@@ -595,15 +595,23 @@ Deno.serve(async (req) => {
 
       const userEmailSent = userResult.ok
       const adminEmailSent = adminResult.ok
-      const success = userEmailSent || adminEmailSent
+      const success = adminEmailSent
       return jsonResponse({
-        success: true,
-        message: success ? 'Emails sent successfully' : 'Form submitted but email notification failed',
+        success,
+        message: success
+          ? userEmailSent
+            ? 'Emails sent successfully'
+            : 'Admin notification sent, but user confirmation email failed'
+          : 'Form submitted but admin email notification failed',
         emailSent: userEmailSent && adminEmailSent,
         userEmailSent,
         adminEmailSent,
-        error: !success ? (userResult.error ?? adminResult.error) : undefined,
-      }, 200, cors)
+        error: !adminEmailSent
+          ? adminResult.error
+          : !userEmailSent
+            ? userResult.error
+            : undefined,
+      }, success ? 200 : 502, cors)
     }
 
     if (channel === 'deftech-bharat-2026') {

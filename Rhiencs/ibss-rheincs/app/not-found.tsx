@@ -29,6 +29,7 @@ export default function NotFound() {
   const caseStudyMatch = actualPath?.match(/^\/(?:Case-study-details|Casestudy)\/(.+)\/?$/i);
   const newsEventMatch = actualPath?.match(/^\/news-events\/(.+)\/?$/);
   const jobMatch = actualPath?.match(/^\/openings\/(.+)\/?$/);
+  const webinarLandingMatch = actualPath?.match(/^\/webinar\/(.+)\/?$/i);
   const ebookLandingMatch = actualPath?.match(/^\/(?:LP|EbookLanding)\/(.+)\/?$/i);
 
   // Decode slug/id (URL may have %20, %2B, etc.)
@@ -75,6 +76,17 @@ export default function NotFound() {
       <JobDetailClient
         jobId={id}
         initialJob={null}
+      />
+    );
+  }
+
+  if (webinarLandingMatch && webinarLandingMatch[1]) {
+    const slug = decode(webinarLandingMatch[1]);
+    return (
+      <EbookLandingClient
+        initialData={null}
+        slug={slug}
+        templateVariant="webinar"
       />
     );
   }
@@ -129,4 +141,3 @@ export default function NotFound() {
     </div>
   );
 }
-

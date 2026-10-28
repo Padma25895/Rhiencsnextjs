@@ -4,8 +4,95 @@ import React from "react";
 import CommomLayout from "../../../Components/CommomLayout";
 import Link from "next/link";
 import { useTranslation } from "../../../hooks/useTranslation";
+import { createClient } from '@/lib/supabase-browser';
+
+interface EbookTestimonial {
+  author: string
+  text: string
+  avatar_url?: string
+  company?: string
+}
+
+interface EbookAward {
+  name: string
+  image_url: string
+  description?: string
+}
+
+interface EbookLandingPage {
+  id: string
+  slug: string
+  template_type?: 'ebook' | 'webinar'
+  title: string
+  headline: string | null
+  subheadline: string | null
+  additional_paragraph: string | null
+  extra_content: string | null
+  header_image_url: string | null
+  logo_text: string | null
+  logo_image_url: string | null
+  book_image_url: string | null
+  learning_title: string | null
+  learning_description: string | null
+  benefits_heading: string | null
+  benefits: string[]
+  form_title: string | null
+  form_button_text: string | null
+  form_fields: any[]
+  author_heading: string | null
+  author_name: string | null
+  author_role: string | null
+  author_bio: string | null
+  author_avatar_url: string | null
+  author_avatar_svg: string | null
+  speakers?: any[] | null
+  footer_color: string | null
+  pdf_url: string | null
+  testimonials: EbookTestimonial[] | null
+  awards: EbookAward[] | null
+  created_at: string
+  updated_at: string
+}
+
 const page = () => {
   const { t, language } = useTranslation();
+  const [pageData, setPageData] = React.useState<EbookLandingPage | null>(null);
+  const [loading, setLoading] = React.useState(true);
+  const supabase = createClient();
+
+  React.useEffect(() => {
+    const fetchPageData = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('ebook_landing_pages')
+          .select('*')
+          .eq('slug', 'sugar-crm') // Assuming the slug for this page is 'sugar-crm'
+          .single();
+
+        if (error) {
+          console.error('Error fetching page data:', error.message);
+          setPageData(null);
+        } else {
+          setPageData(data);
+        }
+      } catch (error: any) {
+        console.error('Error fetching page data:', error.message);
+        setPageData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPageData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; // Or a more sophisticated loader
+  }
+
+  if (!pageData) {
+    return <div>Page not found or error loading content.</div>;
+  }
   return (
     <CommomLayout>
       <>
@@ -1639,14 +1726,14 @@ const page = () => {
               height=""
               width=""
             >
-              <source src="/videos/benefits.mp4" type="video/mp4" />
+              <source src="/videos/benefits.mov" type="video/mp4" />
             </video>
           </div>
         </div>
         <div className=" retail-baner1  sscr-4 retail-baner-11 kineticsec1 merlinbenefit approachh pd60">
           <div className="container">
             <div className="row section-row1 align-items-center builtsec">
-              <div className="col-sm-7">
+              <div className="col-sm-6">
                 <div className="section-title">
                   <h2 className="text-anime-style-2" data-cursor="-opaque">
                     {t("Benefits of SugarCRM")}
@@ -1710,7 +1797,7 @@ const page = () => {
             <div className="row section-row align-items-center">
               <div className="col-lg-12">
                 <div className="section-title text-center headingss">
-                  <h2 className="text-anime-style-2" data-cursor="-opaque">
+                  <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
                     {t("RheinBrücke Advantage")}
                   </h2>
                   <p>

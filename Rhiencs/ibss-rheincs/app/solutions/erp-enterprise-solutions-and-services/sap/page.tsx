@@ -121,18 +121,33 @@ const page = () => {
       if (error) throw error;
 
       // Send Email
-      await supabase.functions.invoke("send-contact-email", {
-        body: {
-          channel: "contact",
-          fullName,
-          email,
-          phone,
-          countryCode: countryCode || "+91",
-          companyName,
-          selection: "SAP Brochure Request",
-          // message: "Requested SAP Brochure download",
-        },
-      });
+      const { data: emailResult, error: emailError } =
+        await supabase.functions.invoke("send-contact-email", {
+          body: {
+            channel: "contact",
+            fullName,
+            email,
+            phone,
+            countryCode: countryCode || "+91",
+            companyName,
+            selection: "SAP Brochure Request",
+            // message: "Requested SAP Brochure download",
+          },
+        });
+
+      if (emailError) {
+        console.error("SAP brochure email error:", emailError);
+        throw new Error(
+          "Your request was saved, but the team notification email could not be sent. Please try again or contact us directly.",
+        );
+      }
+      if (!emailResult || emailResult.adminEmailSent !== true) {
+        console.error("SAP brochure admin email was not delivered:", emailResult);
+        throw new Error(
+          emailResult?.error ||
+            "Your request was saved, but the team notification email could not be sent. Please try again or contact us directly.",
+        );
+      }
 
       setStatus("success");
       setStatusMessage(t("Thank you! Your request has been submitted."));
@@ -161,10 +176,14 @@ const page = () => {
       setTimeout(() => {
         router.push("/thanks");
       }, 2000);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error:", error);
       setStatus("error");
-      setStatusMessage(t("An error occurred. Please try again."));
+      setStatusMessage(
+        error instanceof Error
+          ? error.message
+          : t("An error occurred. Please try again."),
+      );
     }
   };
 
@@ -2110,7 +2129,7 @@ const page = () => {
             <div className="row section-row align-items-center">
               <div className="col-lg-12">
                 <div className="section-title">
-                  <h2 className="text-anime-style-2" data-cursor="-opaque">
+                  <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
                     {t("Our SAP Capabilities")}
                   </h2>
                   <p className="mt15">
@@ -2738,7 +2757,7 @@ const page = () => {
             <div className="row section-row align-items-center">
               <div className="col-lg-12">
                 <div className="section-title text-center headingss">
-                  <h2 className="text-anime-style-2" data-cursor="-opaque">
+                  <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
                     {t("Industries We Support")}
                   </h2>
                   <p> {t("Modern SAP solutions tailored for:")}</p>

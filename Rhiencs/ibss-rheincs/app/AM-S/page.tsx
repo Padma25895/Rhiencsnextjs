@@ -158,7 +158,7 @@ export default function AlMl() {
                         <div className="row section-row align-items-center">
                             <div className="col-lg-12">
                                 <div className="section-title text-center headingss">
-                                    <h2 className="text-anime-style-2" data-cursor="-opaque">
+                                    <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
                                         {t("Services Provided")}
                                     </h2>
                                 </div>

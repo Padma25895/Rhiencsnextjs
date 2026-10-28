@@ -1062,7 +1062,7 @@ export default function EnterpriseSolutions() {
             <div className="row section-row align-items-center">
               <div className="col-lg-6">
                 <div className="section-title">
-                  <h2 className="text-anime-style-2" data-cursor="-opaque">
+                  <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
                      {t("Our Approach")}
                   </h2>
                   <p>
@@ -2421,7 +2421,7 @@ export default function EnterpriseSolutions() {
                       <h3>
                         {t("Certified Microsoft AI Cloud and ISV Partner with extensive experience in ERP and Dynamics 365 solutions.")}
                       </h3>
-                     <img src="/new/gt.svg" alt="" />
+                     <img className="advantage-support-art" src="/new/gt.svg" alt="" />
                     </div>
                   </div>
                   <div className="col-lg-4 col-md-4 col-12">
@@ -2461,7 +2461,7 @@ export default function EnterpriseSolutions() {
             <div className="row section-row align-items-center">
               <div className="col-lg-12">
                 <div className="section-title text-center headingss">
-                  <h2 className="text-anime-style-2" data-cursor="-opaque">
+                  <h2 className="text-anime-style-2 text-black" data-cursor="-opaque">
                     {t("Industries We Serve")}
                   </h2>
                 </div>
