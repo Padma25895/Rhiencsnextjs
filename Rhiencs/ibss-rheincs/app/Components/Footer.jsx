@@ -73,31 +73,31 @@ export default function Footer() {
                                             <li>
                                                 <Link href="https://www.linkedin.com/company/rheinbr%C3%BCcke-it-consulting" target="_blank">
                                                     {/* <i className="fa-brands fa-linkedin" /> */}
-                                                    <img src="/images/Linkdin.svg" alt="" />
+                                                    <Image src="/images/Linkdin.svg" alt="" width={30} height={30} loading="lazy" />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://x.com/RheinBruckeIT" target="_blank">
                                                     {/* <i className="fa-brands fa-x-twitter" /> */}
-                                                    <img src="/images/X.svg" alt="" />
+                                                    <Image src="/images/X.svg" alt="" width={30} height={30} loading="lazy" />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.instagram.com/rheinbrucke_itconsulting/" target="_blank">
                                                     {/* <i className="fa-brands fa-instagram" /> */}
-                                                    <img src="/images/Insta.svg" alt="" />
+                                                    <Image src="/images/Insta.svg" alt="" width={30} height={30} loading="lazy" />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.facebook.com/RheinBrucke" target="_blank">
                                                     {/* <i className="fa-brands fa-facebook" /> */}
-                                                    <img src="/images/Fb.svg" alt="" />
+                                                    <Image src="/images/Fb.svg" alt="" width={30} height={30} loading="lazy" />
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link href="https://www.youtube.com/@rheinbruckeitconsulting" target="_blank">
                                                     {/* <i className="fa-brands fa-youtube" /> */}
-                                                    <img src="/images/Yt.svg" alt="" />
+                                                    <Image src="/images/Yt.svg" alt="" width={30} height={30} loading="lazy" />
                                                 </Link>
                                             </li>
                                         </ul>

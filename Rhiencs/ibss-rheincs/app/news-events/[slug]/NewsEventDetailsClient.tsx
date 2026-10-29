@@ -56,6 +56,22 @@ export default function NewsEventDetailsClient({ initialItem, slug }: NewsEventD
     }
   }, [slug]);
 
+  useEffect(() => {
+    if (!item) return;
+
+    let canonical = document.querySelector("link[rel='canonical']");
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+
+    canonical.setAttribute(
+      "href",
+      `https://www.rheincs.com/news-events/${slugToUrl(item.slug) || item.id}/`,
+    );
+  }, [item]);
+
   const fetchItem = async () => {
     try {
       setLoading(true);

@@ -201,6 +201,22 @@ export default function CaseStudyDetailsClient({
     };
   }, [caseStudyId, fetchCaseStudy])
 
+  useEffect(() => {
+    if (!caseStudy) return;
+
+    let canonical = document.querySelector("link[rel='canonical']");
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.setAttribute("rel", "canonical");
+      document.head.appendChild(canonical);
+    }
+
+    canonical.setAttribute(
+      "href",
+      `https://www.rheincs.com/Casestudy/${caseStudy.slug || caseStudy.id}/`,
+    );
+  }, [caseStudy]);
+
   // Set up Intersection Observer to track active section
   useEffect(() => {
     if (!caseStudy) return;

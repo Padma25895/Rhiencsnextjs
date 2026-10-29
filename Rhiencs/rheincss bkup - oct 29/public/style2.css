@@ -1,0 +1,999 @@
+.dynamics-advantage-waber p {
+    color: black;
+    line-height: 24px;
+    margin-top: 10px;
+}
+
+.mds-baner h2 {
+    width: 100% !important;
+}
+
+.mer-secont-3 {
+    font-size: 24px;
+}
+
+.rotate-up {
+    transform: rotate(180deg);
+}
+
+
+.svg-container {
+    transition: transform 0.3s ease;
+    display: inline-block;
+    /* distinct block for rotation */
+}
+
+.mds-baner .section-title {
+    width: 100%;
+    max-width: 581px;
+    margin-bottom: 0;
+}
+
+.llo {
+    margin-top: 80px;
+}
+
+.sap-paner-text {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    top: -100px;
+    transform: translateX(-50%);
+}
+
+.corusimg {
+    position: relative;
+    z-index: 1;
+}
+
+.corusimg::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    top: 0%;
+    left: 0px;
+    height: 100%;
+    background: #082326;
+    background: linear-gradient(180deg, rgba(8, 35, 38, 1) 0%, rgba(8, 35, 38, 0.34) 20%, rgba(8, 35, 38, 0) 100%);
+    z-index: 2;
+}
+
+.rechange-baner {
+    text-align: end;
+}
+
+.rechange-baner img {
+      height: 100%;
+    /* width: 50%; */
+    object-fit: cover;
+    /* position: relative; */
+    object-position: left;
+}
+
+.text-left2 {
+
+    text-align: left;
+    width: 448px;
+}
+
+.dynamics-advantage-waber {
+    /* margin-bottom: 30px; */
+    margin: 10px;
+}
+.sap2sec .dynamics-advantage-waber {
+    /* margin-bottom: 30px; */
+    margin: 0px !important;
+}
+.sap2sec .dynamics-advantage-waber .ser-btn {
+    margin-bottom: 0px !important;
+}
+.sap2sec{
+    padding: 20px 0px !important;
+}
+.ddrt .service-item-body {
+    min-height: 472px;
+}
+
+
+.amt-t {
+    position: relative !important;
+    justify-content: start !important;
+}
+
+.testimonial-slideram .valueslide {
+    margin-bottom: 27px;
+}
+
+.testimonial-btn9 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.mds-section {
+    background-color: #082326;
+}
+
+
+.industries .service-item-body.in6 {
+    background: url(new/in6.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.industries .service-item-body.ein1 {
+    background: url(new/ein-1.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.industries .service-item-body.ein2 {
+    background: url(new/ein-2.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.industries .service-item-body.ein3 {
+    background: url(new/ein-3.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.industries .service-item-body.ein4 {
+    background: url(new/ein-4.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.industries .service-item-body.ein5 {
+    background: url(new/ein-5.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.industries .service-item-body.ein6 {
+    background: url(new/ein-6.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.testimonial-btn {
+    gap: 10px;
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.arrow-icon.rotate {
+    transform: rotate(180deg);
+}
+
+.overview-slider .valueslide {
+    height: 432px !important;
+    padding: 24px !important;
+}
+
+.mds-waber {
+    padding: 24px;
+    display: flex;
+    margin-bottom: 70px;
+    flex-direction: column;
+    min-height: 270px;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 1px solid white;
+    transition: all 0.3s ease;
+}
+
+.mds-waber img {
+    margin-bottom: 15px;
+    width: 80px;
+    height: 80px;
+}
+
+.mds-waber h6 {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.mds-waber p {
+    margin-bottom: 0;
+    display: none;
+    font-family: Raleway;
+    transition: all 0.3s ease;
+}
+
+.testimonial-slider5 {
+    margin: 40px 0;
+}
+
+/* ✅ Active slide visible state */
+.swiper-slide-active .mds-waber {
+    border: 0;
+    background: linear-gradient(180deg, rgba(0, 128, 128, 0.534) 0%, #082326 100%);
+}
+
+.swiper-slide-active .mds-waber p {
+    display: block;
+}
+
+/* ✅ Hover effect for non-active slides */
+.swiper-slide:not(.swiper-slide-active) .mds-waber:hover {
+    border: 0;
+    background: linear-gradient(180deg, rgba(0, 128, 128, 0.534) 0%, #082326 100%);
+}
+
+.swiper-slide:not(.swiper-slide-active) .mds-waber:hover p {
+    display: block;
+}
+
+/* ✅ When hovering a non-active slide → hide active slide temporarily */
+.swiper-slide:not(.swiper-slide-active):hover~.swiper-slide-active .mds-waber,
+.swiper:hover .swiper-slide-active:not(:hover) .mds-waber {
+    background: none;
+    border: 1px solid white;
+}
+
+.swiper-slide:not(.swiper-slide-active):hover~.swiper-slide-active .mds-waber p,
+.swiper:hover .swiper-slide-active:not(:hover) .mds-waber p {
+    display: none;
+}
+
+/* ✅ When hovering back on active slide → show background + text again */
+.swiper-slide-active:hover .mds-waber {
+    border: 0;
+    background: linear-gradient(180deg, rgba(0, 128, 128, 0.534) 0%, #082326 100%);
+}
+
+.swiper-slide-active:hover .mds-waber p {
+    display: block;
+}
+
+
+/* .mds-waber:hover {
+    border: 0px;
+    background: linear-gradient(180deg, rgba(0, 128, 128, 0.534) 0%, #082326 100%);
+} */
+
+.testimonial-slider5 .testimonial-btn .btn-style-3 {
+    padding: 0px 0px !important;
+}
+
+.testimonial-slider5 .testimonial-btn .testspace {
+    color: #fff !important;
+}
+
+.testimonial-slider5 .testimonial-btn {
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-top: 30px;
+    z-index: 2;
+}
+
+.testimonial-slider5 .testimonial-button-next,
+.testimonial-slider5 .testimonial-button-prev {
+    position: relative;
+    width: 50px;
+    /* height: 50px; */
+    /* background: var(--secondary-color); */
+    border-radius: 14px;
+    transition: all 0.4s ease-in-out;
+}
+
+.testimonial-slider5 .testimonial-button-next {
+    margin-left: 5px;
+}
+
+
+
+
+.testimonial-slider5 .testimonial-button-prev {
+    transform: rotate(180deg);
+}
+
+
+
+.oa-para {
+    height: auto !important;
+}
+
+.oa-para-waber {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.advantage99 {
+    background-color: #082326;
+}
+
+.advantage99 .service-item-body1 {
+    background-color: #20393b;
+}
+
+/* .advantage99 .service-item-body1 h3{
+    width: 70% !important;
+} */
+
+
+
+.testimonial-slider7 .testimonial-button-next,
+.testimonial-slider7 .testimonial-button-prev {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    /* background: var(--secondary-color); */
+    border-radius: 14px;
+    transition: all 0.4s ease-in-out;
+}
+
+.testimonial-slider7 .testimonial-button-next {
+    margin-left: 5px;
+}
+
+
+.testimonial-slider7 .testimonial-button-next:hover,
+.testimonial-slider7 .testimonial-button-prev:hover {
+    /* background: var(--accent-color); */
+}
+
+.testimonial-slider7 .testimonial-button-next::before,
+.testimonial-slider7 .testimonial-button-prev::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: url("images/Dotted\ Arrow1.svg") no-repeat center center;
+    background-size: 30px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(0deg);
+    transition: all 0.4s ease-in-out;
+}
+
+.testimonial-slider7 .testimonial-button-prev::before {
+    transform: rotate(180deg);
+}
+
+.testimonial-slider7 .testimonial-button-next:hover:before,
+.testimonial-slider7 .testimonial-button-prev:hover:before {
+    filter: brightness(1) invert(1);
+}
+
+
+.microinner-icon {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+
+}
+
+.retail-baner {
+
+    height: 600px;
+    position: relative;
+
+    z-index: 1;
+}
+
+.retail-baner-1::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    background-image: url('new/retail-baner.webp');
+    background-position: right;
+    background-size: contain;
+    height: 100%;
+    right: -10%;
+    top: 0px;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+.crm-one-waber {
+    position: relative;
+    z-index: 1;
+    padding: 80px 0px;
+    background-color: #003933;
+}
+
+.crm-one-waber::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: -1;
+    background: linear-gradient(270deg, #082326 0%, #082326 53%, rgba(8, 35, 38, 0.4) 70%, rgba(8, 35, 38, 0) 100%);
+    top: 0px;
+    left: 0px;
+}
+
+.crm-one-video {
+    position: absolute;
+    z-index: -2;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    width: auto;
+}
+
+.crm-one-video video {
+    height: 100%;
+}
+
+#lottie-container {
+    position: relative;
+    z-index: 2;
+}
+
+#lottie-container::after {
+    position: absolute;
+    content: "";
+    right: 0px;
+    bottom: 0%;
+    background-color: #082326;
+    width: 15%;
+    height: 15%;
+    z-index: 2;
+}
+
+
+.retail-baner-1::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #082326;
+    background:
+        linear-gradient(90deg, rgba(8, 35, 38, 1) 45%, rgba(8, 35, 38, 1) 10%, rgba(8, 35, 38, 0.81) 58%, rgba(8, 35, 38, 0) 80%, rgba(255, 255, 255, 0) 100%);
+
+}
+
+.challenges-waber {
+    padding: 60px 0px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.challenges-waber-1::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -10%;
+    background-image: url('new/retail-two.webp');
+    background-position: left;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    z-index: -2;
+    height: 100%;
+
+}
+
+.challenges-waber-1::after {
+    position: absolute;
+    top: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, #ffffff00, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 100%);
+    left: 0px;
+}
+
+
+
+.challenge-point-waber p {
+    /* margin-left: 10px; */
+    color: black;
+}
+
+.help-waber {
+    display: flex;
+    align-items: start;
+    min-height: 100px;
+}
+
+.help-waber p {
+    margin-left: 10px;
+
+}
+
+
+.benifites-waber {
+    padding: 60px 0px;
+
+}
+
+.benifet-content-waber {
+    border: 1px solid rgba(8, 35, 38, 1);
+    border-radius: 8px;
+    margin: 10px 0px;
+}
+
+.benifet-content {
+    margin: 16px;
+    min-height: 345px;
+}
+
+.benifit-title {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 16px;
+    color: rgba(8, 35, 38, 1);
+    font-family: "Raleway", sans-serif;
+}
+
+.bf-content {
+    display: flex;
+    /* margin: 10px 0px; */
+    align-items: start;
+}
+
+.bf-content p {
+    color: black;
+    margin-left: 12px;
+    font-family: 'Helvetica';
+}
+
+.benifet-content-1 {
+    min-height: 780px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.benifet-content-2 {
+    /*min-height: 900px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.baner-33::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    background-image: url('new/bann-33.svg');
+    background-position: right;
+    background-size: contain;
+    height: 100%;
+    right: -10%;
+    top: 0px;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+.baner-33::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #082326;
+    background:
+        linear-gradient(90deg, rgba(8, 35, 38, 1) 45%, rgba(8, 35, 38, 1) 10%, rgba(8, 35, 38, 0.81) 58%, rgba(8, 35, 38, 0) 80%, rgba(255, 255, 255, 0) 100%);
+}
+
+.challenges-waber-2::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -15%;
+    background-image: url('new/banner-44.svg');
+    background-position: left;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    z-index: -2;
+    height: 100%;
+
+}
+
+.challenges-waber-2::after {
+    position: absolute;
+    top: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, #ffffff00, rgb(255, 255, 255) 55%, rgb(255, 255, 255) 100%);
+    left: 0%;
+}
+
+
+.challenges-waber-77::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -15%;
+    background-image: url('new/epc-01.webp');
+    background-position: left;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    z-index: -2;
+    height: 100%;
+
+}
+
+.challenges-waber-77::after {
+    position: absolute;
+    top: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, #ffffff00, rgb(255, 255, 255) 55%, rgb(255, 255, 255) 100%);
+    left: 0%;
+}
+
+.challenges-waber-78::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -15%;
+    background-image: url('new/sp-08.webp');
+    background-position: left;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    z-index: -2;
+    height: 100%;
+
+}
+
+.challenges-waber-78::after {
+    position: absolute;
+    top: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, #ffffff00, rgb(255, 255, 255) 55%, rgb(255, 255, 255) 100%);
+    left: 0%;
+}
+
+.challenges-waber-79::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -15%;
+    background-image: url('new/cm-09.webp');
+    background-position: left;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    z-index: -2;
+    height: 100%;
+
+}
+
+.challenges-waber-79::after {
+    position: absolute;
+    top: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, #ffffff00, rgb(255, 255, 255) 55%, rgb(255, 255, 255) 100%);
+    left: 0%;
+}
+
+
+
+.challenges-waber-80::before {
+    position: absolute;
+    content: "";
+    top: 0px;
+    left: -15%;
+    background-image: url('new/vr777.webp');
+    background-position: left;
+
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    z-index: -2;
+    height: 100%;
+
+}
+
+.challenges-waber-80::after {
+    position: absolute;
+    top: 0px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(90deg, #ffffff00, rgb(255, 255, 255) 55%, rgb(255, 255, 255) 100%);
+    left: 0%;
+}
+
+.matters-content-waber img {
+
+    margin-bottom: 18px;
+}
+
+.matters-content-waber {
+    margin-bottom: 20px;
+}
+
+.testimonial-btn5 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 43px;
+}
+
+.msd-ts.swiper-slide-active .service-item {
+    /* background: linear-gradient(180deg, rgba(0, 128, 128, 0) 0%, #082326 95%); */
+    background: linear-gradient(180deg, #d9f1f1 0%, #0b2e2e 100%) !important;
+    color: #fff;
+    box-shadow: 0px 10px 20px rgba #0000001a (0, 0, 0, 0.1);
+    transition: all 1s ease-in-out;
+    /* border: 1px solid transparent !important; */
+}
+
+.pq-dark-waber {
+    position: relative;
+    z-index: 1;
+}
+
+.pq-dark-waber::after {
+    content: "";
+    width: 100%;
+    z-index: -1;
+    background: #082326;
+    background: linear-gradient(90deg, rgba(8, 35, 38, 1) 44%, rgba(8, 35, 38, 1) 2%, rgba(8, 35, 38, 0.81) 58%, rgb(10 83 91 / 10%) 100%, rgba(255, 255, 255, 0) 100%);
+    height: 100%;
+    top: 0px;
+    position: absolute;
+    left: 0px;
+}
+
+.pq-video {
+    position: absolute;
+    right: -25%;
+    top: 0px;
+    z-index: -2;
+    height: 100%;
+}
+
+
+.pq-video video {
+    height: 100%;
+}
+
+.equitywhy {
+    margin: 20px 0px;
+}
+
+.whyequitysec {
+    padding: 50px 0px !important;
+}
+
+.equitywhy .swiper-horizontal {
+    padding: 0px 0px 0px;
+}
+
+
+
+.retailparent2 {
+    background: none !important;
+    /* position: relative; */
+}
+
+
+.retailparent2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px !important;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(8, 35, 38, 1) 29%, rgba(8, 35, 38, 1) 0%, rgb(8 35 38 / 0%) 50%, rgb(10 83 91 / 10%) 100%, rgba(255, 255, 255, 0) 100%) !important;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+.retailparent2 .bg-image1 {
+    width: 65%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1 !important;
+    position: absolute;
+    right: 0px;
+}
+
+.retailparent2 .bg-image1 {
+    filter: none !important;
+}
+
+
+
+.dynamics h6 {
+    margin-bottom: 0px !important;
+    font-size: 22px;
+    font-family: 'helvetica-neue-lt-pro' !important;
+}
+
+
+.dynamics .mds-waber {
+    padding: 20px 20px;
+    display: flex;
+    margin-bottom: 70px;
+    flex-direction: column;
+    min-height: 320px;
+}
+
+
+.dynamics .mds-waber:hover h6 {
+    margin-bottom: 10px !important;
+}
+
+
+
+
+.mds-waber2 {
+    padding: 24px;
+    display: flex;
+
+    margin-bottom: 70px;
+    flex-direction: column;
+    min-height: 270px;
+    justify-content: space-between;
+    border-radius: 8px;
+    border: 1px solid rgba(8, 35, 38, 1);
+    transition: all 0.3s ease;
+}
+
+.mds-waber2 img {
+    margin-bottom: 15px;
+    width: 80px;
+    height: 80px;
+}
+
+.mds-waber2 h6 {
+    margin-bottom: 15px;
+    color: black;
+    font-size: 24px;
+}
+
+.mds-waber2 p {
+    margin-bottom: 0;
+    display: none;
+    color: black;
+    font-family: Raleway;
+    transition: all 0.3s ease;
+}
+
+
+/* ✅ Active slide visible state */
+.swiper-slide-active .mds-waber2 {
+    border: 0;
+    background: linear-gradient(180deg, rgba(0, 128, 128, 0.534) 35%, #082326 100%);
+}
+
+.swiper-slide-active .mds-waber2 p {
+    display: block;
+    color: white;
+}
+
+.swiper-slide-active .mds-waber2 h6 {
+
+    color: white;
+}
+
+/* ✅ Hover effect for non-active slides */
+.swiper-slide:not(.swiper-slide-active) .mds-waber2:hover {
+    border: 0;
+    background: linear-gradient(180deg, rgba(0, 128, 128, 0.534) 55%, #082326 100%);
+}
+
+.swiper-slide:not(.swiper-slide-active) .mds-waber2:hover p {
+    display: block;
+    color: white;
+
+}
+
+/* ✅ When hovering a non-active slide → hide active slide temporarily */
+.swiper-slide:not(.swiper-slide-active):hover~.swiper-slide-active .mds-waber2,
+.swiper:hover .swiper-slide-active:not(:hover) .mds-waber2 {
+    /*background: none;*/
+    border: 1px solid rgba(8, 35, 38, 1);
+}
+
+.swiper-slide:not(.swiper-slide-active):hover~.swiper-slide-active .mds-waber2 p,
+.swiper:hover .swiper-slide-active:not(:hover) .mds-waber2 p {
+    display: none;
+}
+
+/* ✅ When hovering back on active slide → show background + text again */
+.swiper-slide-active:hover .mds-waber2 {
+    border: 0;
+    /*background: linear-gradient(180deg, rgba(0, 128, 128, 0.534) 0%, #082326 100%);*/
+}
+
+.swiper-slide-active:hover .mds-waber2 p {
+    color: white !important;
+    display: block;
+}
+
+.dynamics .mds-waber2 {
+    padding: 20px 20px;
+    display: flex;
+    margin-bottom: 70px;
+    flex-direction: column;
+    min-height: 320px;
+}
+
+
+.dynamics .mds-waber2:hover h6 {
+    margin-bottom: 10px !important;
+    color: white;
+}
+
+.wcu-1 {
+    padding: 60px 0px;
+    color: white;
+    position: relative;
+    z-index: 1;
+    background: #082326;
+}
+
+.wcu-1::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    background: #082326;
+    background: linear-gradient(90deg, rgba(8, 35, 38, 1) 48%, rgba(8, 35, 38, 0.18) 100%);
+    z-index: -1;
+}
+
+.wcu-waber-1 {
+    padding: 10px;
+    color: white;
+}
+
+.wcu-waber-1 img {
+    width: 80px;
+    margin-bottom: 16px;
+    height: 80px;
+}
+
+.wcu-video {
+    position: absolute;
+    right: -20px;
+    z-index: -2;
+    top: 0px;
+    height: 100%;
+}

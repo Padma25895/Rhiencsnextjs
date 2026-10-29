@@ -1,0 +1,54 @@
+/* =========================================================
+   FONT AWESOME
+   ========================================================= */
+
+@font-face {
+  font-family: "Font Awesome 6 Free";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/fa-regular-400.woff2") format("woff2");
+}
+
+
+/* =========================================================
+   HELVETICA
+   ========================================================= */
+
+@font-face {
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Helvetica.woff2") format("woff2");
+}
+
+
+/* =========================================================
+   HELVETICA NEUE
+   Keep ONLY the weights actually used by your website.
+   ========================================================= */
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/HelveticaNeue-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/HelveticaNeue-Roman.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/HelveticaNeue-Bold.woff2") format("woff2");
+}

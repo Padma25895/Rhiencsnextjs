@@ -260,8 +260,8 @@ export default function digitalsolution() {
         </div>
         <div className="col-sm-7">
           <div className="digiban ">
-            {/*<img src="/images/digitalban.webp" alt="">*/}
-            <svg
+            <img src="/images/digitalban.webp" alt="" />
+            {/* <svg
               width={796}
               height={600}
               viewBox="0 0 796 600"
@@ -305,7 +305,6 @@ export default function digitalsolution() {
                   fill="none"
                   stroke="none"
                 />
-                {/* Intha reverse paths ippo theva illa, aana irukkaradhunala problem illa */}
                 <path
                   id="path-r178-rev"
                   d="M 398, 439 m 178, 0 a 178,178 0 1,0 -356,0 a 178,178 0 1,0 356,0"
@@ -1417,7 +1416,7 @@ export default function digitalsolution() {
                   fill="white"
                 />
               </g>
-            </svg>
+            </svg> */}
           </div>
         </div>
       </div>
@@ -2838,8 +2837,8 @@ export default function digitalsolution() {
                     "Build business apps, automate workflows, and deliver data-driven dashboards via Power Apps, Power Automate, and Power BI, enabling business-led development with embedded governance."
                   )}
                 </p>
-                {/*<img src="/images/digiexp2.webp" alt="">*/}
-                <svg
+                <img src="/images/digiexp2.webp" alt="" />
+                {/* <svg
                   width={630}
                   height={401}
                   viewBox="0 0 630 401"
@@ -2847,7 +2846,6 @@ export default function digitalsolution() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
-                    {/* Motion Paths for Dots (invisible paths for animation) */}
                     <path
                       id="motionPath1"
                       d="M 6.5,301.5 A 453,453 0 1 1 912.5,301.5 A 453,453 0 1 1 6.5,301.5"
@@ -2878,7 +2876,6 @@ export default function digitalsolution() {
                       stroke="none"
                       fill="none"
                     />
-                    {/* Original definitions */}
                     <filter
                       id="filter0_d_1_1440"
                       x={2}
@@ -3075,7 +3072,6 @@ export default function digitalsolution() {
                   </defs>
                   <g clipPath="url(#clip0_1_1440)">
                     <g filter="url(#filter0_d_1_1440)">
-                      {/* 1a. Original Gently Glowing Background Circles */}
                       <g id="background-circles">
                         <circle
                           cx="459.5"
@@ -3114,7 +3110,6 @@ export default function digitalsolution() {
                           repeatCount="indefinite"
                         />
                       </g>
-                      {/* 1b. Animated Dots Traveling on Paths */}
                       <g id="animated-dots" opacity="0.8">
                         <circle r="2.32653" fill="#28B67E">
                           <animateMotion
@@ -3162,9 +3157,7 @@ export default function digitalsolution() {
                           </animateMotion>
                         </circle>
                       </g>
-                      {/* 2. Draw and Fill Shapes */}
                       <g id="animated-foreground">
-                        {/* Yellow Bars */}
                         <g>
                           <path
                             d="M182 203.798V225.471C182 226.655 182.88 227.648 183.994 227.648H198.391V203.798C198.391 202.614 197.511 201.621 196.397 201.621H183.994C182.909 201.621 182 202.582 182 203.798Z"
@@ -3203,7 +3196,6 @@ export default function digitalsolution() {
                             ></animate>
                           </path>
                         </g>
-                        {/* Blue Shape */}
                         <g>
                           <path
                             d="M41.5 117L75.5 79L92.5 98L75.5 117H41.5Z"
@@ -3244,7 +3236,6 @@ export default function digitalsolution() {
                               repeatCount="indefinite"
                             />
                           </path>
-                          {/* Other blue parts just fade in */}
                           <path
                             d="M75.5 79L58.5 98L41.5 79H75.5Z"
                             fill="url(#paint11_linear_1_1440)"
@@ -3274,7 +3265,6 @@ export default function digitalsolution() {
                             />
                           </path>
                         </g>
-                        {/* Purple Shape */}
                         <g>
                           <path
                             d="M65.9169 337L41.8544 309.5L65.9169 282L89.9794 309.5L65.9169 337Z"
@@ -3316,7 +3306,6 @@ export default function digitalsolution() {
                             />
                           </path>
                         </g>
-                        {/* Static Yellow bars just fade in with the drawing one */}
                         <path
                           d="M217.744 177.772V225.439C217.744 226.623 216.864 227.616 215.75 227.616H203.346C202.262 227.616 201.353 226.655 201.353 225.439V177.772C201.353 176.587 202.232 175.595 203.346 175.595H215.75C216.835 175.627 217.744 176.587 217.744 177.772Z"
                           fill="url(#paint8_linear_1_1440)"
@@ -6885,7 +6874,7 @@ export default function digitalsolution() {
                       ></image>
                     </defs>
                   </svg>
-                </div>
+                </div> */}
               </div>
             </div>
             {/* Service Item End */}
@@ -6927,8 +6916,8 @@ export default function digitalsolution() {
                     "Architect composable eCommerce solutions using MACH principles, integrating omnichannel experiences, scalable microservices, and operational dashboards for continuous KPI tracking."
                   )}
                 </p>
-                {/*<img src="/images/cu1.webp" alt="">*/}
-                <div className="text-center">
+                <img src="/images/cu1.webp" alt="" />
+                {/* <div className="text-center">
                   <svg
                     width={630}
                     height={114}
@@ -6949,13 +6938,8 @@ export default function digitalsolution() {
                         strokeLinejoin="round"
                         fill="none"
                       />
-                      {/* Define the invisible motion paths for the animation */}
-                      {/* Incoming/Outgoing arrows on the left */}
-                      {/* This one now moves from right-to-left (<--) */}
-                      <path id="path-in-1" d="M50 10 L0 10" />
-                      {/* This one moves from left-to-right (*/}) --&gt;
+                      <path id="path-in-1" d="M50 10 L0 10" />) --&gt;
                       <path id="path-in-2" d="M0 31 L50 31" />
-                      {/* Central arrows */}
                       <path id="path-top-1" d="M163 21 L259 21" />
                       <path id="path-top-2" d="M371 21 L468 21" />
                       <path
@@ -6966,13 +6950,9 @@ export default function digitalsolution() {
                       <path
                         id="path-down-micro"
                         d="M505 42V55.4745C505 66.5202 496.046 75.4745 485 75.4745H335C323.954 75.4745 315 84.4288 315 95.4745V113"
-                      ></path>
-                      {/* Incoming/Outgoing arrows on the right */}
-                      {/* This one moves from left-to-right (*/}) --&gt;
+                      ></path>) --&gt;
                       <path id="path-out-1" d="M580 10 L630 10" />
-                      {/* This one now moves from right-to-left (<--) */}
                       <path id="path-out-2" d="M630 31 L580 31" />
-                      {/* Gradients for fading lines at the edges */}
                       <linearGradient
                         id="paint0_linear_1_71"
                         x1={0}
@@ -7018,8 +6998,6 @@ export default function digitalsolution() {
                         <stop offset={1} stopColor="#499A9A" />
                       </linearGradient>
                     </defs>
-                    {/* Static Background Elements */}
-                    {/* Visible Connection Lines/Tracks */}
                     <path
                       d="M125 42V55.4745C125 66.5202 133.954 75.4745 145 75.4745H295C306.046 75.4745 315 84.4288 315 95.4745V113"
                       stroke="#499A9A"
@@ -7045,7 +7023,6 @@ export default function digitalsolution() {
                       stroke="#499A9A"
                       strokeWidth="1.5"
                     />
-                    {/* Fading lines at the edges */}
                     <path
                       d="M0 31L50 31"
                       stroke="url(#paint0_linear_1_71)"
@@ -7066,7 +7043,6 @@ export default function digitalsolution() {
                       stroke="url(#paint3_linear_1_71)"
                       strokeWidth="1.5"
                     ></path>
-                    {/* Boxes and Text Labels */}
                     <g id="box-mach-principles">
                       <rect
                         x="50.5"
@@ -7130,8 +7106,6 @@ export default function digitalsolution() {
                         Microservices
                       </text>
                     </g>
-                    {/* Animated Arrows */}
-                    {/* Left Side Arrows */}
                     <use xlinkHref="#arrow-shape">
                       <animateMotion
                         dur="2s"
@@ -7152,7 +7126,6 @@ export default function digitalsolution() {
                         <mpath xlinkHref="#path-in-2" />
                       </animateMotion>
                     </use>
-                    {/* Central Arrows */}
                     <use xlinkHref="#arrow-shape">
                       <animateMotion
                         dur="2.5s"
@@ -7203,7 +7176,6 @@ export default function digitalsolution() {
                         <mpath xlinkHref="#path-down-micro" />
                       </animateMotion>
                     </use>
-                    {/* Right Side Arrows */}
                     <use xlinkHref="#arrow-shape">
                       <animateMotion
                         dur="2s"
@@ -8985,7 +8957,7 @@ export default function digitalsolution() {
                       </clipPath>
                     </defs>
                   </svg>
-                </div>
+                </div> */}
               </div>
             </div>
             {/* Service Item End */}
@@ -8993,7 +8965,7 @@ export default function digitalsolution() {
           <div className="col-lg-6 col-md-6">
             {/* Service Item Start */}
             <div className="service-item ">
-              <div className="service-item-body">
+              <div className="service-item-body cusbody">
                 <h3>
                   {t("UI /UX - User-centric Design")}
                 </h3>
@@ -9002,8 +8974,8 @@ export default function digitalsolution() {
                     "We Deliver intuitive, enterprise-grade interfaces by applying user-centric principles to create seamless experiences and accelerate user adoption."
                   )}
                 </p>
-                {/*<img src="/images/cus2.webp" alt="">*/}
-                <svg className="uiux"
+                <img src="/images/cus2.webp" alt="" />
+                {/* <svg className="uiux"
                   width={565}
                   height={350}
                   viewBox="0 0 565 350"
@@ -9814,7 +9786,7 @@ export default function digitalsolution() {
                       <stop offset={1} stopColor="#499A9A" />
                     </linearGradient>
                   </defs>
-                </svg>
+                </svg> */}
               </div>
             </div>
             {/* Service Item End */}
@@ -9850,8 +9822,8 @@ export default function digitalsolution() {
         </div>
         <div className="col-sm-6">
           <div className="optimisation">
-            {/*<img src="/images/opt.webp" alt="">*/}
-            <svg
+            <img src="/images/opt.webp" alt="" />
+            {/* <svg
               id="looping-animation"
               width={608}
               height={708}
@@ -9859,9 +9831,7 @@ export default function digitalsolution() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* Central Shield and Compass */}
               <g className="icon-group seq-1">
-                {/* Compass */}
                 <g className="animate-fill">
                   <path
                     d="M369.014 488.566C294.997 488.566 234.776 428.204 234.776 354.014C234.776 279.824 294.997 219.462 369.014 219.462C443.031 219.462 503.253 279.824 503.253 354.014C503.253 428.204 443.031 488.566 369.014 488.566ZM369.014 221.959C296.368 221.959 237.266 281.198 237.266 354.014C237.266 426.83 296.368 486.07 369.014 486.07C441.66 486.07 500.762 426.83 500.762 354.014C500.762 281.198 441.66 221.959 369.014 221.959Z"
@@ -9904,14 +9874,12 @@ export default function digitalsolution() {
                     fill="white"
                   />
                 </g>
-                {/* Shield */}
                 <path
                   className="animate-fill"
                   d="M442.612 309.612C421.736 309.556 387.455 282.32 374.331 271.213C371.253 268.604 366.747 268.604 363.669 271.213C350.545 282.32 316.293 309.556 295.389 309.612C293.905 413.226 368.986 438.751 368.986 438.751C368.986 438.751 444.067 413.198 442.584 309.612H442.612ZM378.641 358.951V392.974H359.36V358.951C351.636 355.276 346.263 347.31 346.263 338.082C346.263 325.348 356.449 315.054 369.014 315.054C381.579 315.054 391.765 325.376 391.765 338.082C391.765 347.31 386.392 355.276 378.669 358.951H378.641Z"
                   fill="#499A9A"
                 />
               </g>
-              {/* Cloud Icon */}
               <g className="icon-group interactive seq-4">
                 <g filter="url(#filter0_d_3332_13266)">
                   <path
@@ -9953,7 +9921,6 @@ export default function digitalsolution() {
                   />
                 </g>
               </g>
-              {/* Cog Icon */}
               <g className="icon-group interactive seq-3">
                 <g filter="url(#filter1_d_3332_13266)">
                   <path
@@ -10043,7 +10010,6 @@ export default function digitalsolution() {
                   />
                 </g>
               </g>
-              {/* Airplane Icon */}
               <g className="icon-group interactive seq-8">
                 <g filter="url(#filter2_d_3332_13266)">
                   <path
@@ -10085,7 +10051,6 @@ export default function digitalsolution() {
                   />
                 </g>
               </g>
-              {/* Network Icon */}
               <g className="icon-group interactive seq-2">
                 <g filter="url(#filter3_d_3332_13266)">
                   <path
@@ -10199,7 +10164,6 @@ export default function digitalsolution() {
                   />
                 </g>
               </g>
-              {/* Globe Icon */}
               <g className="icon-group interactive seq-7">
                 <g filter="url(#filter4_d_3332_13266)">
                   <path
@@ -10249,7 +10213,6 @@ export default function digitalsolution() {
                   />
                 </g>
               </g>
-              {/* Sun/Weather Icon */}
               <g className="icon-group interactive seq-6">
                 <g filter="url(#filter5_d_3332_13266)">
                   <path
@@ -10363,7 +10326,6 @@ export default function digitalsolution() {
                   />
                 </g>
               </g>
-              {/* Whale Icon */}
               <g className="icon-group interactive seq-5">
                 <g filter="url(#filter6_d_3332_13266)">
                   <path
@@ -10397,7 +10359,6 @@ export default function digitalsolution() {
                   />
                 </g>
               </g>
-              {/* Chat / Communication Icon */}
               <g className="icon-group interactive seq-9">
                 <g filter="url(#filter7_d_3332_13266)">
                   <path
@@ -10521,7 +10482,6 @@ export default function digitalsolution() {
                   />
                 </g>
               </g>
-              {/* Definitions for filters and gradients (unchanged) */}
               <defs>
                 <filter
                   id="filter0_d_3332_13266"
@@ -10852,7 +10812,7 @@ export default function digitalsolution() {
                   />
                 </filter>
               </defs>
-            </svg>
+            </svg> */}
           </div>
         </div>
       </div>
@@ -10865,8 +10825,8 @@ export default function digitalsolution() {
       <div className="row align-items-center">
         <div className="col-lg-6 order2">
           <div className="outcomes">
-            {/*<img src="/images/outcomes.webp" alt="">*/}
-            <svg
+            <img src="/images/outcomes.webp" alt="" />
+            {/* <svg
               width={600}
               height={600}
               viewBox="0 0 707 707"
@@ -10984,7 +10944,7 @@ export default function digitalsolution() {
                   <stop offset={1} stopColor="#499A9A" stopOpacity="0.2" />
                 </radialGradient>
               </defs>
-            </svg>
+            </svg> */}
           </div>
         </div>
         <div className="col-lg-6">

@@ -35,10 +35,7 @@ const helvetica = localFont({
 export const metadata: Metadata = {
   title: "Enterprise Digital Transformation & ERP Solutions | RheinBrücke",
   description: "Driving Digital Innovation with Integrated Business Platforms",
-  metadataBase: new URL("https://www.rheincs.com"),
-  alternates: {
-    canonical: "/",
-  },
+  metadataBase: new URL("https://www.rheincs.com")
 };
 
 export default function RootLayout({

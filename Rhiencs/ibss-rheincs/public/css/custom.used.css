@@ -10654,11 +10654,11 @@ header.boxshadow {
 }
 
 .outcomes img {
-  height: 600px
+  height: 550px;
 }
 
 .outcomes2 {
-  padding: 20px 0
+  padding: 20px 0;
 }
 
 .dataengg .builtsec .section-title p,
@@ -24118,4 +24118,8 @@ color:#000 !important;
     padding: 0 4px !important;
     line-height: 1;
   }
+}
+
+.cusbody img{
+  height:313px;
 }
