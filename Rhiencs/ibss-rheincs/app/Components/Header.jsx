@@ -6,7 +6,6 @@ import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { NavArrowLeft, NavArrowRight } from "../icons";
 import {useTranslation} from "../hooks/useTranslation";
-import Loading from "./Loading";
 
 export default function Header() {
     const pathname = usePathname();
@@ -22,45 +21,12 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [isNavigating, setIsNavigating] = useState(false);
     const selectRef = useRef(null);
     const dropdownRef = useRef(null);
     const { t, language: currentLanguage, changeLanguage: setCurrentLanguage } = useTranslation();
 
     // Get the current page name (e.g., 'leadership' from '/leadership')
     const currentPage = pathname.split('/').pop() || 'index';
-
-    // Handle route changes for loading state
-    useEffect(() => {
-        setIsNavigating(false);
-    }, [pathname]);
-
-    // Intercept link clicks to show loading (skip when link opens in new tab)
-    useEffect(() => {
-        const handleLinkClick = (e) => {
-            const target = e.target;
-            const link = target.closest('a');
-            
-            if (link && link.href) {
-                // Don't show loading if link opens in new tab - current page stays
-                if (link.target === '_blank' || link.getAttribute('target') === '_blank') {
-                    return;
-                }
-                const url = new URL(link.href);
-                const currentUrl = new URL(window.location.href);
-                
-                // Only show loading for internal navigation
-                if (url.origin === currentUrl.origin && url.pathname !== currentUrl.pathname) {
-                    setIsNavigating(true);
-                }
-            }
-        };
-
-        document.addEventListener('click', handleLinkClick);
-        return () => {
-            document.removeEventListener('click', handleLinkClick);
-        };
-    }, []);
 
     // Define lists of pages for each Main Menu (without .php extension for Next.js)
     // Pages under "About Us"
@@ -475,7 +441,6 @@ export default function Header() {
 
     return (
         <>
-            {isNavigating && <Loading message="Loading page..." fullScreen={true} size="large" />}
             <div className="topheader text-right">
                 <div className="container">
                     <div className="row">
@@ -712,14 +677,14 @@ export default function Header() {
                                                 </Link>
                                                 <div className={`mega-menu-content full-width ${currentLanguage === 'German' ? 'germegamenu' : ''}`}>
                                                     <div className="container">
-                                                        {/* <h1>About Us</h1> */}
+                                                        {/* <span className="headh1">About Us</span> */}
                                                         <div className="row">
                                                             <div className="col-sm-12">
                                                                 <div className="tab-contents aboutnav">
                                                                     <div className="row">
                                                                         <div className="col-sm-4">
                                                                             <div className="tabcont1">
-                                                                                <h1>{t("About Us")}</h1>
+                                                                                <span className="headh1">{t("About Us")}</span>
                                                                                 <ul>
                                                                                     <li className="ser-btn">
                                                                                         <Link href="/about-us/overview"
@@ -764,9 +729,9 @@ export default function Header() {
                                                                                 <div className="row">
                                                                                     <div className="col-lg-4 col-md-4">
                                                                                         <div className="service-item-body">
-                                                                                            <h3>
+                                                                                            <span className="headh3">
                                                                                                 <span>{t("News and events")}</span>
-                                                                                            </h3>
+                                                                                            </span>
                                                                                             <p>
                                                                                                 {t("RheinBrücke’s Kinetic ERP MEA Cloud Receives Green Certificate from Moro Hub for Sustainable Cloud Adoption")}
                                                                                             </p>
@@ -782,9 +747,9 @@ export default function Header() {
                                                                                     </div>
                                                                                     <div className="col-lg-4 col-md-4">
                                                                                         <div className="service-item-body">
-                                                                                            <h3>
+                                                                                            <span className="headh3">
                                                                                                 <span>{t("News and events")}</span>
-                                                                                            </h3>
+                                                                                            </span>
                                                                                             <p>
                                                                                                 {t("Grand Opening of India Development Centre (IDC) in RheinBrücke")}
                                                                                             </p>
@@ -800,9 +765,9 @@ export default function Header() {
                                                                                     </div>
                                                                                     <div className="col-lg-4 col-md-4">
                                                                                         <div className="service-item-body secondser">
-                                                                                            <h3>
+                                                                                            <span className="headh3">
                                                                                                 <span>{t("Blog")}</span>
-                                                                                            </h3>
+                                                                                            </span>
                                                                                             <p>
                                                                                                 {t("How to Build a Future-Ready Digital Strategy")}
                                                                                             </p>
@@ -905,7 +870,7 @@ export default function Header() {
                                                 </Link>
                                                 <div className="mega-menu-content full-width">
                                                     <div className="container">
-                                                        <h1>{t("Solutions & Services")}</h1>
+                                                        <span className="headh1">{t("Solutions & Services")}</span>
                                                         {/* Vertical tabs */}
                                                         <div className="row">
                                                             <div className="col-sm-3">
@@ -984,14 +949,14 @@ export default function Header() {
                                                                         <div className="row">
                                                                             <div className="col-sm-5 pr0">
                                                                                 <div className="tabcont">
-                                                                                    <h3 className="ser-btn">
+                                                                                    <span className="ser-btn headh3">
                                                                                         <Link className="animated-svg-link"
                                                                                             href="/our-solution"
                                                                                         >
                                                                                             {t("Our Solutions")}
                                                                                             <NavArrowLeft />
                                                                                         </Link>
-                                                                                    </h3>
+                                                                                    </span>
                                                                                     <ul>
                                                                                         <li className="ser-btn">
                                                                                             <Link href="/solutions/CorusHR"
@@ -1015,9 +980,9 @@ export default function Header() {
                                                                                     <div className="row">
                                                                                         <div className="col-lg-6 col-md-6">
                                                                                             <div className="service-item-body">
-                                                                                                <h3>
+                                                                                                <span className="headh3">
                                                                                                     <span>{t("News and events")}</span>
-                                                                                                </h3>
+                                                                                                </span>
                                                                                                 <p>
                                                                                                     {t("RheinBrücke’s Kinetic ERP MEA Cloud Receives Green Certificate from Moro Hub for Sustainable Cloud Adoption")}
                                                                                                 </p>
@@ -1033,9 +998,9 @@ export default function Header() {
                                                                                         </div>
                                                                                         <div className="col-lg-6 col-md-6">
                                                                                             <div className="service-item-body secondser">
-                                                                                                <h3>
+                                                                                                <span className="headh3">
                                                                                                     <span>{t("Blog")}</span>
-                                                                                                </h3>
+                                                                                                </span>
                                                                                                 <p>
                                                                                                     {t("How to Build a Future-Ready Digital Strategy")}
                                                                                                 </p>
@@ -1059,14 +1024,14 @@ export default function Header() {
                                                                         <div className="row">
                                                                             <div className="col-sm-5 pr0">
                                                                                 <div className="tabcont">
-                                                                                    <h3 className="ser-btn">
+                                                                                    <span className="headh3 ser-btn">
                                                                                         <Link className="animated-svg-link"
                                                                                             href="/solutions/erp-enterprise-solutions-and-services/erp"
                                                                                         >
                                                                                             {t("Enterprise Solutions & Services")}
                                                                                             <NavArrowLeft />
                                                                                         </Link>
-                                                                                    </h3>
+                                                                                    </span>
                                                                                     <ul>
                                                                                         <li className="ser-btn">
                                                                                             <div className="menu-item">
@@ -1190,9 +1155,9 @@ export default function Header() {
                                                                                     <div className="row">
                                                                                         <div className="col-lg-6 col-md-6">
                                                                                             <div className="service-item-body">
-                                                                                                <h3>
+                                                                                                <span className="headh3">
                                                                                                     <span>{t("News and events")}</span>
-                                                                                                </h3>
+                                                                                                </span>
                                                                                                 <p>
                                                                                                     {t("RheinBrücke’s Kinetic ERP MEA Cloud Receives Green Certificate from Moro Hub for Sustainable Cloud Adoption")}
                                                                                                 </p>
@@ -1208,9 +1173,9 @@ export default function Header() {
                                                                                         </div>
                                                                                         <div className="col-lg-6 col-md-6">
                                                                                             <div className="service-item-body secondser">
-                                                                                                <h3>
+                                                                                                <span className="headh3">
                                                                                                     <span>{t("Blog")}</span>
-                                                                                                </h3>
+                                                                                                </span>
                                                                                                 <p>
                                                                                                     {t("How to Build a Future-Ready Digital Strategy")}
                                                                                                 </p>
@@ -1235,14 +1200,14 @@ export default function Header() {
                                                                             <div className="col-sm-5 pr0">
 
                                                                                 <div className="tabcont">
-                                                                                    <h3 className="ser-btn">
+                                                                                    <span className="ser-btn headh3">
                                                                                         <Link className="animated-svg-link"
                                                                                             href="/solutions/digital-services-and-solutions"
                                                                                         >
                                                                                             {t("Digital Solutions & Services")}
                                                                                             <NavArrowRight />
                                                                                         </Link>
-                                                                                    </h3>
+                                                                                    </span>
                                                                                     <ul>
                                                                                         <li className="ser-btn ">
                                                                                             <div className="menu-item">
@@ -1331,9 +1296,9 @@ export default function Header() {
                                                                                     <div className="row">
                                                                                         <div className="col-lg-6 col-md-6">
                                                                                             <div className="service-item-body">
-                                                                                                <h3>
+                                                                                                <span className="headh3">
                                                                                                     <span>{t("News and events")}</span>
-                                                                                                </h3>
+                                                                                                </span>
                                                                                                 <p>
                                                                                                     {t("RheinBrücke’s Kinetic ERP MEA Cloud Receives Green Certificate from Moro Hub for Sustainable Cloud Adoption")}
                                                                                                 </p>
@@ -1349,9 +1314,9 @@ export default function Header() {
                                                                                         </div>
                                                                                         <div className="col-lg-6 col-md-6">
                                                                                             <div className="service-item-body secondser">
-                                                                                                <h3>
+                                                                                                <span className="headh3">
                                                                                                     <span>{t("Blog")}</span>
-                                                                                                </h3>
+                                                                                                </span>
                                                                                                 <p>
                                                                                                     {t("How to Build a Future-Ready Digital Strategy")}
                                                                                                 </p>
@@ -1455,14 +1420,14 @@ export default function Header() {
                                                 </Link>
                                                 <div className="mega-menu-content full-width">
                                                     <div className="container">
-                                                        {/* <h1>About Us</h1> */}
+                                                        {/* <span className="headh1">About Us</span> */}
                                                         <div className="row">
                                                             <div className="col-sm-12">
                                                                 <div className="tab-contents aboutnav1">
                                                                     <div className="row">
                                                                         <div className="width60">
                                                                             <div className="tabcont1">
-                                                                                <h1>{t("Industries")}</h1>
+                                                                                <span className="headh1">{t("Industries")}</span>
                                                                                 <div className="row">
                                                                                     <div className="col-sm-6">
                                                                                         <ul className="verline">
@@ -1557,9 +1522,9 @@ export default function Header() {
                                                                                 <div className="row">
                                                                                     <div className="col-lg-6 col-md-6">
                                                                                         <div className="service-item-body">
-                                                                                            <h3>
+                                                                                            <span className="headh3">
                                                                                                 <span>{t("News and events")}</span>
-                                                                                            </h3>
+                                                                                            </span>
                                                                                             <p>
                                                                                                 {t("RheinBrücke’s Kinetic ERP MEA Cloud Receives Green Certificate from Moro Hub for Sustainable Cloud Adoption")}
                                                                                             </p>
@@ -1575,9 +1540,9 @@ export default function Header() {
                                                                                     </div>
                                                                                     <div className="col-lg-6 col-md-6">
                                                                                         <div className="service-item-body secondser">
-                                                                                            <h3>
+                                                                                            <span className="headh3">
                                                                                                 <span>{t("Blog")}</span>
-                                                                                            </h3>
+                                                                                            </span>
                                                                                             <p>
                                                                                                 {t("How to Build a Future-Ready Digital Strategy")}
                                                                                             </p>
@@ -1680,14 +1645,14 @@ export default function Header() {
                                                 </Link>
                                                 <div className="mega-menu-content full-width">
                                                     <div className="container">
-                                                        {/* <h1>About Us</h1> */}
+                                                        {/* <span className="headh1">About Us</span> */}
                                                         <div className="row">
                                                             <div className="col-sm-12">
                                                                 <div className="tab-contents aboutnav">
                                                                     <div className="row">
                                                                         <div className="col-sm-4">
                                                                             <div className="tabcont1">
-                                                                                <h1>{t("Resources")}</h1>
+                                                                                <span className="headh1">{t("Resources")}</span>
                                                                                 <ul>
                                                                                     <li className="ser-btn">
                                                                                         <Link href="/blogs"
@@ -1744,9 +1709,9 @@ export default function Header() {
                                                                                 <div className="row">
                                                                                     <div className="col-lg-4 col-md-4">
                                                                                         <div className="service-item-body">
-                                                                                            <h3>
+                                                                                            <span className="headh3">
                                                                                                 <span>{t("News and events")}</span>
-                                                                                            </h3>
+                                                                                            </span>
                                                                                             <p>
                                                                                                 {t("RheinBrücke’s Kinetic ERP MEA Cloud Receives Green Certificate from Moro Hub for Sustainable Cloud Adoption")}
                                                                                             </p>
@@ -1762,9 +1727,9 @@ export default function Header() {
                                                                                     </div>
                                                                                     <div className="col-lg-4 col-md-4">
                                                                                         <div className="service-item-body">
-                                                                                            <h3>
+                                                                                            <span className="headh3">
                                                                                                 <span>{t("News and events")}</span>
-                                                                                            </h3>
+                                                                                            </span>
                                                                                             <p>
                                                                                                 {t("Grand Opening of India Development Centre (IDC) in RheinBrücke")}
                                                                                             </p>
@@ -1780,9 +1745,9 @@ export default function Header() {
                                                                                     </div>
                                                                                     <div className="col-lg-4 col-md-4">
                                                                                         <div className="service-item-body secondser">
-                                                                                            <h3>
+                                                                                            <span className="headh3">
                                                                                                 <span>{t("Blog")}</span>
-                                                                                            </h3>
+                                                                                            </span>
                                                                                             <p>
                                                                                                 {t("How to Build a Future-Ready Digital Strategy")}
                                                                                             </p>

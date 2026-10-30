@@ -518,11 +518,14 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.headh1,
+.headh3 {
   margin: 0;
   font-weight: 700;
   line-height: 1.2em;
-  font-family: Raleway, sans-serif
+  font-family: Raleway, sans-serif;
+  display: block
 }
 
 .amsmethod p,
@@ -5678,7 +5681,8 @@ body:has(.offcanvas) {
 
 #btn-decrease,
 #btn-increase,
-.mega-menu .projects h3 span {
+.mega-menu .projects h3 span,
+.mega-menu .projects .headh3 span {
   font-size: 12px
 }
 
@@ -6078,6 +6082,7 @@ body:has(.offcanvas) {
 }
 
 .projects h3 span,
+.projects .headh3 span,
 .ser-btn2 a {
   width: -webkit-fit-content;
   width: -moz-fit-content
@@ -6166,7 +6171,9 @@ body:has(.offcanvas) {
 }
 
 .main-menu .mega-menu .aboutnav h1,
+.main-menu .mega-menu .aboutnav .headh1,
 .main-menu .mega-menu .aboutnav1 h1,
+.main-menu .mega-menu .aboutnav1 .headh1,
 .serbtn1 {
   margin-top: 0
 }
@@ -6192,9 +6199,11 @@ body:has(.offcanvas) {
 .footer-links ul li a,
 .footer-links ul li span,
 .mega-menu h3 span,
+.mega-menu .headh3 span,
 .phone a,
 .places li,
-.projects h3 span {
+.projects h3 span,
+.projects .headh3 span {
   font-family: helvetica-neue-lt-pro
 }
 
@@ -6227,6 +6236,7 @@ body:has(.offcanvas) {
 .countingss:hover .firstbox:not(:hover),
 .mega-menu .ser-btn a,
 .mega-menu h3 .left,
+.mega-menu .headh3 .left,
 .owl-carousel .owl-nav button.owl-next,
 .owl-carousel .owl-nav button.owl-prev,
 .owl-carousel button.owl-dot,
@@ -6401,7 +6411,8 @@ body:has(.offcanvas) {
 }
 
 .logo-marquee,
-.projects h3 span {
+.projects h3 span,
+.projects .headh3 span {
   display: -webkit-box;
   display: -ms-flexbox
 }
@@ -6781,7 +6792,8 @@ body:has(.offcanvas) {
   margin-bottom: 0 !important
 }
 
-.projects h3 span {
+.projects h3 span,
+.projects .headh3 span {
   background: rgba(255, 255, 255, .4);
   color: #fff;
   border-radius: 60px;
@@ -6800,19 +6812,22 @@ body:has(.offcanvas) {
 }
 
 .mega-menu h3 span,
+.mega-menu .headh3 span,
 .testimonial-btn1 {
   display: -webkit-box;
   display: -ms-flexbox;
   -webkit-box-align: center
 }
 
-.mega-menu h3 .left {
+.mega-menu h3 .left,
+.mega-menu .headh3 .left {
   color: #fff;
   border-radius: 60px;
   padding: 4px 0 !important
 }
 
-.mega-menu h3 span {
+.mega-menu h3 span,
+.mega-menu .headh3 span {
   color: #fff;
   border-radius: 60px;
   padding: 4px 16px;
@@ -11213,7 +11228,8 @@ header.boxshadow {
     line-height: 100px
   }
 
-  .tab-contents h3 {
+  .tab-contents h3,
+  .tab-contents .headh3 {
     margin-bottom: 10px;
     color: #499a9a;
     font-weight: 700
@@ -11230,7 +11246,8 @@ header.boxshadow {
     left: 39% !important
   }
 
-  .mega-menu .tabcont h3 span {
+  .mega-menu .tabcont h3 span,
+  .mega-menu .tabcont .headh3 span {
     padding: 0 0 0 3px !important
   }
 
@@ -11657,7 +11674,9 @@ header.boxshadow {
 }
 
 .aboutbanner .section-title h1,
-.main-menu .mega-menu h1 {
+.main-menu .mega-menu h1,
+.main-menu .mega-menu .headh1 {
+  display: block;
   font-size: 40px;
   font-family: Raleway, sans-serif;
   line-height: 48px;
@@ -11767,7 +11786,8 @@ header.boxshadow {
 .digital2section .testidescription h2,
 .mega-menu-content .tab-content ul li,
 .processman .challenge-point-waber,
-.tab-contents h3 {
+.tab-contents h3,
+.tab-contents .headh3 {
   margin-bottom: 16px
 }
 
@@ -11794,6 +11814,7 @@ header.boxshadow {
 .digisolbtn a,
 .leder-waber-hight .micfabric,
 .main-menu ul li.mega-menu .mega-menu-content h3>a:hover,
+.main-menu ul li.mega-menu .mega-menu-content .headh3>a:hover,
 .main-menu ul li.mega-menu .mega-menu-content:hover .ser-btn1 a,
 .mega-menu .pd0,
 .testimonial-slider5 .testimonial-btn .btn-style-3 {
@@ -11824,7 +11845,8 @@ header.boxshadow {
   height: 370px
 }
 
-.main-menu .mega-menu h1 {
+.main-menu .mega-menu h1,
+.main-menu .mega-menu .headh1 {
   text-align: left;
   margin-bottom: 40px;
   margin-top: 40px;
@@ -11866,7 +11888,8 @@ header.boxshadow {
   transition: .5s ease-in-out
 }
 
-.tab-contents h3 {
+.tab-contents h3,
+.tab-contents .headh3 {
   color: #499a9a;
   font-weight: 700;
   font-size: 24px;
@@ -11875,7 +11898,8 @@ header.boxshadow {
   line-height: 32px
 }
 
-.tab-content h3 a {
+.tab-content h3 a,
+.tab-content .headh3 a {
   margin-bottom: 10px;
   color: #499a9a !important;
   font-weight: 700 !important;
@@ -15522,7 +15546,8 @@ body.popup-open .main-header.is-sticky {
     width: 100%
   }
 
-  .tab-content h3 a {
+  .tab-content h3 a,
+  .tab-content .headh3 a {
     font-size: 17px !important
   }
 
@@ -16862,7 +16887,8 @@ screen and (max-height:300px) {
   padding: 25px 20px !important
 }
 
-.germegamenu .projects h3 span {
+.germegamenu .projects h3 span,
+.germegamenu .projects .headh3 span {
   font-size: 10px;
   height: auto !important
 }
